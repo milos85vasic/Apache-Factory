@@ -1,6 +1,9 @@
 import os
+from os.path import expanduser
 
-apacheHome = "Apache2"
+home = expanduser("~")
+
+apacheHome = home + "/Apache2"
 
 steps = [
     "mkdir " + apacheHome
