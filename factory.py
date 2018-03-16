@@ -8,6 +8,7 @@ apacheTarBz = "httpd-2.4.29.tar.gz"
 apacheDownload = "http://www-us.apache.org/dist//httpd/" + apacheTarBz
 
 steps = [
+    'yum install group -y "Development Tools"',
     "mkdir " + apacheHome,
     "wget " + apacheDownload + " -P " + apacheHome + "/",
     "tar  -xvzf " + apacheHome + "/" + apacheTarBz + " --directory " + home
