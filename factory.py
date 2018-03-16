@@ -20,7 +20,9 @@ steps = [
     "echo 'Extracting Apache'",
     "tar  -xvzf " + apacheHome + "/" + apacheTarBz + " --directory " + home,
     "clear",
-    "echo 'Apache installation extracted'"
+    "echo 'Apache installation extracted'\n"
+    "echo 'Configuring build'",
+    home + "/" + apacheTarBz.replace(".tar.gz", "") + "/configure --prefix=" + apacheHome
 ]
 
 for step in steps:
