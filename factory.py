@@ -12,6 +12,8 @@ steps = [
     "echo 'Installing dependencies'"
     'yum install group -y "Development Tools"',
     "clear",
+    # "yum install -y ", TODO: Add APR dependency
+    "clear",
     "echo 'Making Apache home directory'",
     "mkdir " + apacheHome,
     "echo 'Downloading Apache'",
