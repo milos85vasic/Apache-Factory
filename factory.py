@@ -9,7 +9,7 @@ apacheDownload = "http://www-us.apache.org/dist//httpd/" + apacheTarBz
 
 steps = [
     "mkdir " + apacheHome,
-    "wget " + apacheDownload + " " + home + "/" + apacheTarBz
+    "wget " + apacheDownload + " -P " + apacheHome + "/"
 ]
 
 for step in steps:
