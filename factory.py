@@ -9,7 +9,8 @@ apacheDownload = "http://www-us.apache.org/dist//httpd/" + apacheTarBz
 
 steps = [
     "clear",
-    "echo 'Installing dependencies'"
+    "echo 'Installing dependencies'",
+    "yum install -y openssl-devel",
     'yum install group -y "Development Tools"',
     "clear",
     # "yum install -y ", TODO: Add APR dependency
