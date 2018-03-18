@@ -12,8 +12,8 @@ steps = [
     "echo 'Installing dependencies'",
     "yum install -y openssl-devel",
     'yum install group -y "Development Tools"',
-    "clear",
     # "yum install -y ", TODO: Add APR dependency
+    "clear",
     "clear",
     "echo 'Making Apache home directory'",
     "mkdir " + apacheHome,
