@@ -19,7 +19,6 @@ steps = [
     "yum install -y apr-util-devel",
     "yum install -y wget",
     "clear",
-    "clear",
     "echo 'Making Apache home directory'",
     "mkdir " + apacheHome,
     "echo 'Downloading Apache'",
@@ -29,8 +28,10 @@ steps = [
     "tar  -xvzf " + apacheHome + "/" + apacheTarBz + " --directory " + home,
     "clear",
     "echo 'Apache installation extracted'\n"
-    "echo 'Configuring build'",
-    home + "/" + apacheTarBz.replace(".tar.gz", "") + "/configure --prefix=" + apacheHome
+    "echo 'Configuring Apache build'",
+    home + "/" + apacheTarBz.replace(".tar.gz", "") + "/configure --prefix=" + apacheHome,
+    "clear",
+    "echo 'Making Apache build'",
 ]
 
 for step in steps:
