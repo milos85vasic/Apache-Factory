@@ -10,9 +10,14 @@ apacheDownload = "http://www-us.apache.org/dist//httpd/" + apacheTarBz
 steps = [
     "clear",
     "echo 'Installing dependencies'",
+    'yum install group -y "Development Tools"',  # TODO: Execute yum installations as SU.
     "yum install -y openssl-devel",
-    'yum install group -y "Development Tools"',
-    # "yum install -y ", TODO: Add APR dependency
+    "yum install -y gcc",
+    "yum install -y make",
+    "yum install -y openssl-devel",
+    "yum install -y apr-devel",
+    "yum install -y apr-util-devel",
+    "yum install -y wget",
     "clear",
     "clear",
     "echo 'Making Apache home directory'",
