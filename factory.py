@@ -45,6 +45,10 @@ def wget(what, **params):
         return "wget " + what
 
 
+def mkdir(dir_name):
+    return "mkdir " + dir_name
+
+
 steps = [
     clear(),
     echo("Installing dependencies"),
@@ -62,7 +66,7 @@ steps = [
     ),
     clear(),
     echo("Making Apache home directory"),
-    "mkdir " + apacheHome,
+    mkdir(apacheHome),
     echo("Downloading Apache"),
     wget(apacheDownload, destination=(apacheHome + "/")),
     clear(),
