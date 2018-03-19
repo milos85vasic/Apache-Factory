@@ -49,6 +49,14 @@ def mkdir(dir_name):
     return "mkdir " + dir_name
 
 
+def extract(what, **params):
+    destination = 'destination'
+    if destination in params:
+        return "tar  -xvzf " + what + " --directory " + params[destination]
+    else:
+        return "tar  -xvzf " + what
+
+
 steps = [
     clear(),
     echo("Installing dependencies"),
@@ -71,7 +79,7 @@ steps = [
     wget(apacheDownload, destination=(apacheHome + "/")),
     clear(),
     echo("Extracting Apache"),
-    "tar  -xvzf " + apacheHome + "/" + apacheTarBz + " --directory " + home,
+    extract(apacheHome + "/" + apacheTarBz, destination=home),
     clear(),
     echo("Apache installation extracted", "Configuring Apache build"),
     home + "/" + apacheTarBz.replace(".tar.gz", "") + "/configure --prefix=" + apacheHome,
