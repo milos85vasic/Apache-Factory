@@ -7,17 +7,26 @@ apacheHome = home + "/Apache2"
 apacheTarBz = "httpd-2.4.29.tar.gz"
 apacheDownload = "http://www-us.apache.org/dist//httpd/" + apacheTarBz
 
+
+def get_su(what):
+    return "su -c '" + what + "'"
+
+
+def get_yum(what):
+    return "yum install -y " + what
+
+
 steps = [
     "clear",
     "echo 'Installing dependencies'",
-    'yum install group -y "Development Tools"',  # TODO: Execute yum installations as SU.
-    "yum install -y openssl-devel",
-    "yum install -y gcc",
-    "yum install -y make",
-    "yum install -y openssl-devel",
-    "yum install -y apr-devel",
-    "yum install -y apr-util-devel",
-    "yum install -y wget",
+    'yum install group -y "Development Tools"',
+    get_su(get_yum("openssl-devel")),
+    get_su(get_yum("gcc")),
+    get_su(get_yum("make")),
+    get_su(get_yum("apr-devel")),
+    get_su(get_yum("apr-util-devel")),
+    get_su(get_yum("wget")),
+    get_su(get_yum("git")),
     "clear",
     "echo 'Making Apache home directory'",
     "mkdir " + apacheHome,
