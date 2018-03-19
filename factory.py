@@ -16,17 +16,31 @@ def get_yum(what):
     return "yum install -y " + what
 
 
+def get_yum_group(what):
+    return "yum install group -y '" + what + "'"
+
+
+def concatenate(*what):
+    result = ""
+    for item in what:
+        result += " " + item + ";"
+
+
 steps = [
     "clear",
     "echo 'Installing dependencies'",
-    'yum install group -y "Development Tools"',
-    get_su(get_yum("openssl-devel")),
-    get_su(get_yum("gcc")),
-    get_su(get_yum("make")),
-    get_su(get_yum("apr-devel")),
-    get_su(get_yum("apr-util-devel")),
-    get_su(get_yum("wget")),
-    get_su(get_yum("git")),
+    get_su(
+        concatenate(
+            get_yum_group("Development Tools"),
+            get_yum("openssl-devel"),
+            get_yum("gcc"),
+            get_yum("make"),
+            get_yum("apr-devel"),
+            get_yum("apr-util-devel"),
+            get_yum("wget"),
+            get_yum("git")
+        )
+    ),
     "clear",
     "echo 'Making Apache home directory'",
     "mkdir " + apacheHome,
