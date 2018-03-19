@@ -26,8 +26,8 @@ def concatenate(*what):
 def echo(*what):
     result = ""
     for item in what:
-        result += item + '\n'
-    return "echo '" + result + "'"
+        result += "echo '" + item + "'; "
+    return result
 
 
 def clear():
