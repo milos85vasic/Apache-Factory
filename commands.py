@@ -58,7 +58,7 @@ def cd(where):
     return "cd " + where
 
 
-def run(*what):
+def run(what):
     for cmd in what:
         print(cmd + "\n")
         os.system(cmd)
