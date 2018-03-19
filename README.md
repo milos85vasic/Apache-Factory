@@ -12,7 +12,7 @@ git clone https://github.com/milos85vasic/Apache-Factory.git
 python factory.py
 ```
 
-Apache will be installed for current user at:
+Apache will be installed for the current user at:
 ```
 ~/Apache2/
 ```
