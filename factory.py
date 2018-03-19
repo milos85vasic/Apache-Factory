@@ -37,12 +37,12 @@ def clear():
     return "clear"
 
 
-def wget(what):
-    return "wget " + what
-
-
-def wget(what, where):
-    return "wget " + what + " -P " + where
+def wget(what, **params):
+    destination = 'destination'
+    if destination in params:
+        return wget(what) + " -P " + params[destination]
+    else:
+        return "wget " + what
 
 
 steps = [
@@ -64,7 +64,7 @@ steps = [
     echo("Making Apache home directory"),
     "mkdir " + apacheHome,
     echo("Downloading Apache"),
-    wget(apacheDownload, apacheHome + "/"),
+    wget(apacheDownload, destination=(apacheHome + "/")),
     clear(),
     echo("Extracting Apache"),
     "tar  -xvzf " + apacheHome + "/" + apacheTarBz + " --directory " + home,
