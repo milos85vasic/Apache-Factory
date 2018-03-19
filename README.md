@@ -7,7 +7,8 @@ Instantiate, configure Apache HTTPD and distribute configuration.
 There are 2 ways to initialize:
     
     - Running Apache Factory as user for which we want to build Apache HTTPD.
-    - Running as Super User by providing name of account to be created. Account will be created and Apach Factory started for that user.
+    - Running as Super User by providing name of account to be created. 
+    Account will be created and Apach Factory started for that user.
     
 Distributing configuration:
 
