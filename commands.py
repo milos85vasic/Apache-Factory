@@ -60,3 +60,23 @@ def cd(where):
 def run(what):
     for cmd in what:
         os.system(cmd)
+
+
+def add_user(user):
+    return "adduser " + user
+
+
+def passwd(user):
+    return "passwd " + user
+
+
+def run_as_user(account, command):
+    return "sudo -H -u " + account + " bash -c '" + command + "'"
+
+
+def git_clone(what):
+    return "git clone " + what
+
+
+def python(script):
+    return "python " + script
