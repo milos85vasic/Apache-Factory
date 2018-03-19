@@ -26,9 +26,20 @@ def concatenate(*what):
         result += " " + item + ";"
 
 
+def echo(*what):
+    result = ""
+    for item in what:
+        result += item + '\n'
+    return "echo '" + result + "'"
+
+
+def clear():
+    return "clear"
+
+
 steps = [
-    "clear",
-    "echo 'Installing dependencies'",
+    clear(),
+    echo("Installing dependencies"),
     get_su(
         concatenate(
             get_yum_group("Development Tools"),
@@ -41,20 +52,22 @@ steps = [
             get_yum("git")
         )
     ),
-    "clear",
-    "echo 'Making Apache home directory'",
+    clear(),
+    echo("Making Apache home directory"),
     "mkdir " + apacheHome,
-    "echo 'Downloading Apache'",
+    "Downloading Apache",
     "wget " + apacheDownload + " -P " + apacheHome + "/",
-    "clear",
-    "echo 'Extracting Apache'",
+    clear(),
+    echo("Extracting Apache"),
     "tar  -xvzf " + apacheHome + "/" + apacheTarBz + " --directory " + home,
-    "clear",
-    "echo 'Apache installation extracted'\n"
-    "echo 'Configuring Apache build'",
+    clear(),
+    echo(
+        "Apache installation extracted",
+        "Configuring Apache build"
+    ),
     home + "/" + apacheTarBz.replace(".tar.gz", "") + "/configure --prefix=" + apacheHome,
-    "clear",
-    "echo 'Making Apache build'",
+    clear(),
+    echo("Making Apache build"),
 ]
 
 for step in steps:
