@@ -101,4 +101,5 @@ ENV/
 .mypy_cache/
 .idea
 *.iml
+tryout.py
 
