@@ -11,6 +11,6 @@ To instantiate Apache HTTPD we perform the following steps:
 - make
 - make install
 
-To distribure configuration we perform the following steps:
+To distribute configuration we perform the following steps:
 
 - TBD.
