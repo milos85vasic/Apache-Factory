@@ -11,3 +11,8 @@ cd  Apache-Factory
 git clone https://github.com/milos85vasic/Apache-Factory.git
 python factory.py
 ```
+
+Apache will be installed for current user at:
+```
+~/Apache2/
+```
