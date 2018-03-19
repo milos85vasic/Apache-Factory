@@ -1,6 +1,11 @@
 from commands import *
 
+apacheHome = home + "/Apache2"
+apacheTarBz = "httpd-2.4.29.tar.gz"
+apacheDownload = "http://www-us.apache.org/dist//httpd/" + apacheTarBz
+
 steps = [
+    cd("~"),
     clear(),
     echo("Installing dependencies"),
     get_su(

@@ -3,10 +3,6 @@ from os.path import expanduser
 
 home = expanduser("~")
 
-apacheHome = home + "/Apache2"
-apacheTarBz = "httpd-2.4.29.tar.gz"
-apacheDownload = "http://www-us.apache.org/dist//httpd/" + apacheTarBz
-
 
 def get_su(what):
     return "su -c '" + what + "'"
