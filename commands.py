@@ -20,6 +20,7 @@ def concatenate(*what):
     result = ""
     for item in what:
         result += " " + item + ";"
+    return result
 
 
 def echo(*what):
@@ -53,10 +54,10 @@ def extract(what, **params):
         return "tar  -xvzf " + what
 
 
+def cd(where):
+    return "cd " + where
+
+
 def run(*what):
     for cmd in what:
         os.system(cmd)
-
-
-def cd(where):
-    return "cd " + where
