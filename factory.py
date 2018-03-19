@@ -24,10 +24,16 @@ steps = [
     echo("Extracting Apache"),
     extract(apacheHome + "/" + apacheTarBz, destination=home),
     clear(),
-    echo("Apache installation extracted", "Configuring Apache build"),
-    home + "/" + apacheTarBz.replace(".tar.gz", "") + "/configure --prefix=" + apacheHome,
+    echo("Apache installation extracted", "Making Apache build"),
+    concatenate(
+        cd(home + "/" + apacheTarBz.replace(".tar.gz", "")),
+        "./configure --prefix=" + apacheHome,
+        "make",
+        "make install",
+        cd("~")
+    ),
     clear(),
-    echo("Making Apache build")
+    echo("Apache build made")
 ]
 
 run(steps)

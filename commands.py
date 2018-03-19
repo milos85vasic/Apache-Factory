@@ -60,3 +60,7 @@ def extract(what, **params):
 def run(*what):
     for cmd in what:
         os.system(cmd)
+
+
+def cd(where):
+    return "cd " + where
