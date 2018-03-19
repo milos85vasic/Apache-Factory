@@ -37,6 +37,14 @@ def clear():
     return "clear"
 
 
+def wget(what):
+    return "wget " + what
+
+
+def wget(what, where):
+    return "wget " + what + " -P " + where
+
+
 steps = [
     clear(),
     echo("Installing dependencies"),
@@ -55,19 +63,16 @@ steps = [
     clear(),
     echo("Making Apache home directory"),
     "mkdir " + apacheHome,
-    "Downloading Apache",
-    "wget " + apacheDownload + " -P " + apacheHome + "/",
+    echo("Downloading Apache"),
+    wget(apacheDownload, apacheHome + "/"),
     clear(),
     echo("Extracting Apache"),
     "tar  -xvzf " + apacheHome + "/" + apacheTarBz + " --directory " + home,
     clear(),
-    echo(
-        "Apache installation extracted",
-        "Configuring Apache build"
-    ),
+    echo("Apache installation extracted", "Configuring Apache build"),
     home + "/" + apacheTarBz.replace(".tar.gz", "") + "/configure --prefix=" + apacheHome,
     clear(),
-    echo("Making Apache build"),
+    echo("Making Apache build")
 ]
 
 for step in steps:
