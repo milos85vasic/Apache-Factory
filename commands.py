@@ -24,10 +24,9 @@ def concatenate(*what):
 
 
 def echo(*what):
-    result = ""
     for item in what:
-        result += "echo '" + item + "'; "
-    return result
+        print item
+    return ""
 
 
 def clear():
