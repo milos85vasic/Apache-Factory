@@ -4,7 +4,7 @@ here = "./"
 
 
 def get_su(what):
-    return "su -c '" + what + "'"
+    return 'su -c "' + what + '"'
 
 
 def get_yum(what):
