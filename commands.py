@@ -84,11 +84,11 @@ def remove(what):
 
 
 def apache_start():
-    return "apachectl start"
+    return "./apachectl start"
 
 
 def apache_stop():
-    return "apachectl stop"
+    return "./apachectl stop"
 
 
 def chmod(where, mode):
