@@ -12,16 +12,12 @@ steps = [
         git_clone_into(configuration_repository, here),
         cd("~")
     ),
-    concatenate(
-        cd(apache_conf),
-        python(
-            wipe_script,
-            httpd_conf_matrix,
-            httpd_conf,
-            httpd_conf_matrix_home_dir_placeholder,
-            home
-        ),
-        cd("~")
+    python(
+        wipe_script,
+        apache_conf + "/" + httpd_conf_matrix,
+        apache_conf + "/" + httpd_conf,
+        httpd_conf_matrix_home_dir_placeholder,
+        home
     ),
     concatenate(
         cd(apache_bin),
