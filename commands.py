@@ -92,4 +92,5 @@ def apache_stop():
 
 
 def chmod(where, mode):
-    return "chmod -R " + where + " " + mode
+    return "chmod -R " + mode + " " + where
+
