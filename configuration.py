@@ -14,7 +14,7 @@ wipe_script = "wipe.py"                                                   # Scri
 apache_factory = "Apache-Factory"                                         # Directory to clone Apache Factory repo.
 repository = "https://github.com/milos85vasic/Apache-Factory.git"         # Apache Factory repo.
 httpd_conf_matrix = "httpd.conf.matrix"                                   # httpd.conf matrix to be used.
-httpd_conf = "httpd.conf.matrix"                                          # httpd.conf
+httpd_conf = "httpd.conf"                                                 # httpd.conf
 httpd_conf_matrix_home_dir_placeholder = "HOMEDIR"                        # httpd.conf matrix home dir. placeholder.
 
 
