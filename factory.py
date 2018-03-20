@@ -1,8 +1,5 @@
 from commands import *
-
-apacheHome = home + "/Apache2"
-apacheTarBz = "httpd-2.4.29.tar.gz"
-apacheDownload = "http://www-us.apache.org/dist//httpd/" + apacheTarBz
+from configuration import *
 
 steps = [
     cd("~"),
@@ -22,23 +19,25 @@ steps = [
     ),
     clear(),
     echo("Making Apache home directory"),
-    mkdir(apacheHome),
+    mkdir(apache_home),
     echo("Downloading Apache"),
-    wget(apacheDownload, destination=(apacheHome + "/")),
+    wget(apache_download, destination=(apache_home + "/")),
     clear(),
     echo("Extracting Apache"),
-    extract(apacheHome + "/" + apacheTarBz, destination=home),
+    extract(apache_extract, destination=home),
     clear(),
     echo("Apache installation extracted", "Making Apache build"),
     concatenate(
-        cd(home + "/" + apacheTarBz.replace(".tar.gz", "")),
-        "./configure --prefix=" + apacheHome,
+        cd(apache_extracted),
+        "./configure --prefix=" + apache_home,
         "make",
         "make install",
         cd("~")
     ),
     clear(),
-    echo("Apache build made")
+    echo("Apache build made"),
+    remove(apache_extracted),
+    python(distribution_script)
 ]
 
 run(steps)

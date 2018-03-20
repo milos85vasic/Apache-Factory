@@ -1,10 +1,8 @@
 import sys
 from commands import *
+from configuration import *
 
 account = ""
-factory_script = "factory.py"
-apache_factory = "Apache-Factory"
-repository = "https://github.com/milos85vasic/Apache-Factory.git"
 
 for arg in sys.argv:
     if sys.argv.index(arg) > 0:

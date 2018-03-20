@@ -1,7 +1,4 @@
 import os
-from os.path import expanduser
-
-home = expanduser("~")
 
 
 def get_su(what):
@@ -80,3 +77,7 @@ def git_clone(what):
 
 def python(script):
     return "python " + script
+
+
+def remove(what):
+    return "rm -rf " + what
