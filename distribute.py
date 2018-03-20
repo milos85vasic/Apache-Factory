@@ -14,7 +14,7 @@ steps = [
     ),
     concatenate(
         cd(apache_conf),
-        "sed -i '~/' -s '" + home + "' ./httpd.conf",
+        "sed -i 's/~//new/" + home + "'",
         cd("~")
     ),
     concatenate(
