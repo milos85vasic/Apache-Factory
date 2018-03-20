@@ -11,3 +11,4 @@ factory_script = "factory.py"                                             # Scri
 distribution_script = "distribute.py"                                     # Script performing Apache conf. obtain.
 apache_factory = "Apache-Factory"                                         # Directory to clone Apache Factory repo.
 repository = "https://github.com/milos85vasic/Apache-Factory.git"         # Apache Factory repo.
+configuration_repository = ""                                             # Repository containing default Apache conf.
