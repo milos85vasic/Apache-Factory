@@ -14,7 +14,7 @@ steps = [
     ),
     concatenate(
         cd(apache_conf),
-        "sed -i 's/~/new/" + home + "/g'",
+        # "sed -i 's/HOMEDIR/new/" + home + "/g'", TODO: USe wipe.py
         cd("~")
     ),
     concatenate(
