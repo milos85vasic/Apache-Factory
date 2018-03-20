@@ -15,6 +15,12 @@ for arg in sys.argv:
     if sys.argv.index(arg) == 4:
         replace_with = arg
 
+print "Wiping:\n"
+print "From: " + source_file
+print "Into: " + destination_file
+print "What: " + replace_what
+print "Width: " + replace_with
+
 with open(source_file, "rt") as fin:
     with open(destination_file, "wt") as fout:
         for line in fin:
