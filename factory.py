@@ -17,27 +17,27 @@ steps = [
             get_yum("git")
         )
     ),
-    # clear(),
-    # echo("Making Apache home directory"),
-    # mkdir(apache_home),
-    # echo("Downloading Apache"),
-    # wget(apache_download, destination=(home + "/")),
-    # clear(),
-    # echo("Extracting Apache"),
-    # extract(apache_extract, destination=home),
-    # clear(),
-    # echo("Apache installation extracted", "Making Apache build"),
-    # concatenate(
-    #     cd(apache_extracted),
-    #     "./configure --prefix=" + apache_home,
-    #     "make",
-    #     "make install",
-    #     cd("~")
-    # ),
-    # clear(),
-    # echo("Apache build made"),
-    # remove(apache_extracted),
-    # python(distribution_script)
+    clear(),
+    echo("Making Apache home directory"),
+    mkdir(apache_home),
+    echo("Downloading Apache"),
+    wget(apache_download, destination=(home + "/")),
+    clear(),
+    echo("Extracting Apache"),
+    extract(apache_extract, destination=home),
+    clear(),
+    echo("Apache installation extracted", "Making Apache build"),
+    concatenate(
+        cd(apache_extracted),
+        "./configure --prefix=" + apache_home,
+        "make",
+        "make install",
+        cd("~")
+    ),
+    clear(),
+    echo("Apache build made"),
+    remove(apache_extracted),
+    python(distribution_script)
 ]
 
 run(steps)
