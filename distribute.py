@@ -6,6 +6,7 @@ steps = [
     clear(),
     remove(apache_conf),
     mkdir(apache_conf),
+    chmod(apache_conf, "755"),
     cd(apache_conf),
     git_clone(configuration_repository),
     cd("~"),

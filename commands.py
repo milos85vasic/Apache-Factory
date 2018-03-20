@@ -89,3 +89,7 @@ def apache_start():
 
 def apache_stop():
     return "apachectl stop"
+
+
+def chmod(where, mode):
+    return "chmod -R " + where + " " + mode
