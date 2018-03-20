@@ -14,7 +14,7 @@ steps = [
     ),
     concatenate(
         cd(apache_conf),
-        "sed -i 's/~//new/" + home + "'",
+        "sed -i 's/~/new/" + home + "/g'",
         cd("~")
     ),
     concatenate(
