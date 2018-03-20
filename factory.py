@@ -3,7 +3,7 @@ from configuration import *
 
 steps = [
     cd("~"),
-    clear(),
+    # clear(),
     echo("Installing dependencies"),
     get_su(
         concatenate(
@@ -17,15 +17,15 @@ steps = [
             get_yum("git")
         )
     ),
-    clear(),
+    # clear(),
     echo("Making Apache home directory"),
     mkdir(apache_home),
     echo("Downloading Apache"),
     wget(apache_download, destination=(home + "/")),
-    clear(),
+    # clear(),
     echo("Extracting Apache"),
     extract(apache_extract, destination=home),
-    clear(),
+    # clear(),
     echo("Apache installation extracted", "Making Apache build"),
     concatenate(
         cd(apache_extracted),
@@ -34,7 +34,7 @@ steps = [
         "make install",
         cd("~")
     ),
-    clear(),
+    # clear(),
     echo("Apache build made"),
     remove(apache_extracted),
     python(distribution_script)
