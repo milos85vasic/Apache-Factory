@@ -88,7 +88,6 @@ def python(script, *params):
     if not arguments:
         return "python " + script
     else:
-        print "python " + script + " " + arguments
         return "python " + script + " " + arguments
 
 
