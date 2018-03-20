@@ -14,7 +14,13 @@ steps = [
     ),
     concatenate(
         cd(apache_conf),
-        # "sed -i 's/HOMEDIR/new/" + home + "/g'", TODO: USe wipe.py
+        python(
+            wipe_script,
+            httpd_conf_matrix,
+            httpd_conf,
+            httpd_conf_matrix_home_dir_placeholder,
+            home
+        ),
         cd("~")
     ),
     concatenate(

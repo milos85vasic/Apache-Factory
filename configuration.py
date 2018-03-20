@@ -10,8 +10,13 @@ apache_extract = apache_home + "/" + apache_tar_gz                        # Path
 apache_extracted = home + "/" + apache_tar_gz.replace(".tar.gz", "")      # Path to extract Apache source.
 factory_script = "factory.py"                                             # Script performing Apache build.
 distribution_script = "distribute.py"                                     # Script performing Apache conf. obtain.
+wipe_script = "wipe.py"                                                   # Script performing wiping matrices.
 apache_factory = "Apache-Factory"                                         # Directory to clone Apache Factory repo.
 repository = "https://github.com/milos85vasic/Apache-Factory.git"         # Apache Factory repo.
+httpd_conf_matrix = "httpd.conf.matrix"                                   # httpd.conf matrix to be used.
+httpd_conf = "httpd.conf.matrix"                                          # httpd.conf
+httpd_conf_matrix_home_dir_placeholder = "HOMEDIR"                        # httpd.conf matrix home dir. placeholder.
+
 
 # Repository containing default Apache conf:
 configuration_repository = "https://github.com/milos85vasic/Apache-Factory-Config-Default.git"

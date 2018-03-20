@@ -81,8 +81,14 @@ def git_clone_into(what, where):
     return "git clone " + what + " " + where
 
 
-def python(script):
-    return "python " + script
+def python(script, *params):
+    arguments = ""
+    for item in params:
+        arguments += " " + item
+    if not arguments:
+        return "python " + script
+    else:
+        return "python " + script + " " + arguments
 
 
 def remove(what):
