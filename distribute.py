@@ -7,8 +7,11 @@ steps = [
     remove(apache_conf),
     mkdir(apache_conf),
     cd(apache_conf),
-    # TODO: Clone HTTPD configuration repo.
-    cd("~")
+    git_clone(configuration_repository),
+    cd("~"),
+    cd(apache_bin),
+    apache_start(),
+    cd("~"),
 ]
 
 run(steps)

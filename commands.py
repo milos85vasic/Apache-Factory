@@ -81,3 +81,11 @@ def python(script):
 
 def remove(what):
     return "rm -rf " + what
+
+
+def apache_start():
+    return "apachectl start"
+
+
+def apache_stop():
+    return "apachectl stop"
