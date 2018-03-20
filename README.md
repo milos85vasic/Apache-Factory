@@ -2,6 +2,10 @@
 
 Instantiate, configure Apache HTTPD and distribute configuration.
 
+# Compatibility
+
+Tool is developed for and tested with Centos 7.
+
 # Hot to use
 
 There are 2 ways to initialize:
