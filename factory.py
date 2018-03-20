@@ -14,7 +14,8 @@ steps = [
             get_yum("apr-devel"),
             get_yum("apr-util-devel"),
             get_yum("wget"),
-            get_yum("git")
+            get_yum("git"),
+            get_yum("sed")
         )
     ),
     clear(),

@@ -13,6 +13,11 @@ steps = [
         cd("~")
     ),
     concatenate(
+        cd(apache_conf),
+        "sed -i '~/' -s '" + home + "' ./httpd.conf",
+        cd("~")
+    ),
+    concatenate(
         cd(apache_bin),
         apache_start(),
         cd("~")
