@@ -102,4 +102,6 @@ ENV/
 .idea
 *.iml
 tryout.py
+httpd.conf
+httpd.conf.matrix
 
