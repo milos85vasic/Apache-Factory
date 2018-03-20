@@ -12,6 +12,7 @@ steps = [
         git_clone_into(configuration_repository, here),
         cd("~")
     ),
+    clear(),
     python(
         wipe_script,
         apache_conf + "/" + httpd_conf_matrix,

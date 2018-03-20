@@ -15,7 +15,7 @@ for arg in sys.argv:
     if sys.argv.index(arg) == 4:
         replace_with = arg
 
-print "Wiping:\n"
+print "Wiping:"
 print "From: " + source_file
 print "Into: " + destination_file
 print "What: " + replace_what
