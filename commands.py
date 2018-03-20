@@ -1,5 +1,7 @@
 import os
 
+here = "./"
+
 
 def get_su(what):
     return "su -c '" + what + "'"
@@ -75,6 +77,10 @@ def git_clone(what):
     return "git clone " + what
 
 
+def git_clone_into(what, where):
+    return "git clone " + what + " " + where
+
+
 def python(script):
     return "python " + script
 
@@ -93,4 +99,3 @@ def apache_stop():
 
 def chmod(where, mode):
     return "chmod -R " + mode + " " + where
-
