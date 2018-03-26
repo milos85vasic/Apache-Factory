@@ -41,6 +41,7 @@ def wget(what, **params):
 
 
 def curl(url):
+    print "We are about to obtain data from: " + url
     return "curl " + url
 
 
