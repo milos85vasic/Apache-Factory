@@ -40,6 +40,10 @@ def wget(what, **params):
         return "wget " + what
 
 
+def curl(url):
+    return "curl " + url
+
+
 def mkdir(dir_name):
     return "mkdir " + dir_name
 
