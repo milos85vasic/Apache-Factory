@@ -109,3 +109,7 @@ def apache_stop():
 
 def chmod(where, mode):
     return "chmod -R " + mode + " " + where
+
+
+def sleep(seconds):
+    return "sleep " + seconds
