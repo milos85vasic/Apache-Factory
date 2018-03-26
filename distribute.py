@@ -22,6 +22,10 @@ steps = [
         httpd_conf_matrix_home_dir_placeholder,
         home
     ),
+    mv(
+        apache_conf + "/" + httpd_conf,
+        apache_conf + "/" + httpd_conf_matrix
+    ),
     python(
         wipe_script,
         apache_conf + "/" + httpd_conf_matrix,

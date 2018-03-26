@@ -60,6 +60,10 @@ def cd(where):
     return "cd " + where
 
 
+def mv(what, where):
+    return what + " " + where
+
+
 def run(what):
     for cmd in what:
         os.system(cmd)
