@@ -25,7 +25,7 @@ steps = [
         apache_start(),
         cd("~")
     ),
-    clear(),
+    # clear(),
     echo("We are about to ping Apache instance. Please wait."),
     sleep(5),
     curl("http://localhost:" + get_port())
