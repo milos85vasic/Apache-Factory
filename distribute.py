@@ -2,7 +2,6 @@ from commands import *
 from distribution_utils import *
 
 port = 8080
-
 steps = [
     cd("~"),
     clear(),
@@ -32,11 +31,11 @@ steps = [
     concatenate(
         cd(apache_bin),
         apache_start(),
-        cd("~")
+        sleep(10),
+        cd("~"),
     ),
     clear(),
     echo("We are about to ping Apache instance. Please wait."),
-    sleep(10),
     curl("http://localhost:" + str(port))
 ]
 
