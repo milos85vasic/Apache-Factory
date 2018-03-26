@@ -1,5 +1,4 @@
 from commands import *
-from configuration import *
 from distribution_utils import *
 
 steps = [
@@ -24,9 +23,10 @@ steps = [
     concatenate(
         cd(apache_bin),
         apache_start(),
-        curl("http://localhost:" + get_port()),
         cd("~")
-    )
+    ),
+    clear(),
+    curl("http://localhost:" + get_port())
 ]
 
 run(steps)
