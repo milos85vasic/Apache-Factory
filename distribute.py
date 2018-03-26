@@ -25,7 +25,7 @@ steps = [
         apache_start(),
         cd("~")
     ),
-    clear(),
+    # clear(),
     curl("http://localhost:" + get_port())
 ]
 
