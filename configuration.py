@@ -16,7 +16,7 @@ repository = "https://github.com/milos85vasic/Apache-Factory.git"         # Apac
 httpd_conf_matrix = "httpd.conf.matrix"                                   # httpd.conf matrix to be used.
 httpd_conf = "httpd.conf"                                                 # httpd.conf
 httpd_conf_matrix_home_dir_placeholder = "APACHE_FACTORY_HOMEDIR"         # httpd.conf matrix home dir. placeholder.
-httpd_conf_matrix_port_placeholder = "APACHE_FACTORY_HOMEDIR"             # httpd.conf matrix port placeholder.
+httpd_conf_matrix_port_placeholder = "APACHE_FACTORY_PORT"                # httpd.conf matrix port placeholder.
 
 
 # Repository containing default Apache conf:

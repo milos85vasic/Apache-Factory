@@ -2,6 +2,7 @@ from commands import *
 from distribution_utils import *
 
 port = 8080
+
 steps = [
     cd("~"),
     clear(),
