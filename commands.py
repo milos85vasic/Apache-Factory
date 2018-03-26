@@ -112,4 +112,4 @@ def chmod(where, mode):
 
 
 def sleep(seconds):
-    return "sleep " + seconds
+    return "sleep " + str(seconds)
