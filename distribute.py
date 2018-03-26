@@ -1,6 +1,8 @@
 from commands import *
 from distribution_utils import *
 
+port = 8080
+
 steps = [
     cd("~"),
     clear(),
@@ -20,15 +22,22 @@ steps = [
         httpd_conf_matrix_home_dir_placeholder,
         home
     ),
+    python(
+        wipe_script,
+        apache_conf + "/" + httpd_conf_matrix,
+        apache_conf + "/" + httpd_conf,
+        httpd_conf_matrix_port_placeholder,
+        str(port)
+    ),
     concatenate(
         cd(apache_bin),
         apache_start(),
         cd("~")
     ),
-    # clear(),
+    clear(),
     echo("We are about to ping Apache instance. Please wait."),
-    sleep(5),
-    curl("http://localhost:" + get_port())
+    sleep(10),
+    curl("http://localhost:" + str(port))
 ]
 
 run(steps)
