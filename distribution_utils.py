@@ -2,7 +2,7 @@ from configuration import *
 
 
 def get_port():
-    return 7777
+    return str(7777)
     # prefix = "Listen "
     # path = apache_conf + "/" + httpd_conf
     # print "Parsing for port number: " + path
