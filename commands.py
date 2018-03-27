@@ -12,7 +12,7 @@ def get_yum(what):
 
 
 def get_yum_group(what):
-    return "yum install group -y '" + what + "'"
+    return "yum groups install -y '" + what + "'"
 
 
 def concatenate(*what):
