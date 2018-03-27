@@ -73,6 +73,10 @@ def add_user(user):
     return "adduser " + user
 
 
+def add_group(group):
+    return "groupadd " + group
+
+
 def passwd(user):
     return "passwd " + user
 

@@ -9,13 +9,18 @@ for arg in sys.argv:
         account += arg
 
 steps = [
-    cd("~"),
-    clear(),
-    echo("Creating account: " + account),
-    add_user(account),
-    passwd(account),
-    clear(),
-    echo("Starting Apache Factory for the account: " + account),
+    get_su(
+        concatenate(
+            cd("~"),
+            clear(),
+            echo("Creating account: " + account),
+            add_user(account),
+            passwd(account),
+            add_group(apache_factory_group),
+            clear(),
+            echo("Starting Apache Factory for the account: " + account),
+        )
+    ),
     run_as_user(
         account,
         concatenate(
@@ -26,5 +31,4 @@ steps = [
         )
     )
 ]
-
 run(steps)

@@ -12,6 +12,7 @@ factory_script = "factory.py"                                             # Scri
 distribution_script = "distribute.py"                                     # Script performing Apache conf. obtain.
 wipe_script = "wipe.py"                                                   # Script performing wiping matrices.
 apache_factory = "Apache-Factory"                                         # Directory to clone Apache Factory repo.
+apache_factory_group = "apache_factory"                                   # Apache Factory group.
 repository = "https://github.com/milos85vasic/Apache-Factory.git"         # Apache Factory repo.
 httpd_conf_matrix = "httpd.conf.matrix"                                   # httpd.conf matrix to be used.
 httpd_conf = "httpd.conf"                                                 # httpd.conf
