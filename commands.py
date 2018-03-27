@@ -3,7 +3,7 @@ import os
 here = "./"
 
 
-def get_su(what):
+def run_as_su(what):
     return 'su -c "' + what + '"'
 
 

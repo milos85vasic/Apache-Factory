@@ -5,7 +5,7 @@ steps = [
     cd("~"),
     clear(),
     echo("Installing dependencies"),
-    get_su(
+    run_as_su(
         concatenate(
             get_yum_group("Development Tools"),
             get_yum("openssl-devel"),
