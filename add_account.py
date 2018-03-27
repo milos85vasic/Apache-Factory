@@ -9,7 +9,7 @@ for arg in sys.argv:
         account += arg
 
 steps = [
-    get_su(
+    get_su(  # TODO: Rename to: run_as_su(...).
         concatenate(
             cd("~"),
             clear(),
