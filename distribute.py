@@ -1,7 +1,21 @@
+import json
+
 from commands import *
 from distribution_utils import *
+from configuration import *
 
-port = 8080
+system_configuration = {
+    "port": 8080
+}
+
+if not os.path.isfile(default_configuration_json):
+    with open(default_configuration_json, 'w') as outfile:
+        json.dump(system_configuration, outfile)
+else:
+    system_configuration = json.load(open(default_configuration_json))
+    system_configuration["port"] = system_configuration["port"] + 1
+    with open(default_configuration_json, 'w') as outfile:
+        json.dump(system_configuration, outfile)
 
 steps = [
     cd("~"),
@@ -20,7 +34,7 @@ steps = [
         apache_conf + "/" + httpd_conf_matrix,
         apache_conf + "/" + httpd_conf,
         httpd_conf_matrix_home_dir_placeholder, home,
-        httpd_conf_matrix_port_placeholder, str(port)
+        httpd_conf_matrix_port_placeholder, str(system_configuration["port"])
     ),
     rm(
         apache_conf + "/" + httpd_conf_matrix
@@ -33,7 +47,7 @@ steps = [
     ),
     clear(),
     echo("We are about to ping Apache instance. Please wait."),
-    curl("http://localhost:" + str(port))
+    curl("http://localhost:" + str(system_configuration["port"]))
 ]
 
 run(steps)

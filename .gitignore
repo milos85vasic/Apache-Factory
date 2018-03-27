@@ -104,4 +104,4 @@ ENV/
 tryout.py
 httpd.conf
 httpd.conf.matrix
-
+global_configuration.json
