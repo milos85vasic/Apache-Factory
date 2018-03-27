@@ -17,6 +17,7 @@ steps = [
             add_user(account),
             passwd(account),
             add_group(apache_factory_group),
+            # TODO: Prepare /usr/share directory.
             clear(),
             echo("Starting Apache Factory for the account: " + account),
         )
