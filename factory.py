@@ -36,7 +36,7 @@ steps = [
     ),
     clear(),
     echo("Apache build made"),
-    remove(apache_extracted),
+    rm(apache_extracted),
     python(distribution_script)
 ]
 

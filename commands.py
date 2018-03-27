@@ -99,7 +99,7 @@ def python(script, *params):
         return "python " + script + " " + arguments
 
 
-def remove(what):
+def rm(what):
     return "rm -rf " + what
 
 

@@ -6,7 +6,7 @@ port = 8080
 steps = [
     cd("~"),
     clear(),
-    remove(apache_conf),
+    rm(apache_conf),
     mkdir(apache_conf),
     chmod(apache_conf, "755"),
     concatenate(
@@ -22,9 +22,6 @@ steps = [
         httpd_conf_matrix_home_dir_placeholder,
         home
     ),
-    remove(  # TODO: Change method name to 'rm'.
-        apache_conf + "/" + httpd_conf_matrix
-    ),
     mv(
         apache_conf + "/" + httpd_conf,
         apache_conf + "/" + httpd_conf_matrix
@@ -35,6 +32,9 @@ steps = [
         apache_conf + "/" + httpd_conf,
         httpd_conf_matrix_port_placeholder,
         str(port)
+    ),
+    rm(
+        apache_conf + "/" + httpd_conf_matrix
     ),
     concatenate(
         cd(apache_bin),
