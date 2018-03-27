@@ -13,13 +13,11 @@ steps = [
         concatenate(
             cd("~"),
             clear(),
-            echo("Creating account: " + account),
             add_user(account),
             passwd(account),
             add_group(apache_factory_group),
             # TODO: Prepare /usr/share directory.
-            clear(),
-            echo("Starting Apache Factory for the account: " + account),
+            clear()
         )
     ),
     run_as_user(
