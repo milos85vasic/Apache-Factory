@@ -2,7 +2,7 @@ import sys
 
 source_file = ""
 destination_file = ""
-replacement_pairs = []
+replacements = []
 
 for arg in sys.argv:
     index = sys.argv.index(arg)
@@ -10,27 +10,27 @@ for arg in sys.argv:
         source_file = arg
     if index == 2:
         destination_file = arg
-    pair = []
     if index >= 3:
-        pair.extend(arg)
-        if index % 2 == 0:
-            replacement_pairs.extend(pair)
-            pair = []
+        replacements.append(arg)
 
 print "Wiping:"
 print "From: " + source_file
 print "Into: " + destination_file
-print "-----"
+
+replace_what = []
+replace_with = []
+for x in range(0, replacements.__len__()):
+    if x % 2 == 0:
+        replace_what.append(replacements[x])
+    else:
+        replace_with.append(replacements[x])
 
 with open(source_file, "rt") as fin:
     with open(destination_file, "wt") as fout:
         for line in fin:
             replaced = line
-            for pair in replacement_pairs:
-                print "What: " + pair[0]
-                print "Width: " + pair[1]
-                print "---"
-                replaced = replaced.replace(pair[0], pair[1])
+            for x in range(0, replacements.__len__() / 2):
+                replaced = replaced.replace(replace_what[x], replace_with[x])
             fout.write(replaced)
 
 print "-----"
