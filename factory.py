@@ -7,7 +7,7 @@ steps = [
     echo("Installing dependencies"),
     get_su(
         concatenate(
-            get_yum_group("Development Tools"),  # FIXME: Resolve no package message.
+            get_yum_group("Development Tools"),
             get_yum("openssl-devel"),
             get_yum("gcc"),
             get_yum("make"),
