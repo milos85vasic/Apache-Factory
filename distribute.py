@@ -22,11 +22,9 @@ steps = [
         httpd_conf_matrix_home_dir_placeholder,
         home
     ),
-    get_su(
-        mv(
-            apache_conf + "/" + httpd_conf,
-            apache_conf + "/" + httpd_conf_matrix
-        )
+    mv(
+        apache_conf + "/" + httpd_conf,
+        apache_conf + "/" + httpd_conf_matrix
     ),
     python(
         wipe_script,
