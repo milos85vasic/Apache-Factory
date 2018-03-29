@@ -16,6 +16,7 @@ steps = [
             add_user(account),
             passwd(account),
             add_group(apache_factory_group),
+            mkdir(apache_factory_configuration_dir),
             # TODO: Prepare /usr/share directory.
             clear()
         )

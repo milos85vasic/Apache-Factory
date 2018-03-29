@@ -18,9 +18,10 @@ httpd_conf_matrix = "httpd.conf.matrix"                                   # http
 httpd_conf = "httpd.conf"                                                 # httpd.conf
 httpd_conf_matrix_home_dir_placeholder = "APACHE_FACTORY_HOMEDIR"         # httpd.conf matrix home dir. placeholder.
 httpd_conf_matrix_port_placeholder = "APACHE_FACTORY_PORT"                # httpd.conf matrix port placeholder.
+apache_factory_configuration_dir = "/usr/share/apache_factory"            # Apache Factory configurations directory.
 
 # JSON file name used tha will be used by tool to store the data.
-default_configuration_json = "/usr/share/global_configuration.json"
+default_configuration_json = apache_factory_configuration_dir + "/global_configuration.json"
 
 # Repository containing default Apache conf:
 configuration_repository = "https://github.com/milos85vasic/Apache-Factory-Config-Default.git"
