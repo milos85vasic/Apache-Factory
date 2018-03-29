@@ -119,5 +119,9 @@ def chmod(where, mode):
     return "chmod -R " + mode + " " + where
 
 
+def chgrp(group, directory):
+    return "chgrp -R " + group + " " + directory
+
+
 def sleep(seconds):
     return "sleep " + str(seconds)
