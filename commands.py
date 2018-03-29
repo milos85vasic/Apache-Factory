@@ -125,3 +125,7 @@ def chgrp(group, directory):
 
 def sleep(seconds):
     return "sleep " + str(seconds)
+
+
+def add_to_group(account, group):
+    return "usermod -a -G " + group + " " + account
