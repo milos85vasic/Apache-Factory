@@ -22,7 +22,9 @@ def get_yum_group(what):
 def concatenate(*what):
     result = ""
     for item in what:
-        result += " " + item + ";"
+        append = item.strip()
+        if append:
+            result += " " + append + ";"
     return result
 
 
