@@ -17,31 +17,36 @@ steps = [
             get_yum("apr-devel"),
             get_yum("apr-util-devel"),
             get_yum("wget"),
-            get_yum("git")
+            get_yum("git"),
+            add_to_group(account, apache_factory_group),
+            run_as_user(
+                account,
+                concatenate(
+                    clear(),
+                    echo("Making Apache home directory"),
+                    mkdir(apache_home),
+                    echo("Downloading Apache"),
+                    wget(apache_download, destination=(home + "/")),
+                    clear(),
+                    echo("Extracting Apache"),
+                    extract(apache_extract, destination=home),
+                    clear(),
+                    echo("Apache installation extracted", "Making Apache build"),
+                    concatenate(
+                        cd(apache_extracted),
+                        "./configure --prefix=" + apache_home,
+                        "make",
+                        "make install",
+                        cd("~")
+                    ),
+                    clear(),
+                    echo("Apache build made"),
+                    rm(apache_extracted),
+                    python(distribution_script)
+                )
+            )
         )
-    ),
-    sudo(add_to_group(account, apache_factory_group)),
-    clear(),
-    echo("Making Apache home directory"),
-    mkdir(apache_home),
-    echo("Downloading Apache"),
-    wget(apache_download, destination=(home + "/")),
-    clear(),
-    echo("Extracting Apache"),
-    extract(apache_extract, destination=home),
-    clear(),
-    echo("Apache installation extracted", "Making Apache build"),
-    concatenate(
-        cd(apache_extracted),
-        "./configure --prefix=" + apache_home,
-        "make",
-        "make install",
-        cd("~")
-    ),
-    clear(),
-    echo("Apache build made"),
-    rm(apache_extracted),
-    python(distribution_script)
+    )
 ]
 
 run(steps)
