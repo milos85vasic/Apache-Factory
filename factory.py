@@ -27,13 +27,11 @@ steps = [
                     clear(),
                     extract(apache_extract, destination=home),
                     clear(),
-                    concatenate(
-                        cd(apache_extracted),
-                        "./configure --prefix=" + apache_home,
-                        "make",
-                        "make install",
-                        cd("~")
-                    ),
+                    cd(apache_extracted),
+                    "./configure --prefix=" + apache_home,
+                    "make",
+                    "make install",
+                    cd("~"),
                     clear(),
                     rm(apache_extracted),
                     python(distribution_script)
