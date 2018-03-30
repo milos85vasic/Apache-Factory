@@ -7,6 +7,10 @@ def run_as_su(what):
     return 'su -c "' + what + '"'
 
 
+def sudo(what):
+    return "sudo " + what
+
+
 def get_yum(what):
     return "yum install -y " + what
 
@@ -24,7 +28,7 @@ def concatenate(*what):
 
 def echo(*what):
     for item in what:
-        print item
+        print(item)
     return ""
 
 

@@ -17,10 +17,10 @@ steps = [
             get_yum("apr-devel"),
             get_yum("apr-util-devel"),
             get_yum("wget"),
-            get_yum("git"),
-            add_to_group(account, apache_factory_group)
+            get_yum("git")
         )
     ),
+    sudo(add_to_group(account, apache_factory_group)),
     clear(),
     echo("Making Apache home directory"),
     mkdir(apache_home),
