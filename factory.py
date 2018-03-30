@@ -7,7 +7,6 @@ account = getpass.getuser()
 steps = [
     cd("~"),
     clear(),
-    echo("Installing dependencies"),
     run_as_su(
         concatenate(
             get_yum_group("Development Tools"),
