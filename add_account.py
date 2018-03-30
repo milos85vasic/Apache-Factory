@@ -18,7 +18,7 @@ steps = [
             add_group(apache_factory_group),
             add_to_group(account, apache_factory_group),
             mkdir(apache_factory_configuration_dir),
-            # TODO: Chown to 770 on apache_factory_configuration_dir.
+            chmod(apache_factory_configuration_dir, "770"),
             chgrp(apache_factory_group, apache_factory_configuration_dir),
             clear()
         )
