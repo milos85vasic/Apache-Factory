@@ -34,6 +34,7 @@ steps = [
                     cd("~"),
                     clear(),
                     rm(apache_extracted),
+                    cd(apache_factory),
                     python(distribution_script)
                 )
             )
