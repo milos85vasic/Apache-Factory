@@ -43,7 +43,6 @@ $ su
 $ mkdir Apache-Factory
 $ cd Apache-Factory
 $ git clone https://github.com/milos85vasic/Apache-Factory.git
-$ cd Apache-Factory
 $ python add_account.py YOUR_ACCOUNT_NAME
 ``` 
 
