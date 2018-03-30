@@ -20,6 +20,10 @@ steps = [
             mkdir(apache_factory_configuration_dir),
             chmod(apache_factory_configuration_dir, "770"),
             chgrp(apache_factory_group, apache_factory_configuration_dir),
+            cp_dir(apache_factory_full_path, get_apache_factory_directory_path(account)),
+            chown(account, get_apache_factory_directory_path(account)),
+            chgrp(account, get_apache_factory_directory_path(account)),
+            chmod(get_apache_factory_directory_path(account), "750"),
             clear()
         )
     ),

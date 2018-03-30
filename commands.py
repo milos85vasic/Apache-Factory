@@ -70,6 +70,10 @@ def mv(what, where):
     return what + " " + where
 
 
+def cp_dir(what, where):
+    return "cp -a " + what + "/. " + where + "/"
+
+
 def run(what):
     for cmd in what:
         os.system(cmd)
@@ -127,6 +131,10 @@ def chmod(where, mode):
 
 def chgrp(group, directory):
     return "chgrp -R " + group + " " + directory
+
+
+def chown(account, directory):
+    return "chown -R " + account + " " + directory
 
 
 def sleep(seconds):
