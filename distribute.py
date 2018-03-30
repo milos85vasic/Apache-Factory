@@ -1,7 +1,6 @@
 import json
 
 from commands import *
-from distribution_utils import *
 from configuration import *
 
 system_configuration = {
@@ -13,7 +12,7 @@ if not os.path.isfile(default_configuration_json):
         with open(default_configuration_json, 'w') as outfile:
             json.dump(system_configuration, outfile)
     except IOError:
-        print "Can't access " + default_configuration_json
+        print("Can't access " + default_configuration_json)
 else:
     system_configuration = json.load(open(default_configuration_json))
     system_configuration["port"] = system_configuration["port"] + 1

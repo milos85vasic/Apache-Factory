@@ -13,9 +13,9 @@ for arg in sys.argv:
     if index >= 3:
         replacements.append(arg)
 
-print "Wiping:"
-print "From: " + source_file
-print "Into: " + destination_file
+print("Wiping:")
+print("From: " + source_file)
+print("Into: " + destination_file)
 
 replace_what = []
 replace_with = []
@@ -33,4 +33,4 @@ with open(source_file, "rt") as fin:
                 replaced = replaced.replace(replace_what[x], replace_with[x])
             fout.write(replaced)
 
-print "-----"
+print("-----")
