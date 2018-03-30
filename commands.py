@@ -29,7 +29,7 @@ def concatenate(*what):
 def echo(*what):
     for item in what:
         print(item)
-    return ""
+    return "echo " + what
 
 
 def clear():
