@@ -8,8 +8,6 @@ for arg in sys.argv:
     if sys.argv.index(arg) > 0:
         account += arg
 
-run(steps)
-
 steps = [
     run_as_su(
         concatenate(
@@ -42,3 +40,5 @@ steps = [
     #     )
     # )
 ]
+
+run(steps)
