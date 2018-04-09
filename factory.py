@@ -23,6 +23,7 @@ steps = [
                 concatenate(
                     clear(),
                     mkdir(apache_home),
+                    mkdir(content_dir_path),
                     wget(apache_download, destination=(home + "/")),
                     clear(),
                     extract(apache_extract, destination=home),

@@ -32,7 +32,6 @@ steps = [
     run_as_user(
         account,
         concatenate(
-            mkdir(content_dir_name),
             mkdir(apache_factory),
             cd(apache_factory),
             git_clone(repository),
