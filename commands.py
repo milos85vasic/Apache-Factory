@@ -74,6 +74,10 @@ def cp_dir(what, where):
     return "cp -a " + what + "/. " + where + "/"
 
 
+def cp(what, where):
+    return "cp " + what + " " + where
+
+
 def run(what):
     for cmd in what:
         os.system(cmd)

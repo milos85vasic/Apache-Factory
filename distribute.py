@@ -42,6 +42,11 @@ steps = [
         apache_conf + "/" + httpd_conf_matrix
     ),
     concatenate(
+        cd("~"),
+        mkdir(content_dir_path),
+        cp(content_dir_matrix_path, content_dir_path)
+    ),
+    concatenate(
         cd(apache_bin),
         apache_start(),
         sleep(10),
