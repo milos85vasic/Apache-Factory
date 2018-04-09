@@ -35,6 +35,7 @@ steps = [
                     clear(),
                     rm(apache_extracted),
                     cd(apache_factory_full_path),
+                    "ls -lF",
                     python(distribution_script)
                 )
             )
