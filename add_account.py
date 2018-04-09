@@ -26,19 +26,18 @@ steps = [
             chgrp(account, get_home_directory_path(account)),
             chmod(get_home_directory_path(account), "750"),
             cd("~"),
-            "ls -lF " + get_apache_factory_directory_path(account),
-            # clear()
+            clear()
+        )
+    ),
+    run_as_user(
+        account,
+        concatenate(
+            mkdir(apache_factory),
+            cd(apache_factory),
+            git_clone(repository),
+            python(factory_script)
         )
     )
-    # run_as_user(
-    #     account,
-    #     concatenate(
-    #         mkdir(apache_factory),
-    #         cd(apache_factory),
-    #         git_clone(repository),
-    #         python(factory_script)
-    #     )
-    # )
 ]
 
 run(steps)
