@@ -27,7 +27,7 @@ steps = [
             chmod(get_apache_factory_directory_path(account), "750")
             # clear()
         )
-    ),
+    )
     # run_as_user(
     #     account,
     #     concatenate(
