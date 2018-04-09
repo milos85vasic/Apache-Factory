@@ -21,20 +21,21 @@ steps = [
             chmod(apache_factory_configuration_dir, "770"),
             chgrp(apache_factory_group, apache_factory_configuration_dir),
             cp_dir(apache_factory_full_path, get_apache_factory_directory_path(account)),
+            "ls -lF " + get_apache_factory_directory_path(account),
             chown(account, get_apache_factory_directory_path(account)),
             chgrp(account, get_apache_factory_directory_path(account)),
-            chmod(get_apache_factory_directory_path(account), "750"),
-            clear()
+            chmod(get_apache_factory_directory_path(account), "750")
+            # clear()
         )
     ),
-    run_as_user(
-        account,
-        concatenate(
-            mkdir(apache_factory),
-            cd(apache_factory),
-            git_clone(repository),
-            python(factory_script)
-        )
-    )
+    # run_as_user(
+    #     account,
+    #     concatenate(
+    #         mkdir(apache_factory),
+    #         cd(apache_factory),
+    #         git_clone(repository),
+    #         python(factory_script)
+    #     )
+    # )
 ]
 run(steps)
