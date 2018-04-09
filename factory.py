@@ -24,6 +24,7 @@ steps = [
                     clear(),
                     mkdir(apache_home),
                     mkdir(content_dir_path),
+                    cp(content_dir_matrix_path, content_dir_path),
                     wget(apache_download, destination=(home + "/")),
                     clear(),
                     extract(apache_extract, destination=home),
@@ -36,7 +37,6 @@ steps = [
                     clear(),
                     rm(apache_extracted),
                     cd(apache_factory_full_path),
-                    "ls -lF",
                     python(distribution_script)
                 )
             )
