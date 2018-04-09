@@ -43,8 +43,8 @@ steps = [
     ),
     concatenate(
         cd("~"),
-        mkdir(content_dir_path),
-        cp(content_dir_matrix_path, content_dir_path)
+        mkdir(content_dir_name),
+        cp(content_dir_matrix_path, "./" + content_dir_name)
     ),
     concatenate(
         cd(apache_bin),

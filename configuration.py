@@ -20,9 +20,9 @@ httpd_conf = "httpd.conf"  # httpd.conf
 httpd_conf_matrix_home_dir_placeholder = "APACHE_FACTORY_HOMEDIR"  # httpd.conf matrix home dir. placeholder.
 httpd_conf_matrix_port_placeholder = "APACHE_FACTORY_PORT"  # httpd.conf matrix port placeholder.
 apache_factory_configuration_dir = "/usr/share/apache_factory"  # Apache Factory configurations directory.
-content_dir_name = "/Content"  # Name for directory to be root for all websites.
-content_dir_matrix_path = apache_factory_full_path + content_dir_name + "/index.html"  # Index file matrix path.
-content_dir_path = home + content_dir_name  # Websites content root directory.
+content_dir_name = "Content"  # Name for directory to be root for all websites.
+content_dir_matrix_path = apache_factory_full_path + "/" + content_dir_name + "/index.html"  # Index file matrix path.
+content_dir_path = home + "/" + content_dir_name  # Websites content root directory.
 
 # JSON file name used tha will be used by tool to store the data.
 default_configuration_json = apache_factory_configuration_dir + "/global_configuration.json"
