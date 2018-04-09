@@ -8,6 +8,8 @@ for arg in sys.argv:
     if sys.argv.index(arg) > 0:
         account += arg
 
+run(steps)
+
 steps = [
     run_as_su(
         concatenate(
@@ -22,13 +24,11 @@ steps = [
             chgrp(apache_factory_group, apache_factory_configuration_dir),
             cd(get_home_directory_path(account)),
             git_clone(repository),
-            chmod(get_home_directory_path(account), "750"),
+            chown(account, get_home_directory_path(account)),
             chgrp(account, get_home_directory_path(account)),
+            chmod(get_home_directory_path(account), "750"),
             cd("~"),
             "ls -lF " + get_apache_factory_directory_path(account),
-            chown(account, get_apache_factory_directory_path(account)),
-            chgrp(account, get_apache_factory_directory_path(account)),
-            chmod(get_apache_factory_directory_path(account), "750")
             # clear()
         )
     )
@@ -42,4 +42,3 @@ steps = [
     #     )
     # )
 ]
-run(steps)
