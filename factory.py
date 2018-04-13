@@ -4,6 +4,11 @@ from configuration import *
 
 account = getpass.getuser()
 
+
+def user_home():
+    return get_home_directory_path(account)
+
+
 steps = [
     cd("~"),
     clear(),
@@ -23,10 +28,10 @@ steps = [
                 concatenate(
                     clear(),
                     mkdir(apache_home),
-                    mkdir(content_dir_path),
+                    mkdir(content_dir_path(user_home())),
                     cp(
-                        content_dir_matrix_path(get_home_directory_path(account)),
-                        content_dir_path(get_home_directory_path(account))
+                        content_dir_matrix_path(user_home()),
+                        content_dir_path(user_home())
                     ),
                     # wget(apache_download, destination=(home + "/")),
                     # clear(),
