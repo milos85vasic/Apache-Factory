@@ -24,7 +24,7 @@ steps = [
                     clear(),
                     mkdir(apache_home),
                     mkdir(content_dir_path),
-                    cp(content_dir_matrix_path, content_dir_path),  # FIXME: It does not copy the file.
+                    cp(content_dir_matrix_path, content_dir_path),
                     # wget(apache_download, destination=(home + "/")),
                     # clear(),
                     # extract(apache_extract, destination=home),

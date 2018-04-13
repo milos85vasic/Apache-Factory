@@ -63,7 +63,6 @@ def extract(what, **params):
 
 
 def cd(where):
-    print("CD >>> " + where)
     return "cd " + where
 
 
@@ -76,7 +75,6 @@ def cp_dir(what, where):
 
 
 def cp(what, where):
-    print("cp " + what + " " + where)  # TODO: Remove me.
     return "cp " + what + " " + where
 
 
