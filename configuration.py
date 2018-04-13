@@ -34,7 +34,7 @@ def get_home_directory_path(account):
 
 
 def apache_factory_full_path(home_path):
-    return home + "/" + apache_factory
+    return home_path + "/" + apache_factory
 
 
 def content_dir_path(home_path):
