@@ -23,9 +23,9 @@ steps = [
             chgrp(apache_factory_group, apache_factory_configuration_dir),
             cd(get_home_directory_path(account)),
             git_clone(repository),
-            cd(apache_factory),
-            git_checkout(branch),
-            cd("~"),
+            # cd(apache_factory),
+            # git_checkout(branch),
+            # cd("~"),
             chown(account, get_home_directory_path(account)),
             chgrp(account, get_home_directory_path(account)),
             chmod(get_home_directory_path(account), "750"),
@@ -39,9 +39,9 @@ steps = [
             mkdir(apache_factory),
             cd(apache_factory),
             git_clone(repository),
-            cd(apache_factory),
-            git_checkout(branch),
-            cd("~"),
+            # cd(apache_factory),
+            # git_checkout(branch),
+            # cd("~"),
             python(factory_script)
         )
     )
