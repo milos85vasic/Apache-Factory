@@ -33,7 +33,7 @@ steps = [
     run_as_user(
         account,
         concatenate(
-            cd(get_home_directory_path(account) + "/" + apache_factory),
+            cd("~/" + apache_factory),
             git_checkout(branch),
             # python(factory_script)
         )

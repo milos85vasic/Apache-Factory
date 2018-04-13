@@ -63,6 +63,7 @@ def extract(what, **params):
 
 
 def cd(where):
+    print("CD >>> " + where)
     return "cd " + where
 
 
