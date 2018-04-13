@@ -15,6 +15,7 @@ apache_factory = "Apache-Factory"
 apache_factory_full_path = home + "/" + apache_factory
 apache_factory_group = "apache_factory"
 repository = "https://github.com/milos85vasic/Apache-Factory.git"
+branch = "development"
 httpd_conf_matrix = "httpd.conf.matrix"
 httpd_conf = "httpd.conf"
 httpd_conf_matrix_home_dir_placeholder = "APACHE_FACTORY_HOMEDIR"
