@@ -12,7 +12,6 @@ factory_script = "factory.py"
 distribution_script = "distribute.py"
 wipe_script = "wipe.py"
 apache_factory = "Apache-Factory"
-apache_factory_full_path = home + "/" + apache_factory
 apache_factory_group = "apache_factory"
 repository = "https://github.com/milos85vasic/Apache-Factory.git"
 branch = "development"
@@ -22,8 +21,6 @@ httpd_conf_matrix_home_dir_placeholder = "APACHE_FACTORY_HOMEDIR"
 httpd_conf_matrix_port_placeholder = "APACHE_FACTORY_PORT"
 apache_factory_configuration_dir = "/usr/share/apache_factory"
 content_dir_name = "Content"
-content_dir_matrix_path = apache_factory_full_path + "/assets/index.html"
-content_dir_path = home + "/" + content_dir_name
 default_configuration_json = apache_factory_configuration_dir + "/global_configuration.json"
 configuration_repository = "https://github.com/milos85vasic/Apache-Factory-Config-Default.git"
 
@@ -34,3 +31,15 @@ def get_apache_factory_directory_path(account):
 
 def get_home_directory_path(account):
     return "/home/" + account
+
+
+def apache_factory_full_path(home_path):
+    return home + "/" + apache_factory
+
+
+def content_dir_path(home_path):
+    return home_path + "/" + content_dir_name
+
+
+def content_dir_matrix_path(home_path):
+    return apache_factory_full_path(home_path) + "/content/index.html"

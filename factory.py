@@ -24,7 +24,10 @@ steps = [
                     clear(),
                     mkdir(apache_home),
                     mkdir(content_dir_path),
-                    cp(content_dir_matrix_path, content_dir_path),
+                    cp(
+                        content_dir_matrix_path(get_home_directory_path(account)),
+                        content_dir_path(get_home_directory_path(account))
+                    ),
                     # wget(apache_download, destination=(home + "/")),
                     # clear(),
                     # extract(apache_extract, destination=home),
@@ -36,7 +39,7 @@ steps = [
                     # cd("~"),
                     # clear(),
                     # rm(apache_extracted),
-                    # cd(apache_factory_full_path),
+                    # cd(apache_factory_full_path(account)),
                     # python(distribution_script)
                 )
             )
