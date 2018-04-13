@@ -29,13 +29,9 @@ def get_home_directory_path(account):
     return "/home/" + account
 
 
-def apache_factory_full_path(home_path):
-    return home_path + "/" + apache_factory
-
-
 def content_dir_path(home_path):
     return home_path + "/" + content_dir_name
 
 
 def content_dir_matrix_path(home_path):
-    return apache_factory_full_path(home_path) + "/content/index.html"
+    return home_path + "/" + apache_factory + "/content/index.html"
