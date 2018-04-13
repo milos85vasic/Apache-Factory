@@ -8,7 +8,6 @@ for arg in sys.argv:
     if sys.argv.index(arg) > 0:
         account += arg
 
-
 steps = [
     run_as_su(
         concatenate(
@@ -39,9 +38,7 @@ steps = [
             mkdir(apache_factory),
             cd(apache_factory),
             git_clone(repository),
-            cd(apache_factory),
             git_checkout(branch),
-            cd("~"),
             python(factory_script)
         )
     )
