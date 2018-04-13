@@ -35,7 +35,7 @@ steps = [
         concatenate(
             cd(apache_factory),
             git_checkout(branch),
-            python(factory_script)
+            # python(factory_script)
         )
     )
 ]
