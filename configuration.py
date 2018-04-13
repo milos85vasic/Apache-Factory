@@ -25,10 +25,6 @@ default_configuration_json = apache_factory_configuration_dir + "/global_configu
 configuration_repository = "https://github.com/milos85vasic/Apache-Factory-Config-Default.git"
 
 
-def get_apache_factory_directory_path(account):
-    return "/home/" + account + "/" + apache_factory
-
-
 def get_home_directory_path(account):
     return "/home/" + account
 

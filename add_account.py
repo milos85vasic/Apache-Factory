@@ -28,7 +28,6 @@ steps = [
             chown(account, get_home_directory_path(account)),
             chgrp(account, get_home_directory_path(account)),
             chmod(get_home_directory_path(account), "750"),
-            chmod(get_home_directory_path(account) + "/" + apache_factory, "644"),
             cd("~"),
             clear()
         )
