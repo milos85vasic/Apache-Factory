@@ -75,6 +75,7 @@ def cp_dir(what, where):
 
 
 def cp(what, where):
+    print(">>>>> cp" + what + " " + where)
     return "cp " + what + " " + where
 
 
