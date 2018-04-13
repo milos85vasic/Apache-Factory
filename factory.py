@@ -33,19 +33,19 @@ steps = [
                         content_dir_matrix_path(user_home()),
                         content_dir_path(user_home())
                     ),
-                    # wget(apache_download, destination=(home + "/")),
-                    # clear(),
-                    # extract(apache_extract, destination=home),
-                    # clear(),
-                    # cd(apache_extracted),
-                    # "./configure --prefix=" + apache_home,
-                    # "make",
-                    # "make install",
-                    # cd("~"),
-                    # clear(),
-                    # rm(apache_extracted),
-                    # cd(apache_factory_full_path(account)),
-                    # python(distribution_script)
+                    wget(apache_download, destination=(home + "/")),
+                    clear(),
+                    extract(apache_extract, destination=home),
+                    clear(),
+                    cd(apache_extracted),
+                    "./configure --prefix=" + apache_home,
+                    "make",
+                    "make install",
+                    cd("~"),
+                    clear(),
+                    rm(apache_extracted),
+                    cd(apache_factory_full_path(account)),
+                    python(distribution_script)
                 )
             )
         )
