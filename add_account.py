@@ -22,6 +22,9 @@ steps = [
             chgrp(apache_factory_group, apache_factory_configuration_dir),
             cd(get_home_directory_path(account)),
             git_clone(repository),
+            cd(apache_factory),
+            git_checkout(branch),
+            cd(".."),
             chown(account, get_home_directory_path(account)),
             chgrp(account, get_home_directory_path(account)),
             chmod(get_home_directory_path(account), "750"),
@@ -29,14 +32,13 @@ steps = [
             cd("~"),
             clear()
         )
-    ),
-    run_as_user(
-        account,
-        concatenate(
-            cd("~/" + apache_factory),
-            git_checkout(branch),
-            # python(factory_script)
-        )
     )
+    # ,
+    # run_as_user(
+    #     account,
+    #     concatenate(
+    #         python(factory_script)
+    #     )
+    # )
 ]
 run(steps)
