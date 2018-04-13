@@ -10,7 +10,6 @@ def user_home():
 
 
 steps = [
-    cd("~"),
     clear(),
     run_as_su(
         concatenate(
@@ -27,6 +26,7 @@ steps = [
                 account,
                 concatenate(
                     clear(),
+                    cd("~"),
                     mkdir(apache_home),
                     mkdir(content_dir_path(user_home())),
                     cp(
