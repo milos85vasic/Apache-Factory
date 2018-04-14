@@ -25,6 +25,7 @@ steps = [
             chmod(apache_factory_configuration_dir, "770"),
             chgrp(apache_factory_group, apache_factory_configuration_dir),
             cd(get_home_directory_path(account)),
+            mkdir(apache_factory),
             git_clone(git_configuration[key_repository]),
             cd(apache_factory),
             git_checkout(git_configuration[key_branch]),
