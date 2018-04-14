@@ -13,8 +13,8 @@ def set_git_info():
     fetch_url = "Fetch URL:"
     url_result = subprocess.check_output(["git", "remote", "show", "origin"])
     branch_result = subprocess.check_output(["git", "branch"])
-    url_split_result = str(url_result).split("\\n")
-    branch_split_result = str(branch_result).split("\\n")
+    url_split_result = str(url_result).split("\n")
+    branch_split_result = str(branch_result).split("\n")
 
     for line in url_split_result:
         if fetch_url in str(line):
