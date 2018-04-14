@@ -34,3 +34,10 @@ Apache will be installed for the current user at:
 ```
 
 After whole process is completed you will be able to access landing page.
+
+## Configuration parameters:
+
+- Server admin:
+```
+$ ... --server_admin=somebody@example.com
+```
