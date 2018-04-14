@@ -24,6 +24,7 @@ httpd_conf_matrix_server_admin_placeholder = "APACHE_FACTORY_SERVER_ADMIN"
 apache_factory_configuration_dir = "/usr/share/apache_factory"
 content_dir_name = "Content"
 default_configuration_json = apache_factory_configuration_dir + "/global_configuration.json"
+account_json = "account.json"
 configuration_repository = "https://github.com/milos85vasic/Apache-Factory-Config-Default.git"
 
 

@@ -5,7 +5,6 @@ from configuration import *
 from commands import *
 
 arg_prefix = "--"
-key_current_account = "current_account"
 arg_server_admin = arg_prefix + "server_admin"
 key_configuration_port = "port"
 key_configuration_server_admin = "server_admin"
@@ -28,10 +27,11 @@ def init_system_configuration(arguments):
     for arg in arguments:
         if arguments.index(arg) > 0 and not str(arg).startswith(arg_prefix):
             system_configuration[arg] = {key_configuration_server_admin: "root@localhost"}
-            system_configuration[key_current_account] = arg
+            account = arg
+            save_account(account)
         if str(arg).startswith(arg_server_admin):
             server_admin = str(arg).replace(arg_server_admin + "=", "")
-            account = system_configuration[key_current_account]
+            account = get_account()
             system_configuration[account][key_configuration_server_admin] = server_admin
     save_system_configuration(system_configuration)
 
@@ -49,6 +49,10 @@ def init_system_configuration(arguments):
     return system_configuration
 
 
+def get_account():
+    return json.load(open(account_json))
+
+
 def get_system_configuration():
     system_configuration = {
         key_configuration_port: default_port
@@ -62,6 +66,11 @@ def get_system_configuration():
     else:
         system_configuration = json.load(open(default_configuration_json))
     return system_configuration
+
+
+def save_account(account):
+    with open(account_json, 'w') as outfile:
+        json.dump(account, outfile)
 
 
 def save_system_configuration(system_configuration):

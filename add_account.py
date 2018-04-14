@@ -7,7 +7,7 @@ from git_info import *
 set_git_info()
 git_configuration = get_git_info()
 system_configuration = init_system_configuration(sys.argv)
-account = system_configuration[key_current_account]
+account = get_account()
 
 steps = [
     run_as_su(
