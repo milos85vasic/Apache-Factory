@@ -7,7 +7,7 @@ from git_info import *
 account = ""
 
 for arg in sys.argv:
-    if sys.argv.index(arg) > 0:
+    if sys.argv.index(arg) > 0 and not str(sys.argv).startswith(arg_prefix):
         account = arg
 
 set_git_info()
