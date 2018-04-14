@@ -1,7 +1,10 @@
 import json
+import getpass
 
 from commands import *
 from configuration import *
+
+account = getpass.getuser()
 
 system_configuration = {
     "port": 8080
@@ -36,7 +39,9 @@ steps = [
         apache_conf + "/" + httpd_conf_matrix,
         apache_conf + "/" + httpd_conf,
         httpd_conf_matrix_home_dir_placeholder, home,
-        httpd_conf_matrix_port_placeholder, str(system_configuration["port"])
+        httpd_conf_matrix_port_placeholder, str(system_configuration["port"]),
+        httpd_conf_matrix_user_placeholder, account,
+        httpd_conf_matrix_group_placeholder, account
     ),
     rm(
         apache_conf + "/" + httpd_conf_matrix
