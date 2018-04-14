@@ -1,15 +1,16 @@
 import subprocess
 import json
 
+key_branch = "branch"
+destination = "git_info.json"
+key_repository = "repository"
+
 
 def set_git_info():
     star = "* "
     branch = ""
     repository = ""
-    key_branch = "branch"
     fetch_url = "Fetch URL:"
-    key_repository = "repository"
-    destination = "git_info.json"
     url_result = subprocess.check_output(["git", "remote", "show", "origin"])
     branch_result = subprocess.check_output(["git", "branch"])
     url_split_result = str(url_result).split("\\n")
@@ -38,3 +39,7 @@ def set_git_info():
             json.dump(git_configuration, outfile)
     except IOError:
         print("Can't access " + destination)
+
+
+def get_git_info():
+    return json.load(open(destination))

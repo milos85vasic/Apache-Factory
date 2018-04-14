@@ -1,5 +1,6 @@
 import sys
 from commands import *
+from configuration import *
 from git_info import *
 
 account = ""
@@ -9,6 +10,7 @@ for arg in sys.argv:
         account += arg
 
 set_git_info()
+git_configuration = get_git_info()
 
 steps = [
     run_as_su(
@@ -23,9 +25,9 @@ steps = [
             chmod(apache_factory_configuration_dir, "770"),
             chgrp(apache_factory_group, apache_factory_configuration_dir),
             cd(get_home_directory_path(account)),
-            git_clone(repository),
+            git_clone(git_configuration[key_repository]),
             cd(apache_factory),
-            git_checkout(branch),
+            git_checkout(git_configuration[key_branch]),
             cd(".."),
             chown(account, get_home_directory_path(account)),
             chgrp(account, get_home_directory_path(account)),
