@@ -34,6 +34,18 @@ def init_system_configuration(arguments):
             account = system_configuration[key_current_account]
             system_configuration[account][key_configuration_server_admin] = server_admin
     save_system_configuration(system_configuration)
+
+    steps = [
+        run_as_su(
+            concatenate(
+                chmod(default_configuration_json, "770"),
+                chgrp(apache_factory_group, default_configuration_json),
+            )
+        )
+    ]
+
+    run(steps)
+
     return system_configuration
 
 
