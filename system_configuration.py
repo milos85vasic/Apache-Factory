@@ -13,7 +13,7 @@ def init_system_configuration(arguments):
     system_configuration = get_system_configuration()
     for arg in arguments:
         if str(arg).startswith(arg_server_admin):
-            server_admin = str(arg).replace(arg_server_admin + "=")
+            server_admin = str(arg).replace(arg_server_admin + "=", "")
             print("Server admin: " + server_admin)
             system_configuration[key_configuration_server_admin] = server_admin
             save_system_configuration(system_configuration)
