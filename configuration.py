@@ -1,5 +1,6 @@
 from os.path import expanduser
 
+default_port = 8080
 home = expanduser("~")
 apache_home = home + "/Apache2"
 apache_conf = apache_home + "/conf"
@@ -19,6 +20,7 @@ httpd_conf_matrix_home_dir_placeholder = "APACHE_FACTORY_HOMEDIR"
 httpd_conf_matrix_port_placeholder = "APACHE_FACTORY_PORT"
 httpd_conf_matrix_user_placeholder = "APACHE_FACTORY_USER"
 httpd_conf_matrix_group_placeholder = "APACHE_FACTORY_GROUP"
+httpd_conf_matrix_server_admin_placeholder = "APACHE_FACTORY_SERVER_ADMIN"
 apache_factory_configuration_dir = "/usr/share/apache_factory"
 content_dir_name = "Content"
 default_configuration_json = apache_factory_configuration_dir + "/global_configuration.json"

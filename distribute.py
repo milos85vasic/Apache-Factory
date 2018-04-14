@@ -3,24 +3,13 @@ import getpass
 
 from commands import *
 from configuration import *
+from system_configuration import *
 
 account = getpass.getuser()
 
-system_configuration = {
-    "port": 8080
-}
-
-if not os.path.isfile(default_configuration_json):
-    try:
-        with open(default_configuration_json, 'w') as outfile:
-            json.dump(system_configuration, outfile)
-    except IOError:
-        print("Can't access " + default_configuration_json)
-else:
-    system_configuration = json.load(open(default_configuration_json))
-    system_configuration["port"] = system_configuration["port"] + 1
-    with open(default_configuration_json, 'w') as outfile:
-        json.dump(system_configuration, outfile)
+system_configuration = get_system_configuration()
+system_configuration[key_configuration_port] = system_configuration[key_configuration_port] + 1
+save_system_configuration(system_configuration)
 
 steps = [
     cd("~"),

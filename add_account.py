@@ -1,5 +1,6 @@
 import sys
 from commands import *
+from system_configuration import *
 from configuration import *
 from git_info import *
 
@@ -7,9 +8,10 @@ account = ""
 
 for arg in sys.argv:
     if sys.argv.index(arg) > 0:
-        account += arg
+        account = arg
 
 set_git_info()
+init_system_configuration(sys.argv)
 git_configuration = get_git_info()
 
 steps = [
