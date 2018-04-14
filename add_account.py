@@ -1,6 +1,5 @@
 import sys
 from commands import *
-from configuration import *
 from git_info import *
 
 account = ""
@@ -8,6 +7,8 @@ account = ""
 for arg in sys.argv:
     if sys.argv.index(arg) > 0:
         account += arg
+
+set_git_info()
 
 steps = [
     run_as_su(
@@ -41,5 +42,4 @@ steps = [
     )
 ]
 
-set_git_info()
 run(steps)
