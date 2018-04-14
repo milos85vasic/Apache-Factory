@@ -29,20 +29,21 @@ steps = [
             git_clone(git_configuration[key_repository]),
             cd(apache_factory),
             git_checkout(git_configuration[key_branch]),
-            cd(".."),
-            chown(account, get_home_directory_path(account)),
-            chgrp(account, get_home_directory_path(account)),
-            chmod(get_home_directory_path(account), "750"),
-            cd("~"),
-            clear()
-        )
-    ),
-    run_as_user(
-        account,
-        concatenate(
-            python(factory_script)
+            # cd(".."),
+            # chown(account, get_home_directory_path(account)),
+            # chgrp(account, get_home_directory_path(account)),
+            # chmod(get_home_directory_path(account), "750"),
+            # cd("~"),
+            # clear()
         )
     )
+    # ,
+    # run_as_user(
+    #     account,
+    #     concatenate(
+    #         python(factory_script)
+    #     )
+    # )
 ]
 
 run(steps)
