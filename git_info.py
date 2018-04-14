@@ -43,3 +43,6 @@ def set_git_info():
 
 def get_git_info():
     return json.load(open(destination))
+
+
+set_git_info()
