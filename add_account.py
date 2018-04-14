@@ -4,15 +4,10 @@ from system_configuration import *
 from configuration import *
 from git_info import *
 
-account = ""
-
-for arg in sys.argv:
-    if sys.argv.index(arg) > 0 and not str(arg).startswith(arg_prefix):
-        account = arg
-
 set_git_info()
-init_system_configuration(sys.argv)
+system_configuration = init_system_configuration(sys.argv)
 git_configuration = get_git_info()
+account = system_configuration[key_current_account]
 
 steps = [
     run_as_su(
