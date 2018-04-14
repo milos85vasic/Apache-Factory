@@ -1,6 +1,7 @@
 import sys
 from commands import *
 from configuration import *
+from git_info import *
 
 account = ""
 
@@ -39,4 +40,6 @@ steps = [
         )
     )
 ]
+
+set_git_info()
 run(steps)
