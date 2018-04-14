@@ -31,7 +31,7 @@ def init_system_configuration(arguments):
             save_account(account)
         if str(arg).startswith(arg_server_admin):
             if arguments.index(arg) == 1:
-                print("First argument must be name of account!")
+                print("First argument must be name of the account!")
                 exit(1)
             server_admin = str(arg).replace(arg_server_admin + "=", "")
             account = get_account()
