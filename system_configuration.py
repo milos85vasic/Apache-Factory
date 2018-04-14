@@ -2,6 +2,7 @@ import json
 import os
 
 from configuration import *
+from commands import *
 
 arg_prefix = "--"
 key_current_account = "current_account"
@@ -11,6 +12,18 @@ key_configuration_server_admin = "server_admin"
 
 
 def init_system_configuration(arguments):
+    steps = [
+        run_as_su(
+            concatenate(
+                mkdir(apache_factory_configuration_dir),
+                chmod(apache_factory_configuration_dir, "770"),
+                chgrp(apache_factory_group, apache_factory_configuration_dir),
+            )
+        )
+    ]
+
+    run(steps)
+
     system_configuration = get_system_configuration()
     for arg in arguments:
         if arguments.index(arg) > 0 and not str(arg).startswith(arg_prefix):
