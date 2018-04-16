@@ -13,7 +13,7 @@ steps = [
     "../configure-cmake",
     "make",
     "make test",
-    run_as_su("make install"),
+    "make install",
     cd("~"),
     mkdir(brotli_module),
     cd(brotli_module),
