@@ -48,6 +48,7 @@ steps = [
                     # cd("~"),
                     # clear(),
                     # rm(apache_extracted),
+                    cd(user_home() + "/" + apache_factory),
                     python(brotli_installation_script),
                     # cd(user_home() + "/" + apache_factory),
                     # python(distribution_script)
