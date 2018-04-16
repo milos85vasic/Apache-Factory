@@ -5,7 +5,7 @@ from configuration import *
 account = getpass.getuser()
 
 steps = [
-    cd("~"),
+    cd(get_home_directory_path(account)),
     mkdir(brotli),
     cd(brotli),
     git_clone_to(brotli_repository, "./"),
