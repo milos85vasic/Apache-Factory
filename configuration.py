@@ -27,6 +27,7 @@ default_configuration_json = apache_factory_configuration_dir + "/global_configu
 account_json = "account.json"
 configuration_repository = "https://github.com/milos85vasic/Apache-Factory-Config-Default.git"
 brotli_repository = "https://github.com/milos85vasic/brotli.git"
+brotli_module_repository = "https://github.com/milos85vasic/apache-mod-brotli"
 brotli = "Brotli"
 
 
