@@ -35,6 +35,7 @@ brotli_module_repository = "https://github.com/milos85vasic/apache-mod-brotli"
 brotli = "Brotli"
 brotli_module = "Brotli_Module"
 php_installation_script = "php.py"
+php_src = "php-src-php-7.0.29"
 
 
 def get_home_directory_path(account):

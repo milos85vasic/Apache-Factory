@@ -17,7 +17,7 @@ steps = [
         clear(),
         extract(user_home() + "/" + php_tar_gz, destination=user_home()),
         clear(),
-        cd(php_tar_gz.replace(".tar.gz", ""))
+        cd(php_src)
     )
 ]
 
