@@ -103,6 +103,10 @@ def git_clone(what):
     return "git clone " + what
 
 
+def git_clone(what, where):
+    return "git clone " + what + " " + where
+
+
 def git_checkout(what):
     return "git checkout " + what
 

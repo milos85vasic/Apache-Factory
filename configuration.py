@@ -27,7 +27,7 @@ default_configuration_json = apache_factory_configuration_dir + "/global_configu
 account_json = "account.json"
 configuration_repository = "https://github.com/milos85vasic/Apache-Factory-Config-Default.git"
 brotli_repository = "https://github.com/milos85vasic/brotli.git"
-brotli = "brotli"
+brotli = "Brotli"
 
 
 def get_home_directory_path(account):
