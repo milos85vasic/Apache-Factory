@@ -61,6 +61,10 @@ steps = [
             run_as_user(
                 account,
                 concatenate(
+                    cd("~"),
+                    mkdir(brotli_module),
+                    cd(brotli_module),
+                    git_clone_to(brotli_module_repository, "./"),
                     cd(user_home() + "/" + apache_factory),
                     python(distribution_script)
                 )

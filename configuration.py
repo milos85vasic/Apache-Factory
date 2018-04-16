@@ -29,6 +29,7 @@ configuration_repository = "https://github.com/milos85vasic/Apache-Factory-Confi
 brotli_repository = "https://github.com/milos85vasic/brotli.git"
 brotli_module_repository = "https://github.com/milos85vasic/apache-mod-brotli"
 brotli = "Brotli"
+brotli_module = "Brotli_Module"
 
 
 def get_home_directory_path(account):
