@@ -47,13 +47,18 @@ steps = [
                     "make install",
                     cd("~"),
                     clear(),
-                    rm(apache_extracted),
-                    cd(user_home() + "/" + apache_factory),
-                    python(distribution_script)
+                    rm(apache_extracted)
                 )
             ),
             cd(home + "/" + apache_factory),
-            python(brotli_installation_script, account)
+            python(brotli_installation_script, account),
+            run_as_user(
+                account,
+                concatenate(
+                    cd(user_home() + "/" + apache_factory),
+                    python(distribution_script)
+                )
+            )
         )
     )
 ]
