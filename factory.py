@@ -55,6 +55,7 @@ steps = [
                 )
             ),
             cd(get_home_directory_path(account) + "/" + brotli),
+            "pwd",
             "make install",
             # run_as_user(
             #     account,
