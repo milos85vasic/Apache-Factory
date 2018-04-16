@@ -6,6 +6,11 @@ Instantiate, configure Apache HTTPD and distribute configuration.
 
 Tool is developed for and tested with CentOS 7.
 
+# Specifications
+
+Apache Factory builds Apache HTTPD v2.4.29.
+Default compression algorithm is Brotli v1.0.4.
+
 # Hot to use
     
     - Run as Super User by providing name of account to be created. 
