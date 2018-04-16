@@ -28,10 +28,12 @@ content_dir_name = "Content"
 default_configuration_json = apache_factory_configuration_dir + "/global_configuration.json"
 account_json = "account.json"
 configuration_repository = "https://github.com/milos85vasic/Apache-Factory-Config-Default.git"
+brotli_installation_script = "brotli.py"
 brotli_repository = "https://github.com/milos85vasic/brotli.git"
 brotli_module_repository = "https://github.com/milos85vasic/apache-mod-brotli"
 brotli = "Brotli"
 brotli_module = "Brotli_Module"
+php_installation_script = "php.py"
 
 
 def get_home_directory_path(account):

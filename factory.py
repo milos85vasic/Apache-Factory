@@ -48,28 +48,7 @@ steps = [
                     cd("~"),
                     clear(),
                     rm(apache_extracted),
-                    mkdir(brotli),
-                    cd(brotli),
-                    git_clone_to(brotli_repository, "./"),
-                    "mkdir out && cd out",
-                    "../configure-cmake",
-                    "make",
-                    "make test"
-                )
-            ),
-            cd(get_home_directory_path(account) + "/" + brotli + "/out"),
-            "make install",
-            run_as_user(
-                account,
-                concatenate(
-                    cd("~"),
-                    mkdir(brotli_module),
-                    cd(brotli_module),
-                    "git clone --depth=1 --recursive " + brotli_module_repository + " ./",
-                    "./autogen.sh",
-                    "./configure",
-                    "make",
-                    "install -p -m 755 -D .libs/mod_brotli.so " + apache_home + "/modules/mod_brotli.so",
+                    python(brotli_installation_script),
                     cd(user_home() + "/" + apache_factory),
                     python(distribution_script)
                 )
