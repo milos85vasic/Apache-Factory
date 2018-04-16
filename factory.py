@@ -65,7 +65,7 @@ steps = [
                     cd("~"),
                     mkdir(brotli_module),
                     cd(brotli_module),
-                    git_clone_to(brotli_module_repository, "./"),
+                    "git clone --depth=1 --recursive " + brotli_module_repository + " ./",
                     "./autogen.sh",
                     "./configure",
                     "make",
