@@ -25,40 +25,40 @@ steps = [
             get_yum("wget"),
             get_yum("git"),
             get_yum("httpd-devel"),
-            # add_to_group(account, apache_factory_group),
-            # run_as_user(
-            #     account,
-            #     concatenate(
-            #         clear(),
-            #         cd("~"),
-            #         mkdir(apache_home),
-            #         mkdir(content_dir_path(user_home())),
-            #         cp(
-            #             content_dir_matrix_path(user_home()),
-            #             content_dir_path(user_home())
-            #         ),
-            #         wget(apache_download, destination=(home + "/")),
-            #         clear(),
-            #         extract(apache_extract, destination=home),
-            #         clear(),
-            #         cd(apache_extracted),
-            #         "./configure --prefix=" + apache_home,
-            #         "make",
-            #         "make install",
-            #         cd("~"),
-            #         clear(),
-            #         rm(apache_extracted),
-            #         mkdir(brotli),
-            #         cd(brotli),
-            #         git_clone_to(brotli_repository, "./"),
-            #         "mkdir out && cd out",
-            #         "../configure-cmake",
-            #         "make",
-            #         "make test"
-            #     )
-            # ),
-            # cd(get_home_directory_path(account) + "/" + brotli + "/out"),
-            # "make install",
+            add_to_group(account, apache_factory_group),
+            run_as_user(
+                account,
+                concatenate(
+                    clear(),
+                    cd("~"),
+                    mkdir(apache_home),
+                    mkdir(content_dir_path(user_home())),
+                    cp(
+                        content_dir_matrix_path(user_home()),
+                        content_dir_path(user_home())
+                    ),
+                    wget(apache_download, destination=(home + "/")),
+                    clear(),
+                    extract(apache_extract, destination=home),
+                    clear(),
+                    cd(apache_extracted),
+                    "./configure --prefix=" + apache_home,
+                    "make",
+                    "make install",
+                    cd("~"),
+                    clear(),
+                    rm(apache_extracted),
+                    mkdir(brotli),
+                    cd(brotli),
+                    git_clone_to(brotli_repository, "./"),
+                    "mkdir out && cd out",
+                    "../configure-cmake",
+                    "make",
+                    "make test"
+                )
+            ),
+            cd(get_home_directory_path(account) + "/" + brotli + "/out"),
+            "make install",
             run_as_user(
                 account,
                 concatenate(
@@ -69,8 +69,8 @@ steps = [
                     "./autogen.sh",
                     "./configure",
                     "make",
-                    # cd(user_home() + "/" + apache_factory),
-                    # python(distribution_script)
+                    cd(user_home() + "/" + apache_factory),
+                    python(distribution_script)
                 )
             )
         )
