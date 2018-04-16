@@ -52,6 +52,8 @@ steps = [
             ),
             cd(home + "/" + apache_factory),
             python(brotli_installation_script, account),
+            cd(home + "/" + apache_factory),
+            python(php_installation_script, account),
             run_as_user(
                 account,
                 concatenate(

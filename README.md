@@ -8,8 +8,9 @@ Tool is developed for and tested with CentOS 7.
 
 # Specifications
 
-Apache Factory builds Apache HTTPD v2.4.29.
-Default compression algorithm is Brotli v1.0.4.
+- Apache Factory builds Apache HTTPD v2.4.29.
+- Default compression algorithm is Brotli v1.0.4.
+- PHP v7.0.29
 
 # Hot to use
     
