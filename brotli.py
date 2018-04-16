@@ -1,11 +1,8 @@
-import getpass
 from commands import *
 from configuration import *
 
-account = getpass.getuser()
-
 steps = [
-    cd(get_home_directory_path(account)),
+    cd(home),
     mkdir(brotli),
     cd(brotli),
     git_clone_to(brotli_repository, "./"),

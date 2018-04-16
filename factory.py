@@ -52,8 +52,10 @@ steps = [
                     # python(distribution_script)
                 )
             ),
-            cd(home + "/" + apache_factory),
-            python(brotli_installation_script)
+            concatenate(
+                cd(home + "/" + apache_factory),
+                python(brotli_installation_script)
+            )
         )
     )
 ]
