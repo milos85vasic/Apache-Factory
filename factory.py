@@ -65,6 +65,9 @@ steps = [
                     mkdir(brotli_module),
                     cd(brotli_module),
                     git_clone_to(brotli_module_repository, "./"),
+                    "./autogen.sh",
+                    "./configure",
+                    "make",
                     cd(user_home() + "/" + apache_factory),
                     python(distribution_script)
                 )
