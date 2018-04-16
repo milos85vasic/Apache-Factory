@@ -46,6 +46,11 @@ steps = [
                     rm(apache_extracted),
                     mkdir(brotli),
                     cd(brotli),
+                    "mkdir out && cd out",
+                    "../configure-cmake",
+                    "make",
+                    "make test",
+                    "make install",
                     git_clone_to(brotli_repository, "./"),
                     cd(user_home() + "/" + apache_factory),
                     python(distribution_script)
