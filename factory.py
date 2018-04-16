@@ -54,7 +54,7 @@ steps = [
                     "make test"
                 )
             ),
-            cd(get_home_directory_path(account) + "/" + brotli),
+            cd(get_home_directory_path(account) + "/" + brotli + "/out"),
             "pwd",
             "make install",
             # run_as_user(
