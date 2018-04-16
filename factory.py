@@ -69,6 +69,7 @@ steps = [
                     "./autogen.sh",
                     "./configure",
                     "make",
+                    "install -p -m 755 -D .libs/mod_brotli.so " + apache_home + "/modules/mod_brotli.so",
                     cd(user_home() + "/" + apache_factory),
                     python(distribution_script)
                 )
