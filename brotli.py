@@ -17,15 +17,18 @@ steps = [
         "make test",
         "make install"
     ),
-    concatenate(
-        cd(get_home_directory_path(account)),
-        mkdir(brotli_module),
-        cd(brotli_module),
-        "git clone --depth=1 --recursive " + brotli_module_repository + " ./",
-        "./autogen.sh",
-        "./configure",
-        "make",
-        "install -p -m 755 -D .libs/mod_brotli.so " + apache_home + "/modules/mod_brotli.so"
+    run_as_user(
+        account,
+        concatenate(
+            cd(get_home_directory_path(account)),
+            mkdir(brotli_module),
+            cd(brotli_module),
+            "git clone --depth=1 --recursive " + brotli_module_repository + " ./",
+            "./autogen.sh",
+            "./configure",
+            "make",
+            "install -p -m 755 -D .libs/mod_brotli.so " + apache_home + "/modules/mod_brotli.so"
+        )
     )
 ]
 
