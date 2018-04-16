@@ -19,6 +19,7 @@ steps = [
             get_yum("make"),
             get_yum("cmake"),
             get_yum("automake"),
+            get_yum("libtool"),
             get_yum("apr-devel"),
             get_yum("apr-util-devel"),
             get_yum("wget"),
