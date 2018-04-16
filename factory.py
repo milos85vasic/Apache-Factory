@@ -44,6 +44,9 @@ steps = [
                     cd("~"),
                     clear(),
                     rm(apache_extracted),
+                    mkdir(brotli),
+                    cd(brotli),
+                    git_clone(brotli_repository),
                     cd(user_home() + "/" + apache_factory),
                     python(distribution_script)
                 )
