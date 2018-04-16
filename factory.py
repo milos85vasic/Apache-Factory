@@ -56,13 +56,13 @@ steps = [
             ),
             cd(get_home_directory_path(account) + "/" + brotli),
             "make install",
-            run_as_user(
-                account,
-                concatenate(
-                    cd(user_home() + "/" + apache_factory),
-                    python(distribution_script)
-                )
-            )
+            # run_as_user(
+            #     account,
+            #     concatenate(
+            #         cd(user_home() + "/" + apache_factory),
+            #         python(distribution_script)
+            #     )
+            # )
         )
     )
 ]
