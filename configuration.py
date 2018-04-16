@@ -2,7 +2,8 @@ from os.path import expanduser
 
 default_port = 8080
 home = expanduser("~")
-apache_home = home + "/Apache2"
+apache2 = "Apache2"
+apache_home = home + "/" + apache2
 apache_conf = apache_home + "/conf"
 apache_bin = apache_home + "/bin"
 apache_tar_gz = "httpd-2.4.29.tar.gz"

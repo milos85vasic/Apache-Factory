@@ -5,6 +5,11 @@ from system_configuration import *
 
 account = sys.argv[1]
 
+
+def user_home():
+    return get_home_directory_path(account)
+
+
 steps = [
     concatenate(
         cd(get_home_directory_path(account)),
@@ -20,14 +25,14 @@ steps = [
     run_as_user(
         account,
         concatenate(
-            cd(get_home_directory_path(account)),
+            cd(user_home()),
             mkdir(brotli_module),
             cd(brotli_module),
             "git clone --depth=1 --recursive " + brotli_module_repository + " ./",
             "./autogen.sh",
             "./configure",
             "make",
-            "install -p -m 755 -D .libs/mod_brotli.so " + apache_home + "/modules/mod_brotli.so"
+            "install -p -m 755 -D .libs/mod_brotli.so " + user_home() + "/" + apache2 + "/modules/mod_brotli.so"
         )
     )
 ]
