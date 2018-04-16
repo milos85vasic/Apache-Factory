@@ -52,7 +52,7 @@ steps = [
                     "../configure-cmake",
                     "make",
                     "make test",
-                    run_as_su("make install"),
+                    "su -c 'make install'",
                     cd(user_home() + "/" + apache_factory),
                     python(distribution_script)
                 )
