@@ -1,8 +1,9 @@
+import sys
 from commands import *
 from configuration import *
 from system_configuration import *
 
-account = get_account()
+account = sys.argv[1]
 
 steps = [
     concatenate(

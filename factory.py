@@ -53,7 +53,7 @@ steps = [
                 )
             ),
             cd(home + "/" + apache_factory),
-            python(brotli_installation_script)
+            python(brotli_installation_script, account)
         )
     )
 ]
