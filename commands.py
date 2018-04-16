@@ -103,7 +103,7 @@ def git_clone(what):
     return "git clone " + what
 
 
-def git_clone(what, where):
+def git_clone_to(what, where):
     return "git clone " + what + " " + where
 
 
