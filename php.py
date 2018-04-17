@@ -12,12 +12,15 @@ def user_home():
 
 steps = [
     concatenate(
-        cd(get_home_directory_path(account)),
+        cd(user_home()),
         wget(php_download, destination=(user_home() + "/")),
         clear(),
         extract(user_home() + "/" + php_tar_gz, destination=user_home()),
         clear(),
-        cd(php_src)
+        cd(php_src),
+        "./configure --with-apxs2=" + user_home() + "/" + apache2 + "/bin/apxs" + " --with-mysql",
+        "make",
+        "make install"
     )
 ]
 
