@@ -12,8 +12,8 @@ def user_home():
 
 steps = [
     concatenate(
-        # get_yum("libxml2"),
-        # get_yum("libxml2-devel"),
+        get_yum("libxml2"),
+        get_yum("libxml2-devel"),
         cd(user_home()),
         wget(php_download, destination=(user_home() + "/")),
         clear(),
@@ -22,7 +22,9 @@ steps = [
         cd(php_tar_gz.replace(".tar.gz", "")),
         "./configure --with-apxs2=" + user_home() + "/" + apache2 + "/bin/apxs" + " --with-mysql",
         "make",
-        "make install"
+        "make install",
+        cd(user_home()),
+        rm(php_tar_gz.replace(".tar.gz", ""))
     )
 ]
 
