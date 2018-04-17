@@ -25,6 +25,8 @@ steps = [
             # get_yum("wget"),
             # get_yum("git"),
             # get_yum("httpd-devel"),
+            # get_yum("libxml2"),
+            # get_yum("libxml2-devel"),
             add_to_group(account, apache_factory_group),
             # run_as_user(
             #     account,
