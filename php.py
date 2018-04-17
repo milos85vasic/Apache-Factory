@@ -17,7 +17,7 @@ steps = [
         clear(),
         extract(user_home() + "/" + php_tar_gz, destination=user_home()),
         clear(),
-        cd(php_src),
+        cd(php_tar_gz.replace(".tar.gz", "")),
         "./configure --with-apxs2=" + user_home() + "/" + apache2 + "/bin/apxs" + " --with-mysql",
         "make",
         "make install"
