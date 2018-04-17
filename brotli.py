@@ -12,6 +12,7 @@ def user_home():
 
 steps = [
     concatenate(
+        get_yum("httpd-devel"),
         cd(get_home_directory_path(account)),
         mkdir(brotli),
         cd(brotli),
