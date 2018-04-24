@@ -31,6 +31,7 @@ steps = [
                     clear(),
                     cd("~"),
                     mkdir(apache_home),
+                    mkdir(php_home),
                     mkdir(content_dir_path(user_home())),
                     cp(
                         content_dir_matrix_path(user_home()),
@@ -55,12 +56,11 @@ steps = [
             ),
             cd(home + "/" + apache_factory),
             python(brotli_installation_script, account),
-            cd(home + "/" + apache_factory),
-            python(php_installation_script, account),
             run_as_user(
                 account,
                 concatenate(
                     cd(user_home() + "/" + apache_factory),
+                    python(php_installation_script, account),
                     python(distribution_script)
                 )
             )
