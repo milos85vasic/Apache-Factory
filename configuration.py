@@ -48,3 +48,7 @@ def content_dir_path(home_path):
 
 def content_dir_matrix_path(home_path):
     return home_path + "/" + apache_factory + "/content/index.html"
+
+
+def content_dir_matrix_path_php(home_path):
+    return home_path + "/" + apache_factory + "/content/test.php"

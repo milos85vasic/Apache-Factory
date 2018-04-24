@@ -36,6 +36,10 @@ steps = [
                         content_dir_matrix_path(user_home()),
                         content_dir_path(user_home())
                     ),
+                    cp(
+                        content_dir_matrix_path_php(user_home()),
+                        content_dir_path(user_home())
+                    ),
                     wget(apache_download, destination=(home + "/")),
                     clear(),
                     extract(apache_extract, destination=home),
