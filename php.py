@@ -23,6 +23,7 @@ steps = [
         "./configure --with-apxs2=" + user_home() + "/" + apache2 + "/bin/apxs" + " --with-mysql",
         "make",
         "make install",
+        cp("php.ini-development", "/usr/local/lib/php.ini"),
         cd(user_home()),
         rm(php_tar_gz.replace(".tar.gz", ""))
     )
