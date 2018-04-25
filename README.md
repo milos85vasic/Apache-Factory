@@ -47,3 +47,24 @@ After whole process is completed you will be able to access landing page.
 ```
 $ ... --server_admin=somebody@example.com
 ```
+
+- Passing configuration for services
+
+To tell Apache Factory which repositories to clone and configure on Apache:
+```
+$ ... --services=./services.json
+```
+
+where services.json should look like this:
+```
+[
+  {
+    "url": "something.example.com",
+    "repository": "https://github.com/user/some_repo.git"
+  },
+  {
+    "url": "example.com",
+    "repository": "other_git_repo ..."
+  }
+]
+```

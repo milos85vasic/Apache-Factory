@@ -8,6 +8,7 @@ arg_prefix = "--"
 arg_server_admin = arg_prefix + "server_admin"
 key_configuration_port = "port"
 key_configuration_server_admin = "server_admin"
+key_services = "services"
 
 
 def init_system_configuration(arguments):
