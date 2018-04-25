@@ -24,6 +24,7 @@ steps = [
             get_yum("apr-util-devel"),
             get_yum("wget"),
             get_yum("git"),
+            get_yum("sqlite"),
             add_to_group(account, apache_factory_group),
             run_as_user(
                 account,
