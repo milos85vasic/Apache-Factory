@@ -54,6 +54,13 @@ def mkdir(dir_name):
     return "mkdir " + dir_name
 
 
+def mkdirs(directories):
+    param = ""
+    for directory in directories:
+        param += " " + directory
+    return "mkdir " + param
+
+
 def extract(what, **params):
     destination = 'destination'
     if destination in params:

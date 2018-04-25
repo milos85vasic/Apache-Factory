@@ -9,6 +9,8 @@ arg_server_admin = arg_prefix + "server_admin"
 key_configuration_port = "port"
 key_configuration_server_admin = "server_admin"
 key_services = "services"
+key_services_url = "url"
+key_services_repository = "repository"
 services_file = key_services + ".json"
 
 
@@ -85,3 +87,12 @@ def save_account(account):
 def save_system_configuration(system_configuration):
     with open(default_configuration_json, 'w') as outfile:
         json.dump(system_configuration, outfile)
+
+
+def get_services_directories():
+    directories = []
+    account = get_account()
+    system_configuration = get_system_configuration()
+    for service in system_configuration[account][key_services]:
+        directories.append(service[key_services_url])
+    return directories
