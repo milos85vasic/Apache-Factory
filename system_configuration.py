@@ -9,6 +9,7 @@ arg_server_admin = arg_prefix + "server_admin"
 key_configuration_port = "port"
 key_configuration_server_admin = "server_admin"
 key_services = "services"
+services_file = key_services + ".json"
 
 
 def init_system_configuration(arguments):
@@ -37,6 +38,9 @@ def init_system_configuration(arguments):
             server_admin = str(arg).replace(arg_server_admin + "=", "")
             account = get_account()
             system_configuration[account][key_configuration_server_admin] = server_admin
+            if os.path.isfile(services_file):
+                services_config = json.load(services_file)
+                system_configuration[account][key_services] = services_config
     save_system_configuration(system_configuration)
 
     steps = [
