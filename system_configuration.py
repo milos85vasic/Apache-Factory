@@ -39,7 +39,7 @@ def init_system_configuration(arguments):
             account = get_account()
             system_configuration[account][key_configuration_server_admin] = server_admin
     if os.path.isfile(services_file):
-        services_config = json.load(services_file)
+        services_config = json.load(open(services_file))
         account = get_account()
         system_configuration[account][key_services] = services_config
     save_system_configuration(system_configuration)
