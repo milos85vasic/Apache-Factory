@@ -37,11 +37,7 @@ steps = [
     # rm(
     #     apache_conf + "/" + httpd_conf_matrix
     # ),
-    concatenate(
-        cd(content_dir_path(get_home_directory_path(account))),
-        mkdirs(get_services_directories(account)),
-        cd("~")
-    ),
+    python(services_distribution_script),
     # concatenate(
     #     cd(apache_bin),
     #     apache_start(),
