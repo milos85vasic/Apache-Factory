@@ -50,12 +50,9 @@ $ ... --server_admin=somebody@example.com
 
 - Passing configuration for services
 
-To tell Apache Factory which repositories to clone and configure on Apache:
-```
-$ ... --services=./services.json
-```
+To tell Apache Factory which repositories to clone and configure on Apache make sure services.json is available in Apache Factory root.
 
-where services.json should look like this:
+Where services.json should look like this:
 ```
 [
   {
