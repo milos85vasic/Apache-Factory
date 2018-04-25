@@ -33,7 +33,9 @@ steps = [
             #         cd("~"),
             #         mkdir(apache_home),
             #         mkdir(php_home),
-                    mkdir(content_dir_path(user_home())),
+            mkdir(content_dir_path(user_home())),
+            chown(account, content_dir_path(user_home())),
+            chgrp(account, content_dir_path(user_home())),
             #         cp(
             #             content_dir_matrix_path(user_home()),
             #             content_dir_path(user_home())
