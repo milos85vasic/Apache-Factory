@@ -39,7 +39,7 @@ steps = [
     # ),
     concatenate(
         cd(content_dir_path(get_home_directory_path(account))),
-        mkdirs(get_services_directories()),
+        mkdirs(get_services_directories(account)),
         cd("~")
     ),
     # concatenate(

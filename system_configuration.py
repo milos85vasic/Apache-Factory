@@ -89,9 +89,8 @@ def save_system_configuration(system_configuration):
         json.dump(system_configuration, outfile)
 
 
-def get_services_directories():
+def get_services_directories(account):
     directories = []
-    account = get_account()
     system_configuration = get_system_configuration()
     for service in system_configuration[account][key_services]:
         directories.append(service[key_services_url])
