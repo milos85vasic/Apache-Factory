@@ -17,3 +17,13 @@ steps = [
 ]
 
 run(steps)
+
+for service in system_configuration[account][key_services]:
+    url = service[key_services_url]
+    repository = service[key_services_repository]
+    steps = [
+        cd(content_dir_path(get_home_directory_path(account)) + "/" + url),
+        git_clone(repository)
+    ]
+
+    run(steps)
