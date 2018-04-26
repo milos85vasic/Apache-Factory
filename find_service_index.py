@@ -35,8 +35,8 @@ if service_root_directory is not None:
     system_configuration[account][service_url] = service
     save_system_configuration(system_configuration)
 else:
-    for subdirectory in os.walk(service_home):
-        service_root_directory = get_index(str(subdirectory))
+    for subdirectory, _, _ in os.walk(service_home):
+        service_root_directory = get_index(subdirectory)
         if service_root_directory is not None:
             service[key_services_url] = service_root_directory
             system_configuration[account][service_url] = service
