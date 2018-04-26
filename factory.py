@@ -26,37 +26,37 @@ steps = [
             # get_yum("git"),
             # get_yum("sqlite"),
             # add_to_group(account, apache_factory_group),
-            # run_as_user(
-            #     account,
-            #     concatenate(
-            #         clear(),
-            #         cd("~"),
-            #         mkdir(apache_home),
-            #         mkdir(php_home),
             mkdir(content_dir_path(user_home())),
             chown(account, content_dir_path(user_home())),
             chgrp(account, content_dir_path(user_home())),
-            #         cp(
-            #             content_dir_matrix_path(user_home()),
-            #             content_dir_path(user_home())
-            #         ),
-            #         cp(
-            #             content_dir_matrix_path_php(user_home()),
-            #             content_dir_path(user_home())
-            #         ),
-            #         wget(apache_download, destination=(home + "/")),
-            #         clear(),
-            #         extract(apache_extract, destination=home),
-            #         clear(),
-            #         cd(apache_extracted),
-            #         "./configure --prefix=" + apache_home,
-            #         "make",
-            #         "make install",
-            #         cd("~"),
-            #         clear(),
-            #         rm(apache_extracted)
-            #     )
-            # ),
+            run_as_user(
+                 account,
+                 concatenate(
+                     clear(),
+                     cd("~"),
+                     mkdir(apache_home),
+                     mkdir(php_home),
+                     cp(
+                         content_dir_matrix_path(user_home()),
+                         content_dir_path(user_home())
+                     ),
+                     cp(
+                         content_dir_matrix_path_php(user_home()),
+                         content_dir_path(user_home())
+                     ),
+                     wget(apache_download, destination=(home + "/")),
+                     clear(),
+                     extract(apache_extract, destination=home),
+                     clear(),
+                     cd(apache_extracted),
+                     "./configure --prefix=" + apache_home,
+                     "make",
+                     "make install",
+                     cd("~"),
+                     clear(),
+                     rm(apache_extracted)
+                 )
+            ),
             # cd(home + "/" + apache_factory),
             # python(brotli_installation_script, account),
             run_as_user(
