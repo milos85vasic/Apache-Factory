@@ -17,6 +17,7 @@ apache_extracted = home + "/" + apache_tar_gz.replace(".tar.gz", "")
 factory_script = "factory.py"
 distribution_script = "distribute.py"
 services_distribution_script = "distribute_services.py"
+find_service_index_script = "find_service_index.py"
 wipe_script = "wipe.py"
 apache_factory = "Apache-Factory"
 apache_factory_group = "apache_factory"
