@@ -42,6 +42,7 @@ brotli_module = "Brotli_Module"
 php_installation_script = "php.py"
 php_src = "php-src-php-7.0.29"
 service_indexes = ["index.html", "index.htm", "index.php"]
+php_test_script = "test.php"
 
 
 def get_home_directory_path(account):
@@ -57,4 +58,4 @@ def content_dir_matrix_path(home_path):
 
 
 def content_dir_matrix_path_php(home_path):
-    return home_path + "/" + apache_factory + "/content/test.php"
+    return home_path + "/" + apache_factory + "/content/" + php_test_script

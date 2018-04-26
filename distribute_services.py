@@ -1,5 +1,6 @@
 import json
 import getpass
+import sys
 
 from commands import *
 from configuration import *
@@ -9,6 +10,15 @@ account = getpass.getuser()
 
 system_configuration = get_system_configuration()
 vhosts_directory = get_home_directory_path(account) + "/" + apache2 + "/" + apache_vhosts_directory
+
+if system_configuration[account][key_services]:
+    steps = [
+        rm(content_dir_path(get_home_directory_path(account)) + "/" + php_test_script)
+    ]
+
+    run(steps)
+else:
+    sys.exit()
 
 steps = [
     concatenate(
