@@ -10,6 +10,7 @@ key_configuration_port = "port"
 key_configuration_server_admin = "server_admin"
 key_services = "services"
 key_services_url = "url"
+key_service_root = "root"
 key_services_repository = "repository"
 services_file = key_services + ".json"
 
