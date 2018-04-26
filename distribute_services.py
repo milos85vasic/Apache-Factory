@@ -38,8 +38,7 @@ for service in system_configuration[account][key_services]:
             find_service_index_script,
             service[key_services_url],
             content_dir_path(get_home_directory_path(account)) + "/" + url
-        ),
-        mkdir(vhosts_directory)
+        )
     ]
 
     run(steps)
