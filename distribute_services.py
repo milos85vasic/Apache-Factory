@@ -31,3 +31,9 @@ for service in system_configuration[account][key_services]:
     ]
 
     run(steps)
+
+system_configuration = get_system_configuration()
+for service in system_configuration[account][key_services]:
+    url = service[key_services_url]
+    repository = service[key_services_repository]
+    root = service[key_service_root]
