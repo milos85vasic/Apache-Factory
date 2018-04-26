@@ -49,7 +49,9 @@ for service in system_configuration[account][key_services]:
                 outfile.write("\n")
                 outfile.write("<VirtualHost " + name_with_port + ">")
                 outfile.write("\n")
-                outfile.write("")
+                outfile.write("DocumentRoot " + root)
+                outfile.write("\n")
+                outfile.write("ServerName " + url)
                 outfile.write("\n")
                 outfile.write("</VirtualHost>")
         except IOError:
