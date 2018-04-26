@@ -43,6 +43,6 @@ for service in system_configuration[account][key_services]:
     if not os.path.isfile(destination_file):
         try:
             with open(destination_file, 'w') as outfile:
-                outfile.write("")
+                outfile.write("NameVirtualHost " + url)
         except IOError:
             print("Can't access " + destination_file)
