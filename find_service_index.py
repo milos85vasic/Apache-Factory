@@ -30,14 +30,14 @@ def get_index(directory):
 
 service_root_directory = get_index(service_home)
 if service_root_directory is not None:
-    service[key_services_url] = service_root_directory
+    service[key_service_root] = service_root_directory
     system_configuration[account][service_url] = service
     save_system_configuration(system_configuration)
 else:
     for subdirectory, _, _ in os.walk(service_home):
         service_root_directory = get_index(subdirectory)
         if service_root_directory is not None:
-            service[key_services_url] = service_root_directory
+            service[key_service_root] = service_root_directory
             system_configuration[account][service_url] = service
             save_system_configuration(system_configuration)
             break
