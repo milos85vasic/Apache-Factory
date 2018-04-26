@@ -43,7 +43,7 @@ for service in system_configuration[account][key_services]:
     if not os.path.isfile(destination_file):
         try:
             with open(destination_file, 'w') as outfile:
-                name_with_port = url + ":" + system_configuration[account][key_configuration_port]
+                name_with_port = url + ":" + str(system_configuration[account][key_configuration_port])
                 outfile.write("NameVirtualHost " + name_with_port)
                 outfile.write("\n")
                 outfile.write("\n")
