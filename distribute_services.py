@@ -8,6 +8,7 @@ from system_configuration import *
 account = getpass.getuser()
 
 system_configuration = get_system_configuration()
+vhosts_directory = get_home_directory_path(account) + "/" + apache2 + "/" + apache_vhosts_directory
 
 steps = [
     concatenate(
@@ -27,7 +28,8 @@ for service in system_configuration[account][key_services]:
             find_service_index_script,
             service[key_services_url],
             content_dir_path(get_home_directory_path(account)) + "/" + url
-        )
+        ),
+        mkdir(vhosts_directory)
     ]
 
     run(steps)
@@ -37,3 +39,10 @@ for service in system_configuration[account][key_services]:
     url = service[key_services_url]
     repository = service[key_services_repository]
     root = service[key_service_root]
+    destination_file = vhosts_directory + "/" + url + ".conf"
+    if not os.path.isfile(destination_file):
+        try:
+            with open(destination_file, 'w') as outfile:
+                outfile.write("")
+        except IOError:
+            print("Can't access " + destination_file)
