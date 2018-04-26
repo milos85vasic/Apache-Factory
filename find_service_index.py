@@ -10,9 +10,14 @@ account = getpass.getuser()
 
 system_configuration = get_system_configuration()
 
-service_name = sys.argv[1]
+service = None
+service_url = sys.argv[1]
 service_home = sys.argv[2]
-service = system_configuration[account][service_name]
+services = system_configuration[account][key_services]
+
+for service_item in services:
+    if service_item[key_services_url] == service_url:
+        service = service_item
 
 
 def get_index(directory):
@@ -26,13 +31,13 @@ def get_index(directory):
 service_root_directory = get_index(service_home)
 if service_root_directory is not None:
     service[key_services_url] = service_root_directory
-    system_configuration[account][service_name] = service
+    system_configuration[account][service_url] = service
     save_system_configuration(system_configuration)
 else:
     for subdirectory in os.walk(service_home):
         service_root_directory = get_index(subdirectory)
         if service_root_directory is not None:
             service[key_services_url] = service_root_directory
-            system_configuration[account][service_name] = service
+            system_configuration[account][service_url] = service
             save_system_configuration(system_configuration)
             break

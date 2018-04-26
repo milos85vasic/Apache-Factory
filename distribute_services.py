@@ -23,7 +23,11 @@ for service in system_configuration[account][key_services]:
     repository = service[key_services_repository]
     steps = [
         git_clone_to(repository, content_dir_path(get_home_directory_path(account)) + "/" + url),
-        python(find_service_index_script, service, content_dir_path(get_home_directory_path(account)) + "/" + str(url))
+        python(
+            find_service_index_script,
+            service[key_services_url],
+            content_dir_path(get_home_directory_path(account)) + "/" + url
+        )
     ]
 
     run(steps)
