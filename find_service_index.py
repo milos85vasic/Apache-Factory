@@ -21,7 +21,6 @@ for service_item in services:
 
 
 def get_index(directory):
-    print("> > > > " + directory)
     for index in service_indexes:
         full_path = directory + "/" + index
         if os.path.isfile(full_path):
