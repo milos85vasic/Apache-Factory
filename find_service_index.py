@@ -21,6 +21,7 @@ for service_item in services:
 
 
 def get_index(directory):
+    print("> > > > " + directory)
     for index in service_indexes:
         full_path = directory + "/" + index
         if os.path.isfile(full_path):
@@ -35,7 +36,7 @@ if service_root_directory is not None:
     save_system_configuration(system_configuration)
 else:
     for subdirectory in os.walk(service_home):
-        service_root_directory = get_index(os.path.abspath(subdirectory))
+        service_root_directory = get_index(str(subdirectory))
         if service_root_directory is not None:
             service[key_services_url] = service_root_directory
             system_configuration[account][service_url] = service
