@@ -56,11 +56,15 @@ Where services.json should look like this:
 ```
 [
   {
-    "url": "something.example.com",
+    "url": "www.example.com",
+    "urls": [
+        "something.example.com",
+        "something2.example.com",
+    ],
     "repository": "https://github.com/user/some_repo.git"
   },
   {
-    "url": "example.com",
+    "url": "xxx.com",
     "repository": "other_git_repo ..."
   }
 ]
