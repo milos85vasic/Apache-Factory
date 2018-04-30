@@ -13,6 +13,7 @@ for item in system_configuration.keys():
     if os.path.isfile(script):
         steps = [
             run_as_user(
+                account,
                 python(script, "start")
             )
         ]
