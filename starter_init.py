@@ -7,4 +7,4 @@ if os.path.isfile(rc_local):
     script = abs_pth + "/" + starter_script
     if script not in open(rc_local).read():
         with open(rc_local, "a") as rc:
-            rc.write(script)
+            rc.write("python " + script)
