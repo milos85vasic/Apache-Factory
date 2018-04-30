@@ -43,6 +43,9 @@ php_installation_script = "php.py"
 php_src = "php-src-php-7.0.29"
 service_indexes = ["index.html", "index.htm", "index.php"]
 php_test_script = "test.php"
+starter_script = "starter.py"
+starter_init_script = "starter_init.py"
+rc_local = "/etc/rc.d/rc.local"
 
 
 def get_home_directory_path(account):
