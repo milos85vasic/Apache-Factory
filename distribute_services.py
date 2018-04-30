@@ -56,7 +56,6 @@ for service in system_configuration[account][key_services]:
         try:
             with open(destination_file, 'w') as outfile:
                 port = str(system_configuration[account][key_configuration_port])
-                name_with_port = url + ":" + port
                 outfile.write("\n")
                 outfile.write("<VirtualHost *:" + port + ">")
                 outfile.write("\n")
