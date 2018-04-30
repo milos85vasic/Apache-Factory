@@ -49,7 +49,9 @@ for service in system_configuration[account][key_services]:
 system_configuration = get_system_configuration()
 for service in system_configuration[account][key_services]:
     url = service[key_services_url]
-    urls = service[key_services_urls]
+    urls = None
+    if key_services_urls in service:
+        urls = service[key_services_urls]
     repository = service[key_services_repository]
     root = service[key_service_root]
     destination_file = vhosts_directory + "/" + url + ".conf"
@@ -64,9 +66,10 @@ for service in system_configuration[account][key_services]:
                 outfile.write("\n")
                 outfile.write("\tServerName " + url)
                 outfile.write("\n")
-                for alias in urls:
-                    outfile.write("\tServerAlias " + alias)
-                    outfile.write("\n")
+                if urls:
+                    for alias in urls:
+                        outfile.write("\tServerAlias " + alias)
+                        outfile.write("\n")
                 outfile.write("</VirtualHost>")
         except IOError:
             print("Can't access " + destination_file)
