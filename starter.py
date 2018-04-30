@@ -14,7 +14,7 @@ for item in system_configuration.keys():
         steps = [
             run_as_user(
                 account,
-                "script start"
+                script + " start"
             )
         ]
 
