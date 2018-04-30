@@ -148,6 +148,10 @@ def chmod(where, mode):
     return "chmod -R " + mode + " " + where
 
 
+def chmodx(what):
+    return "chmod +x " + what
+
+
 def chgrp(group, directory):
     return "chgrp -R " + group + " " + directory
 

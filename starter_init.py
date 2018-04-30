@@ -8,3 +8,9 @@ if os.path.isfile(rc_local):
     if script not in open(rc_local).read():
         with open(rc_local, "a") as rc:
             rc.write(script)
+
+    steps = [
+        chmodx(rc_local)
+    ]
+
+    run(steps)
