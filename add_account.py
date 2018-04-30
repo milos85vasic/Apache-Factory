@@ -38,13 +38,14 @@ except KeyError:
                 cd("~"),
                 clear()
             )
-        ),
-        run_as_user(
-            account,
-            concatenate(
-                python(factory_script)
-            )
         )
+        # ,
+        # run_as_user(
+        #     account,
+        #     concatenate(
+        #         python(factory_script)
+        #     )
+        # )
     ]
 
     run(steps)
