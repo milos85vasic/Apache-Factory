@@ -1,3 +1,5 @@
+#!/usr/bin/python
+
 import sys
 from commands import *
 from system_configuration import *
