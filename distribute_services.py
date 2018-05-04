@@ -54,6 +54,7 @@ for service in system_configuration[account][key_services]:
         urls = service[key_services_urls]
     repository = service[key_services_repository]
     root = service[key_service_root]
+    logs_home = get_home_directory_path(account) + "/" + apache2 + "/logs"
     destination_file = vhosts_directory + "/" + url + ".conf"
     if not os.path.isfile(destination_file):
         try:
@@ -70,9 +71,11 @@ for service in system_configuration[account][key_services]:
                     for alias in urls:
                         outfile.write("\tServerAlias " + alias)
                         outfile.write("\n")
-                outfile.write("ErrorLog ${APACHE_LOG_DIR}/" + url + ".error.log")
+                outfile.write("ErrorLog " + logs_home + "/" + url + ".error.log")
                 outfile.write("\n")
-                outfile.write("CustomLog ${APACHE_LOG_DIR}/" + url + ".access.log")
+                outfile.write('LogFormat "%h %l %u %t \"%r\" %>s %b" common')
+                outfile.write("\n")
+                outfile.write("CustomLog " + logs_home + "/" + url + ".access.log common")
                 outfile.write("\n")
                 outfile.write("</VirtualHost>")
         except IOError:
