@@ -43,6 +43,7 @@ brotli = "Brotli"
 brotli_module = "Brotli_Module"
 php_installation_script = "php.py"
 php_src = "php-src-php-7.0.29"
+mysql_installation_script = "mysql.py"
 service_indexes = ["index.html", "index.htm", "index.php"]
 php_test_script = "test.php"
 starter_script = "starter.py"
