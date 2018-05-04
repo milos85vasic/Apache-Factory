@@ -71,11 +71,11 @@ for service in system_configuration[account][key_services]:
                     for alias in urls:
                         outfile.write("\tServerAlias " + alias)
                         outfile.write("\n")
-                outfile.write("ErrorLog " + logs_home + "/" + url + ".error.log")
+                outfile.write("\tErrorLog " + logs_home + "/" + url + ".error.log")
                 outfile.write("\n")
-                outfile.write('LogFormat "%h %l %u %t \"%r\" %>s %b" common')
+                outfile.write("\tLogFormat " + '"%h %l %u %t \\"%r\\" %>s %b"' + " common")
                 outfile.write("\n")
-                outfile.write("CustomLog " + logs_home + "/" + url + ".access.log common")
+                outfile.write("\tCustomLog " + logs_home + "/" + url + ".access.log common")
                 outfile.write("\n")
                 outfile.write("</VirtualHost>")
         except IOError:
