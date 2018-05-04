@@ -13,7 +13,7 @@ system_configuration = get_system_configuration()
 service = None
 service_url = sys.argv[1]
 service_home = sys.argv[2]
-services = system_configuration[account][key_services]
+services = system_configuration[account][key_services][key_services]
 
 for service_item in services:
     if service_item[key_services_url] == service_url:

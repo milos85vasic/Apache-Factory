@@ -54,18 +54,24 @@ To tell Apache Factory which repositories to clone and configure on Apache make 
 
 Where services.json should look like this:
 ```
-[
-  {
-    "url": "www.example.com",
-    "urls": [
+{
+  "services": [
+    {
+      "url": "www.example.com",
+      "urls": [
         "something.example.com",
-        "something2.example.com",
-    ],
-    "repository": "https://github.com/user/some_repo.git"
-  },
-  {
-    "url": "xxx.com",
-    "repository": "other_git_repo ..."
-  }
-]
+        "something2.example.com"
+      ],
+      "repository": "https://github.com/user/some_repo.git"
+    },
+    {
+      "url": "xxx.com",
+      "repository": "other_git_repo ..."
+    }
+  ],
+  "features": [
+    "php",
+    "mysql"
+  ]
+}
 ```

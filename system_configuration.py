@@ -94,6 +94,6 @@ def save_system_configuration(system_configuration):
 def get_services_directories(account):
     directories = []
     system_configuration = get_system_configuration()
-    for service in system_configuration[account][key_services]:
+    for service in system_configuration[account][key_services][key_services]:
         directories.append(service[key_services_url])
     return directories
