@@ -70,6 +70,10 @@ for service in system_configuration[account][key_services]:
                     for alias in urls:
                         outfile.write("\tServerAlias " + alias)
                         outfile.write("\n")
+                outfile.write("ErrorLog ${APACHE_LOG_DIR}/" + url + ".error.log")
+                outfile.write("\n")
+                outfile.write("CustomLog ${APACHE_LOG_DIR}/" + url + ".access.log")
+                outfile.write("\n")
                 outfile.write("</VirtualHost>")
         except IOError:
             print("Can't access " + destination_file)
