@@ -25,6 +25,8 @@ steps = [
             get_yum("wget"),
             get_yum("git"),
             get_yum("sqlite"),
+            get_yum("libxml2"),
+            get_yum("libxml2-devel"),
             add_to_group(account, apache_factory_group),
             mkdir(content_dir_path(user_home())),
             chown(account, content_dir_path(user_home())),
