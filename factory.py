@@ -39,6 +39,7 @@ steps = [
                     mkdir(apache_home),
                     mkdir(apache_home + "/" + apache_vhosts_directory),
                     mkdir(php_home),
+                    mkdir(mysql_home),
                     cp(
                         content_dir_matrix_path(user_home()),
                         content_dir_path(user_home())

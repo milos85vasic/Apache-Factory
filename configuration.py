@@ -3,9 +3,11 @@ from os.path import expanduser
 default_port = 8080
 home = expanduser("~")
 php = "Php"
+mysql = "MySql"
 apache2 = "Apache2"
 apache_home = home + "/" + apache2
 php_home = home + "/" + php
+mysql_home = home + "/" + mysql
 apache_conf = apache_home + "/conf"
 apache_bin = apache_home + "/bin"
 apache_tar_gz = "httpd-2.4.29.tar.gz"
