@@ -28,12 +28,6 @@ def concatenate(*what):
     return result
 
 
-def echo(*what):
-    for item in what:
-        print(item)
-    return "echo " + what
-
-
 def clear():
     return "clear"
 
