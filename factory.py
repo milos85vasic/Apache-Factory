@@ -64,7 +64,7 @@ steps = [
                 account,
                 concatenate(
                     cd(user_home() + "/" + apache_factory),
-                    python(mysql_installation_script, account),
+                    # python(mysql_installation_script, account),
                     python(php_installation_script, account),
                     python(distribution_script)
                 )
