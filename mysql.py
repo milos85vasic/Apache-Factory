@@ -29,7 +29,11 @@ if features and key_feature_mysql in features:
             extract(user_home() + "/" + mysql_tar_gz, destination=user_home()),
             clear(),
             cd(mysql_tar_gz.replace(".tar.gz", "")),
-            # TODO
+            mkdir("bld"),
+            cd("bld"),
+            "cmake ../mysql-src",
+            "make",
+            'make install DESTDIR="' + user_home() + "/" + mysql + '"',
             cd(user_home()),
             rm(mysql_tar_gz),
             rm(mysql_tar_gz.replace(".tar.gz", ""))
