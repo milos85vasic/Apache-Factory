@@ -31,7 +31,8 @@ if features and key_feature_mysql in features:
             cd(mysql_tar_gz.replace(".tar.gz", "")),
             # TODO
             cd(user_home()),
-            rm(php_tar_gz.replace(".tar.gz", ""))
+            rm(mysql_tar_gz),
+            rm(mysql_tar_gz.replace(".tar.gz", ""))
         )
     ]
 

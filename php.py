@@ -39,6 +39,7 @@ steps = [
         "make install",
         cp("php.ini-development", user_home() + "/" + php + "/lib/php.ini"),
         cd(user_home()),
+        rm(php_tar_gz),
         rm(php_tar_gz.replace(".tar.gz", ""))
     )
 ]
