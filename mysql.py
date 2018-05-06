@@ -12,7 +12,7 @@ def user_home():
 
 system_configuration = get_system_configuration()
 
-initialize = "./mysqld --initialize --user=" + account + \
+initialize = "./mysqld --initialize-insecure --user=" + account + \
              " --basedir=" + user_home() + "/" + mysql + "/usr/local/mysql/ --datadir=" + \
              user_home() + "/" + mysql_data_dir
 
