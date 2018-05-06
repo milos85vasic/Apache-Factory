@@ -4,6 +4,7 @@ default_port = 8080
 home = expanduser("~")
 php = "Php"
 mysql = "MySql"
+mysql_data_dir = "MySql_Data"
 apache2 = "Apache2"
 apache_home = home + "/" + apache2
 php_home = home + "/" + php

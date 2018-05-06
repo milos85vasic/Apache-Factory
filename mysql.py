@@ -24,6 +24,10 @@ if has_feature(account, feature_mysql):
             "cmake ./ -DDOWNLOAD_BOOST=1 -DWITH_BOOST=" + get_home_directory_path(account) + "/Boost",
             "make",
             'make install DESTDIR="' + user_home() + "/" + mysql + '"',
+            mkdir(user_home() + "/" + mysql_data_dir),
+            # TODO: Download binary version, cd into scripts and trigger db init.
+            cd("scripts"),
+
             # TODO: the rest of.
             cd(user_home()),
             rm(mysql_tar_gz),
