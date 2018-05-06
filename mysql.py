@@ -25,6 +25,11 @@ if has_feature(account, feature_mysql):
             "make",
             'make install DESTDIR="' + user_home() + "/" + mysql + '"',
             mkdir(user_home() + "/" + mysql_data_dir),
+            cd(user_home()),
+            wget(mysql_bin_download, destination=(user_home() + "/")),
+            clear(),
+            extract(user_home() + "/" + mysql_bin_tar_gz, destination=user_home()),
+            clear(),
             # TODO: Download binary version, cd into scripts and trigger db init.
             cd("scripts"),
 
