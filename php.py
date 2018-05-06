@@ -12,18 +12,10 @@ def user_home():
 
 system_configuration = get_system_configuration()
 
-features = None
-
-if key_services in system_configuration[account]:
-    if key_features in system_configuration[account][key_services]:
-        features = system_configuration[account][key_services][key_features]
-else:
-    features = [key_feature_mysql]
-
 configure = "./configure --prefix=" + user_home() + \
             "/" + php + " --with-apxs2=" + user_home() + "/" + apache2 + "/bin/apxs"
 
-if features and key_feature_mysql in features:
+if has_feature(account, feature_mysql):
     configure += " --with-mysql=" + user_home() + "/" + mysql
 
 steps = [

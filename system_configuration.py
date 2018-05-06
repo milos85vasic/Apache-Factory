@@ -10,7 +10,7 @@ key_configuration_port = "port"
 key_configuration_server_admin = "server_admin"
 key_services = "services"
 key_features = "features"
-key_feature_mysql = "mysql"
+feature_mysql = "mysql"
 key_services_url = "url"
 key_services_urls = "urls"
 key_service_root = "root"
@@ -99,3 +99,16 @@ def get_services_directories(account):
     for service in system_configuration[account][key_services][key_services]:
         directories.append(service[key_services_url])
     return directories
+
+
+def has_feature(account, feature):
+    features = None
+    system_configuration = get_system_configuration()
+
+    if key_services in system_configuration[account]:
+        if key_features in system_configuration[account][key_services]:
+            features = system_configuration[account][key_services][key_features]
+    else:
+        features = [feature]
+
+    return features and feature in features

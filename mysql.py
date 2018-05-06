@@ -12,15 +12,7 @@ def user_home():
 
 system_configuration = get_system_configuration()
 
-features = None
-
-if key_services in system_configuration[account]:
-    if key_features in system_configuration[account][key_services]:
-        features = system_configuration[account][key_services][key_features]
-else:
-    features = [key_feature_mysql]
-
-if features and key_feature_mysql in features:
+if has_feature(account, feature_mysql):
     steps = [
         concatenate(
             cd(user_home()),
