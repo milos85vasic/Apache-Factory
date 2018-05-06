@@ -108,7 +108,5 @@ def has_feature(account, feature):
     if key_services in system_configuration[account]:
         if key_features in system_configuration[account][key_services]:
             features = system_configuration[account][key_services][key_features]
-    else:
-        features = [feature]
 
     return features and feature in features

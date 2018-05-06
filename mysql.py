@@ -24,6 +24,7 @@ if has_feature(account, feature_mysql):
             "cmake ./ -DDOWNLOAD_BOOST=1 -DWITH_BOOST=" + get_home_directory_path(account) + "/Boost",
             "make",
             'make install DESTDIR="' + user_home() + "/" + mysql + '"',
+            # TODO: the rest of.
             cd(user_home()),
             rm(mysql_tar_gz),
             rm(mysql_tar_gz.replace(".tar.gz", ""))
