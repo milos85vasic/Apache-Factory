@@ -59,7 +59,8 @@ steps = [
                     "make install",
                     cd("~"),
                     clear(),
-                    rm(apache_extracted)
+                    rm(apache_extracted),
+                    rm(apache_tar_gz)
                 )
             ),
             cd(home + "/" + apache_factory),
