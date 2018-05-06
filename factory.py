@@ -13,6 +13,7 @@ steps = [
     clear(),
     run_as_su(
         concatenate(
+            "yum localinstall -y --nogpgcheck " + rpm_fusion_free + " " + rpm_fusion_non_free,
             get_yum_group("Development Tools"),
             get_yum("openssl-devel"),
             get_yum("gcc"),
