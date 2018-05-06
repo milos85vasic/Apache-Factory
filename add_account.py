@@ -23,7 +23,7 @@ except KeyError:
                 passwd(account),
                 add_group(apache_factory_group),
                 add_to_group(account, apache_factory_group),
-                chown(apache_factory_group + ":" + apache_factory_group, apache_factory_configuration_dir),
+                chgrp(apache_factory_group, apache_factory_configuration_dir),
                 cd(get_home_directory_path(account)),
                 mkdir(apache_factory),
                 git_clone(git_configuration[key_repository]),
