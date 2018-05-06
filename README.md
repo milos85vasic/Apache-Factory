@@ -27,7 +27,7 @@ Distributing configuration:
 $ su
 $ mkdir Apache-Factory
 $ cd Apache-Factory
-$ git clone https://github.com/milos85vasic/Apache-Factory.git
+$ git clone https://github.com/milos85vasic/Apache-Factory.git ./
 $ python add_account.py YOUR_ACCOUNT_NAME
 ``` 
 
