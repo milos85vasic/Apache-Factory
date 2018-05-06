@@ -12,6 +12,10 @@ def user_home():
 
 system_configuration = get_system_configuration()
 
+initialize = "./mysqld --initialize --user=" + account + \
+             " --basedir=" + user_home() + "/" + mysql + "/usr/local/mysql/ --datadir=" + \
+             user_home() + "/" + mysql_data_dir
+
 if has_feature(account, feature_mysql):
     steps = [
         concatenate(
@@ -25,9 +29,8 @@ if has_feature(account, feature_mysql):
             "make",
             'make install DESTDIR="' + user_home() + "/" + mysql + '"',
             mkdir(user_home() + "/" + mysql_data_dir),
-            cd(user_home()),
-
-            cd("scripts"),
+            cd(user_home() + "/" + mysql + "/usr/local/mysql/bin"),
+            initialize,
 
             # TODO: the rest of.
             cd(user_home()),
