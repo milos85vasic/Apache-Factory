@@ -19,17 +19,17 @@ services_file = key_services + ".json"
 
 
 def init_system_configuration(arguments):
-    steps = [
-        run_as_su(
-            concatenate(
-                mkdir(apache_factory_configuration_dir),
-                chmod(apache_factory_configuration_dir, "770"),
-                chgrp(apache_factory_group, apache_factory_configuration_dir),
+    if not os.path.isdir(apache_factory_configuration_dir):
+        steps = [
+            run_as_su(
+                concatenate(
+                    mkdir(apache_factory_configuration_dir),
+                    chmod(apache_factory_configuration_dir, "770")
+                )
             )
-        )
-    ]
+        ]
 
-    run(steps)
+        run(steps)
 
     system_configuration = get_system_configuration()
     for arg in arguments:
