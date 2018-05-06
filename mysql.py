@@ -16,6 +16,9 @@ initialize = "./mysqld --initialize-insecure --user=" + account + \
              " --basedir=" + user_home() + "/" + mysql + "/usr/local/mysql/ --datadir=" + \
              user_home() + "/" + mysql_data_dir
 
+# TODO: Use this.
+initialize2 = "./mysqld --defaults-file=/home/test1/MySQL/my.conf --initialize-insecure --user=test1"
+
 if has_feature(account, feature_mysql):
     steps = [
         concatenate(
