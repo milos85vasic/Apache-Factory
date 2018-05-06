@@ -12,12 +12,8 @@ def user_home():
 
 system_configuration = get_system_configuration()
 
-initialize = "./mysqld --initialize-insecure --user=" + account + \
-             " --basedir=" + user_home() + "/" + mysql + "/usr/local/mysql/ --datadir=" + \
-             user_home() + "/" + mysql_data_dir
-
-# TODO: Use this.
-initialize2 = "./mysqld --defaults-file=/home/test1/MySQL/my.conf --initialize-insecure --user=test1"
+initialize = "./mysqld --defaults-file=" + user_home() + "/" + mysql + "/my.conf --initialize-insecure --user=" \
+             + account
 
 if has_feature(account, feature_mysql):
     steps = [
@@ -34,6 +30,7 @@ if has_feature(account, feature_mysql):
             mkdir(user_home() + "/" + mysql_data_dir),
             cd(user_home() + "/" + mysql + "/usr/local/mysql/bin"),
             initialize,
+            "./mysqld --defaults-extra-file=" + user_home() + "/" + mysql + "/my.conf",
 
             # TODO: the rest of.
             cd(user_home()),
