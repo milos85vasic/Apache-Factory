@@ -31,9 +31,11 @@ if has_feature(account, feature_mysql):
             mkdir(mysql + "/" + mysql_pid_dir),
             mkdir(mysql + "/" + mysql_share_dir),
             mkdir(mysql + "/" + mysql_conf_dir),
+            cd(mysql + "/" + mysql_conf_dir),
 
             # TODO: Git clone and wipe my.conf.matrix
 
+            cd(user_home()),
             wget(mysql_download, destination=(user_home() + "/")),
             clear(),
             extract(user_home() + "/" + mysql_tar_gz, destination=user_home()),
