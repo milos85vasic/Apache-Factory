@@ -35,10 +35,13 @@ if has_feature(account, feature_mysql):
             extract(user_home() + "/" + mysql_tar_gz, destination=user_home()),
             clear(),
             cd(mysql_tar_gz.replace(".tar.gz", "")),
+
+            # TODO: Git clone and wip my.conf.matrix
+
             "cmake ./ -DDOWNLOAD_BOOST=1 -DWITH_BOOST=" + get_home_directory_path(account) + "/Boost",
             "make",
-            'make install DESTDIR="' + user_home() + "/" + mysql + '"',
-            cd(user_home() + "/" + mysql + "/usr/local/mysql/bin"),
+            'make install DESTDIR="' + user_home() + "/" + mysql + "/" + mysql_installation_dir + '"',
+            cd(user_home() + "/" + mysql + "/" + mysql_installation_dir + "/usr/local/mysql/bin"),
             initialize,
             start,
 
