@@ -36,7 +36,7 @@ if has_feature(account, feature_mysql):
             clear(),
             cd(mysql_tar_gz.replace(".tar.gz", "")),
 
-            # TODO: Git clone and wip my.conf.matrix
+            # TODO: Git clone and wipe my.conf.matrix
 
             "cmake ./ -DDOWNLOAD_BOOST=1 -DWITH_BOOST=" + get_home_directory_path(account) + "/Boost",
             "make",
