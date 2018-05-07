@@ -22,6 +22,14 @@ if has_feature(account, feature_mysql):
     steps = [
         concatenate(
             cd(user_home()),
+            mkdir(mysql),
+            mkdir(mysql + "/" + mysql_installation_dir),
+            mkdir(mysql + "/" + mysql_data_dir),
+            mkdir(mysql + "/" + mysql_log_dir),
+            mkdir(mysql + "/" + mysql_tmp_dir),
+            mkdir(mysql + "/" + mysql_sock_dir),
+            mkdir(mysql + "/" + mysql_pid_dir),
+            mkdir(mysql + "/" + mysql_share_dir),
             wget(mysql_download, destination=(user_home() + "/")),
             clear(),
             extract(user_home() + "/" + mysql_tar_gz, destination=user_home()),
@@ -30,7 +38,6 @@ if has_feature(account, feature_mysql):
             "cmake ./ -DDOWNLOAD_BOOST=1 -DWITH_BOOST=" + get_home_directory_path(account) + "/Boost",
             "make",
             'make install DESTDIR="' + user_home() + "/" + mysql + '"',
-            mkdir(user_home() + "/" + mysql_data_dir),
             cd(user_home() + "/" + mysql + "/usr/local/mysql/bin"),
             initialize,
             start,

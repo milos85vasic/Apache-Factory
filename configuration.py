@@ -3,8 +3,14 @@ from os.path import expanduser
 default_port = 8080
 home = expanduser("~")
 php = "Php"
-mysql = "MySql"
-mysql_data_dir = "MySql_Data"
+mysql = "MySQL"
+mysql_installation_dir = "Release"
+mysql_data_dir = "Data"
+mysql_log_dir = "Log"
+mysql_tmp_dir = "Tmp"
+mysql_sock_dir = "Sock"
+mysql_pid_dir = "Pid"
+mysql_share_dir = "Share"
 apache2 = "Apache2"
 apache_home = home + "/" + apache2
 php_home = home + "/" + php
