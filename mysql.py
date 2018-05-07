@@ -34,7 +34,21 @@ if has_feature(account, feature_mysql):
             cd(mysql + "/" + mysql_conf_dir),
             git_clone_to(configuration_repository_my_sql, "./"),
 
-            # TODO: Git clone and wipe my.conf.matrix
+
+            clear(),
+            python(
+                user_home() + "/" + apache_factory + "/" + wipe_script,
+                user_home() + "/" + mysql + "/" + mysql_conf_dir + "/" + mysql_conf_matrix,
+                user_home() + "/" + mysql + "/" + mysql_conf_dir + "/" + mysql_conf,
+
+                # TODO: Replace with key value pairs
+                httpd_conf_matrix_home_dir_placeholder, home,
+
+            ),
+            rm(
+                user_home() + "/" + mysql + "/" + mysql_conf_dir + "/" + mysql_conf_matrix
+            ),
+
 
             cd(user_home()),
             wget(mysql_download, destination=(user_home() + "/")),
