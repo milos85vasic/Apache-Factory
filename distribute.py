@@ -20,7 +20,7 @@ steps = [
     chmod(apache_conf, "755"),
     concatenate(
         cd(apache_conf),
-        git_clone_into(configuration_repository, here),
+        git_clone_to(configuration_repository, here),
         cd("~")
     ),
     clear(),

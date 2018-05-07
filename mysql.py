@@ -32,6 +32,7 @@ if has_feature(account, feature_mysql):
             mkdir(mysql + "/" + mysql_share_dir),
             mkdir(mysql + "/" + mysql_conf_dir),
             cd(mysql + "/" + mysql_conf_dir),
+            git_clone_to(configuration_repository_my_sql, "./"),
 
             # TODO: Git clone and wipe my.conf.matrix
 
