@@ -11,6 +11,7 @@ mysql_tmp_dir = "Tmp"
 mysql_sock_dir = "Sock"
 mysql_pid_dir = "Pid"
 mysql_share_dir = "Share"
+mysql_conf_dir = "Conf"
 apache2 = "Apache2"
 apache_home = home + "/" + apache2
 php_home = home + "/" + php

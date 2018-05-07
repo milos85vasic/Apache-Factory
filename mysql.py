@@ -13,10 +13,10 @@ def user_home():
 system_configuration = get_system_configuration()
 
 # TODO: Obtain my.conf from git repository.
-initialize = "./mysqld --defaults-file=" + user_home() + "/" + mysql + "/my.conf --initialize-insecure --user=" \
-             + account
+initialize = "./mysqld --defaults-file=" + user_home() + "/" + mysql + "/" + mysql_conf_dir + \
+             "/my.conf --initialize-insecure --user=" + account
 
-start = "./mysqld --defaults-extra-file=" + user_home() + "/" + mysql + "/my.conf"
+start = "./mysqld --defaults-extra-file=" + user_home() + "/" + mysql + "/" + mysql_conf_dir + "/my.conf"
 
 if has_feature(account, feature_mysql):
     steps = [
@@ -30,6 +30,7 @@ if has_feature(account, feature_mysql):
             mkdir(mysql + "/" + mysql_sock_dir),
             mkdir(mysql + "/" + mysql_pid_dir),
             mkdir(mysql + "/" + mysql_share_dir),
+            mkdir(mysql + "/" + mysql_conf_dir),
             wget(mysql_download, destination=(user_home() + "/")),
             clear(),
             extract(user_home() + "/" + mysql_tar_gz, destination=user_home()),
