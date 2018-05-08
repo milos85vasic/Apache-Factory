@@ -7,6 +7,7 @@ from commands import *
 arg_prefix = "--"
 arg_server_admin = arg_prefix + "server_admin"
 key_configuration_port = "port"
+key_configuration_port_mysql = "port_mysql"
 key_configuration_server_admin = "server_admin"
 key_services = "services"
 key_features = "features"
@@ -70,7 +71,8 @@ def get_account():
 
 def get_system_configuration():
     system_configuration = {
-        key_configuration_port: default_port
+        key_configuration_port: default_port,
+        key_configuration_port_mysql: default_port_mysql
     }
     if not os.path.isfile(default_configuration_json):
         try:

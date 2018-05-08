@@ -1,6 +1,7 @@
 from os.path import expanduser
 
 default_port = 8080
+default_port_mysql = 3306
 home = expanduser("~")
 php = "Php"
 mysql = "MySQL"
