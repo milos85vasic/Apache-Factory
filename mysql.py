@@ -33,8 +33,6 @@ if has_feature(account, feature_mysql):
             mkdir(mysql + "/" + mysql_conf_dir),
             cd(mysql + "/" + mysql_conf_dir),
             git_clone_to(configuration_repository_my_sql, "./"),
-
-
             clear(),
             python(
                 user_home() + "/" + apache_factory + "/" + wipe_script,
@@ -42,11 +40,17 @@ if has_feature(account, feature_mysql):
                 user_home() + "/" + mysql + "/" + mysql_conf_dir + "/" + mysql_conf,
 
                 # TODO: Replace with key value pairs
-                httpd_conf_matrix_home_dir_placeholder, home,
-
+                my_conf_matrix_port_placeholder, "- - -",
+                my_conf_matrix_sock_dir_placeholder, "- - -",
+                my_conf_matrix_pid_dir_placeholder, "- - -",
+                my_conf_matrix_user_placeholder, "- - -",
+                my_conf_matrix_base_dir_placeholder, "- - -",
+                my_conf_matrix_data_dir_placeholder, "- - -",
+                my_conf_matrix_tmp_dir_placeholder, "- - -",
+                my_conf_matrix_share_dir_placeholder, "- - -",
+                my_conf_matrix_log_dir_placeholder, "- - -"
             ),
-
-
+            clear(),
             cd(user_home()),
             wget(mysql_download, destination=(user_home() + "/")),
             clear(),
