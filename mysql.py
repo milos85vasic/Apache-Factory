@@ -23,6 +23,9 @@ def get_start_command(account_home):
 
 start = "./" + get_start_command(user_home())
 
+start_safe = "./mysqld_safe --defaults-file=" + user_home() + "/" + mysql + "/" + mysql_conf_dir + "/my.conf" + \
+             " --skip-grant-tables &"
+
 if has_feature(account, feature_mysql):
     steps = [
         concatenate(
@@ -65,7 +68,15 @@ if has_feature(account, feature_mysql):
             'make install DESTDIR="' + user_home() + "/" + mysql + "/" + mysql_installation_dir + '"',
             cd(user_home() + "/" + mysql + "/" + mysql_installation_dir + "/usr/local/mysql/bin"),
             initialize,
+
+            # TODO: Initialize security:
+            start_safe,
+
+
+
             start,
+
+
 
             # TODO: the rest of.
             cd(user_home()),
