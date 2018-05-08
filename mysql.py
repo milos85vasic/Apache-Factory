@@ -45,9 +45,6 @@ if has_feature(account, feature_mysql):
                 httpd_conf_matrix_home_dir_placeholder, home,
 
             ),
-            rm(  # TODO: Not ot remove this beacuse of Git? Same applies for HTTPD conf.
-                user_home() + "/" + mysql + "/" + mysql_conf_dir + "/" + mysql_conf_matrix
-            ),
 
 
             cd(user_home()),

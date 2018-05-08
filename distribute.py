@@ -34,9 +34,6 @@ steps = [
         httpd_conf_matrix_group_placeholder, account,
         httpd_conf_matrix_server_admin_placeholder, str(system_configuration[account][key_configuration_server_admin])
     ),
-    rm(
-        apache_conf + "/" + httpd_conf_matrix
-    ),
     python(services_distribution_script),
     concatenate(
         cd(apache_bin),
