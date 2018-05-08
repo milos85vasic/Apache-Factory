@@ -24,6 +24,7 @@ php_tar_gz = "php-7.2.4.tar.gz"
 apache_download = "http://www-us.apache.org/dist/httpd/" + apache_tar_gz
 php_download = "http://php.net/distributions/" + php_tar_gz
 mysql_tar_gz = "mysql-boost-8.0.11.tar.gz"
+mysql_extracted_dir = "mysql-8.0.11"
 mysql_download = "https://dev.mysql.com/get/Downloads/MySQL-8.0/" + mysql_tar_gz
 apache_extract = home + "/" + apache_tar_gz
 apache_extracted = home + "/" + apache_tar_gz.replace(".tar.gz", "")
