@@ -39,8 +39,6 @@ if has_feature(account, feature_mysql):
                 user_home() + "/" + apache_factory + "/" + wipe_script,
                 user_home() + "/" + mysql + "/" + mysql_conf_dir + "/" + mysql_conf_matrix,
                 user_home() + "/" + mysql + "/" + mysql_conf_dir + "/" + mysql_conf,
-
-                # TODO: Replace with key value pairs
                 my_conf_matrix_port_placeholder, str(system_configuration[key_configuration_port_mysql]),
                 my_conf_matrix_user_placeholder, account,
                 my_conf_matrix_sock_dir_placeholder, user_home() + "/" + mysql + "/" + mysql_sock_dir,
