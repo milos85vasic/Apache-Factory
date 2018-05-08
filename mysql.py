@@ -16,8 +16,12 @@ system_configuration = get_system_configuration()
 initialize = "./mysqld --defaults-file=" + user_home() + "/" + mysql + "/" + mysql_conf_dir + \
              "/my.conf --initialize-insecure --user=" + account
 
-start_command = "mysqld --defaults-extra-file=" + user_home() + "/" + mysql + "/" + mysql_conf_dir + "/my.conf"
-start = "./" + start_command
+
+def get_start_command(account_home):
+    return "mysqld --defaults-extra-file=" + account_home + "/" + mysql + "/" + mysql_conf_dir + "/my.conf"
+
+
+start = "./" + get_start_command(user_home())
 
 if has_feature(account, feature_mysql):
     steps = [
