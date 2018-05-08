@@ -19,6 +19,7 @@ initialize = "./mysqld --defaults-file=" + user_home() + "/" + mysql + "/" + mys
 start = "./mysqld --defaults-extra-file=" + user_home() + "/" + mysql + "/" + mysql_conf_dir + "/my.conf"
 
 if has_feature(account, feature_mysql):
+
     steps = [
         concatenate(
             cd(user_home()),
@@ -41,14 +42,14 @@ if has_feature(account, feature_mysql):
 
                 # TODO: Replace with key value pairs
                 my_conf_matrix_port_placeholder, "- - -",
-                my_conf_matrix_sock_dir_placeholder, "- - -",
-                my_conf_matrix_pid_dir_placeholder, "- - -",
-                my_conf_matrix_user_placeholder, "- - -",
-                my_conf_matrix_base_dir_placeholder, "- - -",
-                my_conf_matrix_data_dir_placeholder, "- - -",
-                my_conf_matrix_tmp_dir_placeholder, "- - -",
-                my_conf_matrix_share_dir_placeholder, "- - -",
-                my_conf_matrix_log_dir_placeholder, "- - -"
+                my_conf_matrix_user_placeholder, account,
+                my_conf_matrix_sock_dir_placeholder, user_home() + "/" + mysql + "/" + mysql_sock_dir,
+                my_conf_matrix_pid_dir_placeholder, user_home() + "/" + mysql + "/" + mysql_pid_dir,
+                my_conf_matrix_base_dir_placeholder, user_home() + "/" + mysql + "/" + mysql_installation_dir,
+                my_conf_matrix_data_dir_placeholder, user_home() + "/" + mysql + "/" + mysql_data_dir,
+                my_conf_matrix_tmp_dir_placeholder, user_home() + "/" + mysql + "/" + mysql_tmp_dir,
+                my_conf_matrix_share_dir_placeholder, user_home() + "/" + mysql + "/" + mysql_share_dir,
+                my_conf_matrix_log_dir_placeholder, user_home() + "/" + mysql + "/" + mysql_log_dir
             ),
             clear(),
             cd(user_home()),
@@ -70,5 +71,4 @@ if has_feature(account, feature_mysql):
             rm(mysql_tar_gz.replace(".tar.gz", ""))
         )
     ]
-
     run(steps)
