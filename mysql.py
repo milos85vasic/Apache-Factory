@@ -18,7 +18,7 @@ initialize = "./mysqld --defaults-file=" + user_home() + "/" + mysql + "/" + mys
 
 
 def get_start_command(account_home):
-    return "mysqld --defaults-extra-file=" + account_home + "/" + mysql + "/" + mysql_conf_dir + "/my.conf"
+    return "mysqld --defaults-extra-file=" + account_home + "/" + mysql + "/" + mysql_conf_dir + "/my.conf &"
 
 
 start = "./" + get_start_command(user_home())
