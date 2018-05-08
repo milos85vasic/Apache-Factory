@@ -28,7 +28,7 @@ steps = [
             get_yum("sqlite"),
             get_yum("libxml2"),
             get_yum("libxml2-devel"),
-            get_yum("ncurses-devel").
+            get_yum("ncurses-devel"),
             add_to_group(account, apache_factory_group),
             mkdir(content_dir_path(user_home())),
             chown(account, content_dir_path(user_home())),
