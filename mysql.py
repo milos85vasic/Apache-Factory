@@ -12,16 +12,19 @@ def user_home():
 
 system_configuration = get_system_configuration()
 
-
-initialize = "./mysqld --defaults-file=" + user_home() + "/" + mysql + "/" + mysql_conf_dir + \
+initialize = "/mysqld --defaults-file=" + user_home() + "/" + mysql + "/" + mysql_conf_dir + \
              "/my.conf --initialize --user=" + account
 
 
 def get_start_command(account_home):
-    return "mysqld --defaults-extra-file=" + account_home + "/" + mysql + "/" + mysql_conf_dir + "/my.conf &"
+    return "/mysqld --defaults-extra-file=" + account_home + "/" + mysql + "/" + mysql_conf_dir + "/my.conf &"
 
 
-start = "./" + get_start_command(user_home())
+start = get_start_command(user_home())
+
+
+def get_mysql_bin_directory():
+    return user_home() + "/" + mysql + "/" + mysql_installation_dir + "/usr/local/mysql/bin"
 
 
 if has_feature(account, feature_mysql):
@@ -64,12 +67,12 @@ if has_feature(account, feature_mysql):
             "cmake ./ -DDOWNLOAD_BOOST=1 -DWITH_BOOST=" + get_home_directory_path(account) + "/Boost",
             "make",
             'make install DESTDIR="' + user_home() + "/" + mysql + "/" + mysql_installation_dir + '"',
-            cd(user_home() + "/" + mysql + "/" + mysql_installation_dir + "/usr/local/mysql/bin"),
-
-            # TODO: Run the script to catch output and save it as configuration parameter.
-            initialize,
-
-            start,
+            cd(user_home() + "/" + apache_factory),
+            python(
+                mysql_initialization_script,
+                get_mysql_bin_directory() + initialize
+            ),
+            get_mysql_bin_directory() + start,
 
             # TODO: the rest of.
             cd(user_home()),

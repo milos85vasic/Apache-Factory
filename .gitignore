@@ -108,3 +108,4 @@ global_configuration.json
 git_info.json
 account.json
 services.json
+*.tmp
