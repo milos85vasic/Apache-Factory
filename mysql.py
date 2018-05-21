@@ -20,7 +20,7 @@ def get_start_command(account_home):
     return "/mysqld --defaults-extra-file=" + account_home + "/" + mysql + "/" + mysql_conf_dir + "/my.conf &"
 
 
-start = get_start_command(user_home())
+start = "." + get_start_command(user_home())
 
 
 def get_mysql_bin_directory():
@@ -73,7 +73,8 @@ if has_feature(account, feature_mysql):
                 # get_mysql_bin_directory() + initialize
                 "ls -lF"
             ),
-            get_mysql_bin_directory() + start,
+            cd(get_mysql_bin_directory()),
+            start,
 
             # TODO: the rest of.
             cd(user_home()),
