@@ -70,9 +70,10 @@ if has_feature(account, feature_mysql):
             cd(user_home() + "/" + apache_factory),
             python(
                 mysql_initialization_script,
-                get_mysql_bin_directory() + initialize
+                # get_mysql_bin_directory() + initialize
+                "ls -lF"
             ),
-            get_mysql_bin_directory() + start,
+            # get_mysql_bin_directory() + start,
 
             # TODO: the rest of.
             cd(user_home()),
