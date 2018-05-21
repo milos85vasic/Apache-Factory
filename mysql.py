@@ -12,7 +12,7 @@ def user_home():
 
 system_configuration = get_system_configuration()
 
-# TODO: Obtain my.conf from git repository.
+
 initialize = "./mysqld --defaults-file=" + user_home() + "/" + mysql + "/" + mysql_conf_dir + \
              "/my.conf --initialize --user=" + account
 
