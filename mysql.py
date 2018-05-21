@@ -73,7 +73,7 @@ if has_feature(account, feature_mysql):
                 # get_mysql_bin_directory() + initialize
                 "ls -lF"
             ),
-            # get_mysql_bin_directory() + start,
+            get_mysql_bin_directory() + start,
 
             # TODO: the rest of.
             cd(user_home()),
