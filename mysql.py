@@ -64,9 +64,9 @@ if has_feature(account, feature_mysql):
             extract(user_home() + "/" + mysql_tar_gz, destination=user_home()),
             clear(),
             cd(mysql_extracted_dir),
-            # "cmake ./ -DDOWNLOAD_BOOST=1 -DWITH_BOOST=" + get_home_directory_path(account) + "/Boost",
-            # "make",
-            # 'make install DESTDIR="' + user_home() + "/" + mysql + "/" + mysql_installation_dir + '"',
+            "cmake ./ -DDOWNLOAD_BOOST=1 -DWITH_BOOST=" + get_home_directory_path(account) + "/Boost",
+            "make",
+            'make install DESTDIR="' + user_home() + "/" + mysql + "/" + mysql_installation_dir + '"',
         ),
         cd(user_home() + "/" + apache_factory),
         python(
