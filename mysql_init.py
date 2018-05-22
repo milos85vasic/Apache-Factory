@@ -10,6 +10,9 @@ command = "ls -lF"
 
 result = subprocess.check_output([command])
 
+print(result)
+print("- - - - - - - - - - - -")
+
 if os.path.isfile(mysql_initialization_tmp):
     os.remove(mysql_initialization_tmp)
 else:
