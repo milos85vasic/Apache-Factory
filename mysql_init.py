@@ -6,7 +6,7 @@ from subprocess import Popen, PIPE, STDOUT
 
 command = get_mysql_bin_directory() + initialize
 
-p = Popen(command.split(" "), stdin=PIPE, stdout=STDOUT, stderr=PIPE)
+p = Popen(command.split(" "), stdin=STDOUT, stdout=PIPE, stderr=PIPE)
 stdout, stderr = p.communicate()
 
 print("- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -")
