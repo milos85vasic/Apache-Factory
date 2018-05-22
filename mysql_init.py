@@ -13,10 +13,11 @@ command = get_mysql_bin_directory() + initialize
 p = Popen(command.split(" "), stdin=PIPE, stdout=PIPE, stderr=PIPE)
 stdout, stderr = p.communicate()
 
+print("- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -")
 print(stdout)
-print("- - - - - - - - - - - -")
+print("- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -")
 print(stderr)
-print("- - - - - - - - - - - -")
+print("- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -")
 
 # if os.path.isfile(mysql_initialization_tmp):
 #     os.remove(mysql_initialization_tmp)
