@@ -11,6 +11,7 @@ steps = [
 
 run(command)
 
+contains = "A temporary password is generated for root@localhost: "
 
 # TODO: parse  /home/test1/MySQL/Log/error.log for password.
 
