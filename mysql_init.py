@@ -9,7 +9,7 @@ steps = [
     command
 ]
 
-run(command)
+run(steps)
 
 contains = "A temporary password is generated for root@localhost: "
 path = get_mysql_logs_directory() + "/" + "error.log"
