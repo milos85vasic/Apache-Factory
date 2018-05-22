@@ -17,5 +17,6 @@ with open(path) as fp:
     for cnt, line in enumerate(fp):
         if contains in line:
             split_result = line.split(contains)
-            print(split_result[1])
+            mysql_password = split_result[1].strip()
+            print("MySQL password: " + mysql_password)
             break
