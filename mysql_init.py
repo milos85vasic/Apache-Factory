@@ -17,5 +17,5 @@ with open(path) as fp:
     for cnt, line in enumerate(fp):
         if contains in line:
             split_result = line.split(contains)
-            print(split_result[0])
+            print(split_result[1])
             break
