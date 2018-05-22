@@ -16,5 +16,6 @@ path = get_mysql_logs_directory() + "/" + "error.log"
 with open(path) as fp:
     for cnt, line in enumerate(fp):
         if contains in line:
-            print(">>>>> " + line)
+            split_result = line.split(contains)
+            print(split_result[0])
             break
