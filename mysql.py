@@ -57,10 +57,8 @@ if has_feature(account, feature_mysql):
             mysql_initialization_script,
             account
         ),
-        # cd(get_mysql_bin_directory()),
-        # start,
-
-        # TODO: the rest of.
+        cd(get_mysql_bin_directory()),
+        start,
         cd(user_home()),
         rm(mysql_tar_gz),
         rm(mysql_tar_gz.replace(".tar.gz", ""))
