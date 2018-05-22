@@ -14,5 +14,7 @@ def get_mysql_bin_directory():
 
 account = sys.argv[1]
 
+system_configuration = get_system_configuration()
+
 initialize = "/mysqld --defaults-file=" + user_home() + "/" + mysql + "/" + mysql_conf_dir + \
              "/my.conf --initialize --user=" + account

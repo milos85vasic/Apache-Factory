@@ -9,11 +9,7 @@ def get_start_command(account_home):
     return "/mysqld --defaults-extra-file=" + account_home + "/" + mysql + "/" + mysql_conf_dir + "/my.conf &"
 
 
-system_configuration = get_system_configuration()
-
 start = "." + get_start_command(user_home())
-
-
 
 if has_feature(account, feature_mysql):
     steps = [
