@@ -19,6 +19,6 @@ with open(path) as fp:
             split_result = line.split(contains)
             mysql_password = split_result[1].strip()
             print("MySQL password: " + mysql_password)
-            system_configuration[account][key_services][key_credentials][feature_mysql] = mysql_password
+            system_configuration[account][key_services] += {key_credentials: {feature_mysql: mysql_password}}
             save_system_configuration(system_configuration)
             break
