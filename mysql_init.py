@@ -4,9 +4,7 @@ import sys
 from configuration import *
 from mysql_common import *
 
-# command = get_mysql_bin_directory() + initialize
-
-command = "ls -lF"
+command = get_mysql_bin_directory() + initialize
 
 result = subprocess.check_output(command.split(" "))
 
