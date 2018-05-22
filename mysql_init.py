@@ -8,7 +8,9 @@ from mysql_common import *
 
 command = "ls -lF"
 
-result = subprocess.check_output([command])
+# result = subprocess.check_output([command])
+
+result = "zzzzzz"
 
 print(result)
 print("- - - - - - - - - - - -")
