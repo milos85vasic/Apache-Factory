@@ -15,6 +15,7 @@ feature_mysql = "mysql"
 key_services_url = "url"
 key_services_urls = "urls"
 key_service_root = "root"
+key_credentials = "credentials"
 key_services_repository = "repository"
 services_file = key_services + ".json"
 
