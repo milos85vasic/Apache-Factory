@@ -17,6 +17,8 @@ print("- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -")
 print(stderr)
 print("- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -")
 
+# TODO: parse  /home/test1/MySQL/Log/error.log for password.
+
 # if os.path.isfile(mysql_initialization_tmp):
 #     os.remove(mysql_initialization_tmp)
 # else:
