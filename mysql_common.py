@@ -12,6 +12,10 @@ def get_mysql_bin_directory():
     return user_home() + "/" + mysql + "/" + mysql_installation_dir + "/usr/local/mysql/bin"
 
 
+def get_mysql_logs_directory():
+    return user_home() + "/" + mysql + "/" + mysql_log_dir
+
+
 account = sys.argv[1]
 
 system_configuration = get_system_configuration()
