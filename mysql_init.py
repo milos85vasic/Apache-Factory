@@ -1,16 +1,12 @@
 import os
-import subprocess
 import sys
 from configuration import *
 from mysql_common import *
-from subprocess import Popen, PIPE
+from subprocess import Popen, PIPE, STDOUT
 
 command = get_mysql_bin_directory() + initialize
 
-# result = subprocess.check_output(command.split(" "))
-
-
-p = Popen(command.split(" "), stdin=PIPE, stdout=PIPE, stderr=PIPE)
+p = Popen(command.split(" "), stdin=PIPE, stdout=STDOUT, stderr=PIPE)
 stdout, stderr = p.communicate()
 
 print("- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -")
