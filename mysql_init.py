@@ -6,9 +6,9 @@ from mysql_common import *
 
 # command = get_mysql_bin_directory() + initialize
 
-command = "ls"
+command = "ls -lF"
 
-result = subprocess.check_output([command])
+result = subprocess.check_output(command.split(" "))
 
 print(result)
 print("- - - - - - - - - - - -")
