@@ -2,29 +2,17 @@ import sys
 from commands import *
 from configuration import *
 from system_configuration import *
-
-account = sys.argv[1]
-
-
-def user_home():
-    return get_home_directory_path(account)
-
-
-system_configuration = get_system_configuration()
-
-initialize = "/mysqld --defaults-file=" + user_home() + "/" + mysql + "/" + mysql_conf_dir + \
-             "/my.conf --initialize --user=" + account
+from mysql_common import *
 
 
 def get_start_command(account_home):
     return "/mysqld --defaults-extra-file=" + account_home + "/" + mysql + "/" + mysql_conf_dir + "/my.conf &"
 
 
+system_configuration = get_system_configuration()
+
 start = "." + get_start_command(user_home())
 
-
-def get_mysql_bin_directory():
-    return user_home() + "/" + mysql + "/" + mysql_installation_dir + "/usr/local/mysql/bin"
 
 
 if has_feature(account, feature_mysql):
@@ -71,8 +59,7 @@ if has_feature(account, feature_mysql):
         cd(user_home() + "/" + apache_factory),
         python(
             mysql_initialization_script,
-            get_mysql_bin_directory() + initialize
-            # "ls -lF"
+            account
         ),
         # cd(get_mysql_bin_directory()),
         # start,

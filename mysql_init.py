@@ -2,8 +2,9 @@ import os
 import subprocess
 import sys
 from configuration import *
+from mysql_common import *
 
-command = sys.argv[1]
+command = get_mysql_bin_directory() + initialize
 
 result = subprocess.check_output([command])
 
