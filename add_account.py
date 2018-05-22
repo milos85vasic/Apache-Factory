@@ -33,7 +33,6 @@ except KeyError:
                 chmod(get_home_directory_path(account), "750"),
                 chown(account, get_home_directory_path(account)),
                 chgrp(account, get_home_directory_path(account)),
-                chmod(apache_factory, "644"),
                 cd("~"),
                 cd(apache_factory),
                 python(starter_init_script),
@@ -44,7 +43,8 @@ except KeyError:
         run_as_user(
             account,
             concatenate(
-                python(factory_script)
+                python(factory_script),
+                chmod(get_home_directory_path(account), "644")
             )
         )
     ]
