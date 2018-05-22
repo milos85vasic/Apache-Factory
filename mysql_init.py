@@ -10,6 +10,8 @@ p = Popen(command.split(" "), stdin=PIPE, stdout=PIPE, stderr=PIPE)
 stdout, stderr = p.communicate()
 
 print("- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -")
+print(command)
+print("- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -")
 print(stdout)
 print("- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -")
 print(stderr)
