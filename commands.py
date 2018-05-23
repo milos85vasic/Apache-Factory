@@ -25,7 +25,6 @@ def concatenate(*what):
         append = item.strip()
         if append:
             result += " " + append
-            print(">>>>>> " + str(index) + ", " + str(len(what)))
             if index < len(what) - 1:
                 result + ";"
     return result
