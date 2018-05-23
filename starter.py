@@ -11,6 +11,9 @@ system_configuration = get_system_configuration()
 for item in system_configuration.keys():
     account = item
     script = get_home_directory_path(account)
+    if not os.path.exists(script):
+        exit()
+
     script += "/" + apache2 + "/bin/apachectl"
     if os.path.isfile(script):
         steps = [
