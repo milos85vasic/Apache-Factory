@@ -6,11 +6,6 @@ from system_configuration import *
 from configuration import *
 from git_info import *
 
-
-def get_start_command(account_home):
-    return "/mysqld --defaults-extra-file=" + account_home + "/" + mysql + "/" + mysql_conf_dir + "/my.conf &"
-
-
 system_configuration = get_system_configuration()
 
 for item in system_configuration.keys():
@@ -33,9 +28,13 @@ for item in system_configuration.keys():
         print(script)
 
     if has_feature(account, feature_mysql):
-        script = get_home_directory_path(account) + "/" + mysql + "/" + mysql_installation_dir + "/usr/local/mysql/bin"
-        script += get_start_command(get_home_directory_path(account))
+        script = get_home_directory_path(account) + "/" + mysql + "/" + mysql_installation_dir + \
+                 "/usr/local/mysql/bin/mysqld"
+
         if os.path.isfile(script):
+            script += " --defaults-extra-file=" + get_home_directory_path(account) + "/" + mysql + "/" \
+                      + mysql_conf_dir + "/my.conf &"
+
             steps = [
                 run_as_user(account, script)
             ]
