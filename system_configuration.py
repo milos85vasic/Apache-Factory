@@ -114,6 +114,4 @@ def has_feature(account, feature):
             if key_features in system_configuration[account][key_services]:
                 features = system_configuration[account][key_services][key_features]
 
-    res = features and feature in features
-    print(">>>> " + account + ", " + feature + ", " + str(res))
-    return res
+    return features and feature in features
