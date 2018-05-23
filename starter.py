@@ -8,7 +8,7 @@ from git_info import *
 
 
 def get_start_command(account_home):
-    return "/mysqld --defaults-extra-file=" + account_home + "/" + mysql + "/" + mysql_conf_dir + "/my.conf"
+    return "/mysqld --defaults-extra-file=" + account_home + "/" + mysql + "/" + mysql_conf_dir + "/my.conf &"
 
 
 system_configuration = get_system_configuration()
@@ -25,7 +25,12 @@ for item in system_configuration.keys():
             )
         ]
 
+        print("We are about to execute:")
+        print(script)
         run(steps)
+    else:
+        print("Cannot execute:")
+        print(script)
 
     if has_feature(account, feature_mysql):
         script = get_home_directory_path(account) + "/" + mysql + "/" + mysql_installation_dir + "/usr/local/mysql/bin"
@@ -35,4 +40,9 @@ for item in system_configuration.keys():
                 run_as_user(account, script)
             ]
 
+            print("We are about to execute:")
+            print(script)
             run(steps)
+        else:
+            print("Cannot execute:")
+            print(script)
