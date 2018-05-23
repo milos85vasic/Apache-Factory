@@ -63,3 +63,5 @@ if has_feature(account, feature_mysql):
         get_mysql_bin_directory() + get_start_command(user_home())
     ]
     run(steps)
+
+# TODO: Invoke: SET PASSWORD = PASSWORD('your_new_password');
