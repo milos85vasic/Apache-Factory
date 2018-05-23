@@ -24,9 +24,10 @@ def concatenate(*what):
     for index, item in enumerate(what):
         append = item.strip()
         if append:
-            result += " " + append
-            if index < len(what) - 1:
-                result + ";"
+            result += " " + append + ";"
+            # if index < len(what) - 1:
+            #     result + ";"
+    print("> > > > >: " + result)
     return result
 
 
