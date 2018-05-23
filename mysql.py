@@ -58,8 +58,8 @@ if has_feature(account, feature_mysql):
             account
         ),
         concatenate(
-            cd(get_mysql_bin_directory()),
-            start,
+            # cd(get_mysql_bin_directory()),
+            # start,
             cd(user_home()),
             rm(mysql_tar_gz),
             rm(mysql_tar_gz.replace(".tar.gz", ""))
