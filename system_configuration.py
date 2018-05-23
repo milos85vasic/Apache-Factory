@@ -105,12 +105,13 @@ def get_services_directories(account):
 
 
 def has_feature(account, feature):
-    print("ACCOUNT: " + account)
     features = None
     system_configuration = get_system_configuration()
 
-    if key_services in system_configuration[account]:
-        if key_features in system_configuration[account][key_services]:
-            features = system_configuration[account][key_services][key_features]
+    account_configuration = system_configuration[account]
+    if isinstance(account_configuration, dict):
+        if key_services in account_configuration:
+            if key_features in system_configuration[account][key_services]:
+                features = system_configuration[account][key_services][key_features]
 
     return features and feature in features
