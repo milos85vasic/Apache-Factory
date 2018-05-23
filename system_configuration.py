@@ -115,5 +115,5 @@ def has_feature(account, feature):
                 features = system_configuration[account][key_services][key_features]
 
     res = features and feature in features
-    print(">>>> " + account + ", " + feature + ", " + res)
+    print(">>>> " + account + ", " + feature + ", " + str(res))
     return res
