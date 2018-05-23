@@ -8,7 +8,7 @@ from git_info import *
 
 
 def get_start_command(account_home):
-    return "/mysqld --defaults-extra-file=" + account_home + "/" + mysql + "/" + mysql_conf_dir + "/my.conf &"
+    return "/mysqld --defaults-extra-file=" + account_home + "/" + mysql + "/" + mysql_conf_dir + "/my.conf"
 
 
 system_configuration = get_system_configuration()
