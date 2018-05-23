@@ -9,8 +9,6 @@ def get_start_command(account_home):
     return "/mysqld --defaults-extra-file=" + account_home + "/" + mysql + "/" + mysql_conf_dir + "/my.conf &"
 
 
-start = "." + get_start_command(user_home())
-
 if has_feature(account, feature_mysql):
     steps = [
         concatenate(
@@ -58,11 +56,10 @@ if has_feature(account, feature_mysql):
             account
         ),
         concatenate(
-            # cd(get_mysql_bin_directory()),
-            # start,
             cd(user_home()),
             rm(mysql_tar_gz),
             rm(mysql_tar_gz.replace(".tar.gz", ""))
-        )
+        ),
+        get_mysql_bin_directory() + get_start_command(user_home())
     ]
     run(steps)
