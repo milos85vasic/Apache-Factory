@@ -24,8 +24,8 @@ for item in system_configuration.keys():
         run(steps)
 
     if has_feature(account, feature_mysql):
-        script = get_home_directory_path(account)
-        script += "/" + get_start_command(get_home_directory_path(account))
+        script = get_home_directory_path(account) + "/" + mysql + "/" + mysql_installation_dir + "/usr/local/mysql/bin"
+        script += get_start_command(get_home_directory_path(account))
         if os.path.isfile(script):
             steps = [
                 run_as_user(account, script)
