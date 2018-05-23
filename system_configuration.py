@@ -105,6 +105,7 @@ def get_services_directories(account):
 
 
 def has_feature(account, feature):
+    print("ACCOUNT: " + account)
     features = None
     system_configuration = get_system_configuration()
 
