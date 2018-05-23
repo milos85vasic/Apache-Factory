@@ -18,7 +18,7 @@ with open(path) as fp:
         if contains in line:
             split_result = line.split(contains)
             mysql_password = split_result[1].strip()
-            print("MySQL password: " + mysql_password)
+            print("MySQL root user password: " + mysql_password)
             system_configuration[account][key_services][key_credentials] = {feature_mysql: mysql_password}
             save_system_configuration(system_configuration)
             break

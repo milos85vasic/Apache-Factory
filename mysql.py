@@ -58,6 +58,7 @@ if has_feature(account, feature_mysql):
             account
         ),
         cd(get_mysql_bin_directory()),
+        "pwd",
         start,
         cd(user_home()),
         rm(mysql_tar_gz),
