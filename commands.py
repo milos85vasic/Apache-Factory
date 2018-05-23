@@ -21,10 +21,12 @@ def get_yum_group(what):
 
 def concatenate(*what):
     result = ""
-    for item in what:
+    for index, item in enumerate(what):
         append = item.strip()
         if append:
-            result += " " + append + ";"
+            result += " " + append
+            if index < item.__len__ - 1:
+                result + ";"
     return result
 
 
