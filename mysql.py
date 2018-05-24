@@ -64,6 +64,8 @@ if has_feature(account, feature_mysql):
     ]
     run(steps)
 
-# TODO: Invoke: SET PASSWORD = PASSWORD('your_new_password');
-# TODO: --init-file=/home/test1/Apache-Factory/init.tmp &
-# TODO: init.tmp: ALTER USER 'root'@'localhost' IDENTIFIED BY 'password';
+# TODO: start cmd ending with:              --init-file=/home/test1/Apache-Factory/init.tmp &
+# TODO: echo XXXX > init.tmp:               ALTER USER 'root'@'localhost' IDENTIFIED BY 'password';
+# TODO: parse and get PID:                  ps -A | grep mysql
+# TODO: kill XXX
+# TODO: start cmd
