@@ -66,6 +66,7 @@ if has_feature(account, feature_mysql):
 
 # TODO: start cmd ending with:              --init-file=/home/test1/Apache-Factory/init.tmp &
 # TODO: echo XXXX > init.tmp:               ALTER USER 'root'@'localhost' IDENTIFIED BY 'password';
+#                                           Create users and databases.
 # TODO: parse and get PID:                  ps -A | grep mysql
 # TODO: kill XXX
 # TODO: start cmd
