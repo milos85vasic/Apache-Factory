@@ -156,3 +156,7 @@ def sleep(seconds):
 
 def add_to_group(account, group):
     return "usermod -a -G " + group + " " + account
+
+
+def output(what, where):
+    return 'echo "' + what + '" > ' + where
