@@ -27,8 +27,10 @@ with open(path) as fp:
             steps = [
                 output(alter_user, mysql_init_tmp),
                 get_mysql_bin_directory() + get_start_command_init(user_home()),
-                # TODO: parse and get PID:                  ps -A | grep mysql
-                # TODO: kill XXX
+                python(
+                    killer_script,
+                    "mysql"
+                ),
 
                 # TODO: start cmd
                 # get_mysql_bin_directory() + get_start_command(user_home())

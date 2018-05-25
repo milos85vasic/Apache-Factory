@@ -75,6 +75,7 @@ php_test_script = "test.php"
 starter_script = "starter.py"
 starter_init_script = "starter_init.py"
 rc_local = "/etc/rc.d/rc.local"
+killer_script = "killer.py"
 rpm_fusion_free = "https://download1.rpmfusion.org/free/el/rpmfusion-free-release-7.noarch.rpm"
 rpm_fusion_non_free = "https://download1.rpmfusion.org/nonfree/el/rpmfusion-nonfree-release-7.noarch.rpm"
 
