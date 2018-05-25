@@ -22,19 +22,18 @@ with open(path) as fp:
             system_configuration[account][key_services][key_credentials] = {feature_mysql: mysql_password}
             save_system_configuration(system_configuration)
 
-            alter_user = "ALTER USER 'root'@'localhost' IDENTIFIED BY 'password';"
+            alter_user = "ALTER USER 'root'@'localhost' IDENTIFIED BY 'password';"  # TODO: Create users and databases.
+
             steps = [
-                output(alter_user, "init.tmp"),
-                get_mysql_bin_directory() + get_start_command(user_home())
+                output(alter_user, mysql_init_tmp),
+                get_mysql_bin_directory() + get_start_command_init(user_home()),
+                # TODO: parse and get PID:                  ps -A | grep mysql
+                # TODO: kill XXX
+
+                # TODO: start cmd
+                # get_mysql_bin_directory() + get_start_command(user_home())
+
+                # TODO: remove *.tmp
             ]
             run(steps)
             break
-
-
-# TODO: echo XXXX > init.tmp:               ALTER USER 'root'@'localhost' IDENTIFIED BY 'password';
-# TODO: start cmd ending with:              --init-file=/home/test1/Apache-Factory/init.tmp &
-#                                           Create users and databases.
-# TODO: parse and get PID:                  ps -A | grep mysql
-# TODO: kill XXX
-# TODO: start cmd
-# TODO: remove *.tmp
