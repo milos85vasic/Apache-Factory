@@ -22,6 +22,10 @@ with open(path) as fp:
             system_configuration[account][key_services][key_credentials] = {feature_mysql: mysql_password}
             save_system_configuration(system_configuration)
 
+            steps = [
+                get_mysql_bin_directory() + get_start_command(user_home())
+            ]
+            run(steps)
             break
 
 

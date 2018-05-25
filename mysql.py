@@ -4,11 +4,6 @@ from configuration import *
 from system_configuration import *
 from mysql_common import *
 
-
-def get_start_command(account_home):
-    return "/mysqld --defaults-extra-file=" + account_home + "/" + mysql + "/" + mysql_conf_dir + "/my.conf &"
-
-
 if has_feature(account, feature_mysql):
     steps = [
         concatenate(
@@ -59,8 +54,7 @@ if has_feature(account, feature_mysql):
             cd(user_home()),
             rm(mysql_tar_gz),
             rm(mysql_tar_gz.replace(".tar.gz", ""))
-        ),
-        get_mysql_bin_directory() + get_start_command(user_home())
+        )
     ]
     run(steps)
 

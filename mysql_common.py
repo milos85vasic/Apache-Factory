@@ -16,6 +16,10 @@ def get_mysql_logs_directory():
     return user_home() + "/" + mysql + "/" + mysql_log_dir
 
 
+def get_start_command(account_home):
+    return "/mysqld --defaults-extra-file=" + account_home + "/" + mysql + "/" + mysql_conf_dir + "/my.conf &"
+
+
 account = sys.argv[1]
 
 system_configuration = get_system_configuration()
