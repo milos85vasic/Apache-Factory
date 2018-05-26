@@ -26,16 +26,11 @@ steps = [
     output(alter_user, mysql_init_tmp),
     get_mysql_bin_directory() + get_start_command_init(user_home()),
     sleep(30),
-    # python(
-    #     killer_script,
-    #     "mysql"
-    # ),
-
-    # TODO: start cmd
-    # get_mysql_bin_directory() + get_start_command(user_home())
-
-    "echo 'We are about to remove tmp files.'"
-    "ls *.tmp",
+    python(
+        killer_script,
+        "mysql"
+    ),
+    get_mysql_bin_directory() + get_start_command(user_home()),
     rm_files("*.tmp")
 ]
 run(steps)
