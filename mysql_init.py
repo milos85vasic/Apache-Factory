@@ -28,7 +28,7 @@ steps = [
     sleep(10),
     python(
         killer_script,
-        "mysql"
+        "mysqld"
     ),
     sleep(5),
     get_mysql_bin_directory() + get_start_command(user_home()),
