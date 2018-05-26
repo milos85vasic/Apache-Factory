@@ -1,8 +1,8 @@
 import os
+import random
 import sys
 from configuration import *
 from mysql_common import *
-import secrets
 import string
 
 command = get_mysql_bin_directory() + initialize
@@ -14,7 +14,7 @@ steps = [
 run(steps)
 
 alphabet = string.ascii_letters + string.digits
-mysql_password = ''.join(secrets.choice(alphabet) for i in range(20))
+mysql_password = ''.join(random.choice(alphabet) for i in range(20))
 
 print("MySQL root user password: " + mysql_password)
 system_configuration[account][key_services][key_credentials] = {feature_mysql: mysql_password}
