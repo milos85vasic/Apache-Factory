@@ -25,12 +25,14 @@ alter_user = "ALTER USER 'root'@'localhost' IDENTIFIED BY '" + mysql_password + 
 steps = [
     output(alter_user, mysql_init_tmp),
     get_mysql_bin_directory() + get_start_command_init(user_home()),
-    sleep(30),
+    sleep(10),
     python(
         killer_script,
         "mysql"
     ),
+    sleep(5),
     get_mysql_bin_directory() + get_start_command(user_home()),
+    sleep(10),
     rm_files("*.tmp")
 ]
 run(steps)
