@@ -1,14 +1,11 @@
 import subprocess
 import sys
-import re
 
 what = sys.argv[1]
 command = "ps -A | grep " + what
 
 ps = subprocess.Popen(command, shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
 result = ps.communicate()[0]
-
-# result = "15639 pts/0    00:00:01 mysqld"
 
 lines = str(result).split("\n")
 
