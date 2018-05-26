@@ -172,3 +172,7 @@ def pip_upgrade():
 
 def pip(what):
     return "pip install " + what
+
+
+def kill(who):
+    return "kill " + who

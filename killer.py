@@ -1,5 +1,6 @@
 import subprocess
 import sys
+from commands import *
 
 what = sys.argv[1]
 command = "ps -A | grep " + what
@@ -19,3 +20,8 @@ for line in lines:
                 break
         print(line)
         print("We are about to kill: " + str(pid))
+        steps = [
+            kill(str(pid))
+        ]
+
+        run(steps)
