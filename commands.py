@@ -126,6 +126,10 @@ def rm(what):
     return "rm -rf " + what
 
 
+def rm_files(what):
+    return "rm " + what
+
+
 def apache_start():
     return "./apachectl start"
 

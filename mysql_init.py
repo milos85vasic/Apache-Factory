@@ -33,6 +33,6 @@ steps = [
     # TODO: start cmd
     # get_mysql_bin_directory() + get_start_command(user_home())
 
-    # TODO: remove *.tmp
+    rm_files("*.tmp")
 ]
 run(steps)
