@@ -8,6 +8,9 @@ import string
 command = get_mysql_bin_directory() + initialize
 
 steps = [
+    run_as_su(
+        pip("secret")
+    ),
     command
 ]
 

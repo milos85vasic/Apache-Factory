@@ -164,3 +164,11 @@ def add_to_group(account, group):
 
 def output(what, where):
     return 'echo "' + what + '" > ' + where
+
+
+def pip_upgrade():
+    return "pip install --upgrade pip"
+
+
+def pip(what):
+    return "pip install " + what
