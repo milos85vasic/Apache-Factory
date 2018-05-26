@@ -45,9 +45,6 @@ if has_feature(account, feature_mysql):
             # "make",
             'make install DESTDIR="' + user_home() + "/" + mysql + "/" + mysql_installation_dir + '"',
         ),
-        run_as_su(
-            pip("secret")
-        ),
         cd(user_home() + "/" + apache_factory),
         python(
             mysql_initialization_script,

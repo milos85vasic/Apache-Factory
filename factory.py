@@ -31,6 +31,7 @@ steps = [
             get_yum("ncurses-devel"),
             get_yum("python-pip"),
             pip_upgrade(),
+            pip("secret"),
             add_to_group(account, apache_factory_group),
             mkdir(content_dir_path(user_home())),
             chown(account, content_dir_path(user_home())),
