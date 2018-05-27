@@ -2,8 +2,10 @@ import subprocess
 import sys
 from commands import *
 
-what = sys.argv[1]
-command = "ps -A | grep " + what
+who = sys.argv[1]
+what = sys.argv[2]
+
+command = "ps -u " + who + " | grep " + what
 
 ps = subprocess.Popen(command, shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
 result = ps.communicate()[0]

@@ -28,6 +28,7 @@ steps = [
     sleep(10),
     python(
         killer_script,
+        account,
         "mysqld"
     ),
     sleep(5),
