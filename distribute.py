@@ -11,10 +11,6 @@ system_configuration = get_system_configuration()
 system_configuration[key_configuration_port] = system_configuration[key_configuration_port] + 1
 system_configuration[account][key_configuration_port] = system_configuration[key_configuration_port]
 
-if has_feature(account, feature_mysql):
-    system_configuration[key_configuration_port_mysql] = system_configuration[key_configuration_port_mysql] + 1
-    system_configuration[account][key_configuration_port_mysql] = system_configuration[key_configuration_port_mysql]
-
 save_system_configuration(system_configuration)
 
 steps = [

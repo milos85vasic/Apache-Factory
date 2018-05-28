@@ -5,6 +5,11 @@ from system_configuration import *
 from mysql_common import *
 
 if has_feature(account, feature_mysql):
+    if has_feature(account, feature_mysql):
+        system_configuration[key_configuration_port_mysql] = system_configuration[key_configuration_port_mysql] + 1
+        system_configuration[account][key_configuration_port_mysql] = system_configuration[key_configuration_port_mysql]
+
+    save_system_configuration(system_configuration)
     steps = [
         concatenate(
             cd(user_home()),
