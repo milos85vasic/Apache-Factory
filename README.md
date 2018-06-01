@@ -122,4 +122,4 @@ If you wish to password protect directory you can do this like in the following 
 ```
 
 We created 2 services: www.fundamental-kotlin.local and www.fundamental-kotlin2.local. We also created 2 users for password 
-protecting directories: pp1 and pp2. Each has list of directories (and) services defined to password protect.
+protecting directories: pp1 and pp2. Each has a list of directories (and) services defined to password protect.
