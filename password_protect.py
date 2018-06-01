@@ -33,7 +33,7 @@ if account in system_configuration:
 
                 steps = [
                     mkdir(get_home_directory_path(account) + "/" + security),
-
+                    cmd
                 ]
 
                 run(steps)
