@@ -8,6 +8,7 @@ account = getpass.getuser()
 
 system_configuration = get_system_configuration()
 
+print(account)
 print(system_configuration)
 
 if account in system_configuration:
