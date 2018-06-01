@@ -18,3 +18,22 @@ if account in system_configuration:
                         key_password_protect_password] +
                     " ]"
                 )
+
+                cmd = get_home_directory_path(account) + "/" + apache2 + "/bin/htpasswd"
+                passwd_file_path = get_home_directory_path(account) + "/" + security + "/" + passwd_file
+
+                append = passwd_file_path + " " + password_protect[key_password_protect_user] + " " + password_protect[
+                    key_password_protect_password
+                ]
+
+                if os.path.isfile(passwd_file_path):
+                    cmd += " " + append
+                else:
+                    cmd += " -c " + append
+
+                steps = [
+                    mkdir(get_home_directory_path(account) + "/" + security),
+
+                ]
+
+                run(steps)
