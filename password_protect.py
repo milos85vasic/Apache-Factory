@@ -12,9 +12,12 @@ print(account)
 print(system_configuration)
 
 if account in system_configuration:
+    print("Ok 1")
     if key_services in system_configuration[account]:
-        if key_password_protect in system_configuration[account]:
-            for password_protect in system_configuration[key_password_protect]:
+        print("Ok 1")
+        if key_password_protect in system_configuration[account][key_services]:
+            print("Ok 2")
+            for password_protect in system_configuration[account][key_services][key_password_protect]:
                 print(
                     "We are about to initialize file user with credentials [ " +
                     password_protect[key_password_protect_user] + " ][ " + password_protect[
