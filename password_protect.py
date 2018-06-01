@@ -31,6 +31,8 @@ if account in system_configuration:
                 else:
                     cmd += " -c " + append
 
+                print(cmd)
+
                 steps = [
                     mkdir(get_home_directory_path(account) + "/" + security),
                     cmd
