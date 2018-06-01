@@ -27,11 +27,9 @@ if account in system_configuration:
                 ]
 
                 if os.path.isfile(passwd_file_path):
-                    cmd += " " + append
+                    cmd += " -b " + append
                 else:
-                    cmd += " -c " + append
-
-                print(cmd)
+                    cmd += " -b -c " + append
 
                 steps = [
                     mkdir(get_home_directory_path(account) + "/" + security),
