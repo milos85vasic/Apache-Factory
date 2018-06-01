@@ -30,6 +30,7 @@ apache_extract = home + "/" + apache_tar_gz
 apache_extracted = home + "/" + apache_tar_gz.replace(".tar.gz", "")
 factory_script = "factory.py"
 distribution_script = "distribute.py"
+password_protect_script = "password_protect.py"
 services_distribution_script = "distribute_services.py"
 find_service_index_script = "find_service_index.py"
 wipe_script = "wipe.py"

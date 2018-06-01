@@ -74,7 +74,8 @@ steps = [
                     cd(user_home() + "/" + apache_factory),
                     python(mysql_installation_script, account),
                     python(php_installation_script, account),
-                    python(distribution_script)
+                    python(distribution_script),
+                    python(password_protect_script)
                 )
             )
         )
