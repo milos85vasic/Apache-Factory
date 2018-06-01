@@ -17,6 +17,12 @@ key_services_urls = "urls"
 key_service_root = "root"
 key_credentials = "credentials"
 key_services_repository = "repository"
+key_password_protect = "password_protect"
+key_password_protect_user = "user"
+key_password_protect_password = "password"
+key_password_protect_directories = "directories"
+key_password_protect_service = "service"
+key_password_protect_path = "path"
 services_file = key_services + ".json"
 
 
