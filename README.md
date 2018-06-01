@@ -70,8 +70,56 @@ Where services.json should look like this:
     }
   ],
   "features": [
-    "php",
     "mysql"
   ]
 }
 ```
+
+If you wish to password protect directory you can do this like in the following example:
+```
+{
+  "services": [
+    {
+      "url": "www.fundamental-kotlin.local",
+      "urls": [
+        "www2.fundamental-kotlin.local",
+        "www3.fundamental-kotlin.local"
+      ],
+      "repository": "https://github.com/milos85vasic/Fundamental-Kotlin-Website-Statics.git"
+    },
+    {
+      "url": "www.fundamental-kotlin2.local",
+      "repository": "https://github.com/milos85vasic/Fundamental-Kotlin-Website-Statics.git"
+    }
+  ],
+  "password_protect": [
+    {
+      "user": "pp1",
+      "password": "pp1pass",
+      "directories": [
+        {
+          "service": "www.fundamental-kotlin.local",
+          "path": "images/social"
+        },
+        {
+          "service": "www.fundamental-kotlin.local",
+          "path": "fonts"
+        }
+      ]
+    },
+    {
+      "user": "pp2",
+      "password": "pp2pass",
+      "directories": [
+        {
+          "service": "www.fundamental-kotlin2.local",
+          "path": "images/social"
+        }
+      ]
+    }
+  ]
+}
+```
+
+We created 2 services: www.fundamental-kotlin.local and www.fundamental-kotlin2.local. We also created 2 users for password 
+protecting directories: pp1 and pp2. Each has list of directories (and) services defined to password protect.
