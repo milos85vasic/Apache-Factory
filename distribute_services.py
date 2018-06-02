@@ -78,13 +78,27 @@ for service in system_configuration[account][key_services][key_services]:
                 outfile.write("\tCustomLog " + logs_home + "/" + url + ".access.log common")
                 outfile.write("\n")
 
-                # TODO:
-                # <Directory "/var/www/html">
-                #     AuthType Basic
-                #     AuthName "Restricted Content"
-                #     AuthUserFile /etc/apache2/.htpasswd
-                #     Require valid - user
-                # </Directory>
+                if key_password_protect in system_configuration[account][key_services]:
+                    for password_protect in system_configuration[account][key_services][key_password_protect]:
+                        for directory in password_protect[key_password_protect_directories]:
+                            if directory[key_password_protect_service] == url:
+                                outfile.write("\n")
+                                outfile.write(
+                                    '\t<Directory "' + root + "/" + directory[key_password_protect_path] + '">'
+                                )
+                                outfile.write("\n")
+                                outfile.write("\t\tAuthType Basic")
+                                outfile.write("\n")
+                                outfile.write('\t\tAuthName "Restricted Content"')
+                                outfile.write("\n")
+                                outfile.write(
+                                    "\t\tAuthUserFile " + get_home_directory_path(account) + "/" + security + "/" +
+                                    passwd_file
+                                )
+                                outfile.write("\n")
+                                outfile.write("\t\tRequire valid-user")
+                                outfile.write("\n")
+                                outfile.write("\t</Directory>")
 
                 outfile.write("</VirtualHost>")
         except IOError:
