@@ -13,6 +13,9 @@ configuration_repo = configuration_repository
 
 incrementPortNumber = True
 
+print(system_configuration)
+print("- - - - - - - -")
+
 if account in system_configuration:
     if key_configuration in system_configuration[account]:
         print("Ok 1")
