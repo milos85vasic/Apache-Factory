@@ -13,6 +13,8 @@ configuration_repo = configuration_repository
 
 incrementPortNumber = True
 
+print(system_configuration)
+
 if key_configuration in system_configuration:
     if key_configuration_repository in system_configuration[key_configuration]:
             configuration_repo = system_configuration[key_configuration][key_configuration_repository]
