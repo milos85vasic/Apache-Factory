@@ -123,3 +123,18 @@ If you wish to password protect directory you can do this like in the following 
 
 We created 2 services: www.example.com and www.example2.com. We also created 2 users for password 
 protecting directories: pp1 and pp2. Each has a list of directories (and) services defined to password protect.
+
+Overriding http.conf default configuration:
+```
+{
+  ...
+  
+  "configuration": {
+    "explicit_port_number": true,
+    "configuration_repository": "https://github.com/milos85vasic/Apache-Factory-Config-Default-Master-Proxy.git"
+  }
+}
+```
+
+Where if explicit_port_number parameter is set to true we will use port from configuration cloned from repository
+provided. Otherwise, we will use first available port assigned by Apache Factory.
