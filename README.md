@@ -80,16 +80,16 @@ If you wish to password protect directory you can do this like in the following 
 {
   "services": [
     {
-      "url": "www.fundamental-kotlin.local",
+      "url": "www.example.com",
       "urls": [
-        "www2.fundamental-kotlin.local",
-        "www3.fundamental-kotlin.local"
+        "www2.example.com",
+        "www3.example.com"
       ],
-      "repository": "https://github.com/milos85vasic/Fundamental-Kotlin-Website-Statics.git"
+      "repository": "https://github.com/user/some_repo.git"
     },
     {
-      "url": "www.fundamental-kotlin2.local",
-      "repository": "https://github.com/milos85vasic/Fundamental-Kotlin-Website-Statics.git"
+      "url": "www.example2.com",
+      "repository": "https://github.com/user/some_repo.git"
     }
   ],
   "password_protect": [
@@ -98,11 +98,11 @@ If you wish to password protect directory you can do this like in the following 
       "password": "pp1pass",
       "directories": [
         {
-          "service": "www.fundamental-kotlin.local",
+          "service": "www.example.com",
           "path": "images/social"
         },
         {
-          "service": "www.fundamental-kotlin.local",
+          "service": "www.example.com",
           "path": "fonts"
         }
       ]
@@ -112,7 +112,7 @@ If you wish to password protect directory you can do this like in the following 
       "password": "pp2pass",
       "directories": [
         {
-          "service": "www.fundamental-kotlin2.local",
+          "service": "www.example2.com",
           "path": "images/social"
         }
       ]
@@ -121,5 +121,5 @@ If you wish to password protect directory you can do this like in the following 
 }
 ```
 
-We created 2 services: www.fundamental-kotlin.local and www.fundamental-kotlin2.local. We also created 2 users for password 
+We created 2 services: www.example.com and www.example2.com. We also created 2 users for password 
 protecting directories: pp1 and pp2. Each has a list of directories (and) services defined to password protect.
