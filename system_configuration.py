@@ -24,6 +24,8 @@ key_password_protect_directories = "directories"
 key_password_protect_service = "service"
 key_password_protect_path = "path"
 services_file = key_services + ".json"
+key_configuration = "configuration"
+key_configuration_repository = "configuration_repository"
 
 
 def init_system_configuration(arguments):

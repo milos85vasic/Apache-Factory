@@ -13,6 +13,12 @@ system_configuration[account][key_configuration_port] = system_configuration[key
 
 save_system_configuration(system_configuration)
 
+configuration_repo = configuration_repository
+
+if key_configuration in system_configuration:
+    if key_configuration_repository in system_configuration[key_configuration]:
+        configuration_repo = system_configuration[key_configuration][key_configuration_repository]
+
 steps = [
     cd("~"),
     clear(),
@@ -21,7 +27,7 @@ steps = [
     chmod(apache_conf, "755"),
     concatenate(
         cd(apache_conf),
-        git_clone_to(configuration_repository, here),
+        git_clone_to(configuration_repo, here),
         cd("~")
     ),
     clear(),
