@@ -99,6 +99,7 @@ for service in system_configuration[account][key_services][key_services]:
                                 outfile.write("\t\tRequire valid-user")
                                 outfile.write("\n")
                                 outfile.write("\t</Directory>")
+                                outfile.write("\n\n")
 
                 outfile.write("</VirtualHost>")
         except IOError:
