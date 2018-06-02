@@ -13,10 +13,10 @@ configuration_repo = configuration_repository
 
 incrementPortNumber = True
 
-print(system_configuration)
-
 if key_configuration in system_configuration:
+    print("Ok 1")
     if key_configuration_repository in system_configuration[key_configuration]:
+            print("Ok 2")
             configuration_repo = system_configuration[key_configuration][key_configuration_repository]
             if key_explicit_port_number in system_configuration[key_configuration]:
                 if system_configuration[key_configuration][key_explicit_port_number]:
