@@ -17,16 +17,17 @@ print(system_configuration)
 print("- - - - - - - -")
 
 if account in system_configuration:
-    if key_configuration in system_configuration[account]:
-        print("Ok 1")
-        if key_configuration_repository in system_configuration[account][key_configuration]:
-                print("Ok 2")
-                configuration_repo = system_configuration[account][key_configuration][key_configuration_repository]
-                if key_explicit_port_number in system_configuration[account][key_configuration]:
-                    print("Ok 3")
-                    if system_configuration[account][key_configuration][key_explicit_port_number]:
-                        print("Ok 4")
-                        incrementPortNumber = False
+    if key_services in system_configuration[account]:
+        if key_configuration in system_configuration[account][key_services]:
+            print("Ok 1")
+            if key_configuration_repository in system_configuration[account][key_services][key_configuration]:
+                    print("Ok 2")
+                    configuration_repo = system_configuration[account][key_services][key_configuration][key_configuration_repository]
+                    if key_explicit_port_number in system_configuration[account][key_services][key_configuration]:
+                        print("Ok 3")
+                        if system_configuration[account][key_services][key_configuration][key_explicit_port_number]:
+                            print("Ok 4")
+                            incrementPortNumber = False
 
 # if incrementPortNumber:
 #     system_configuration[key_configuration_port] = system_configuration[key_configuration_port] + 1
