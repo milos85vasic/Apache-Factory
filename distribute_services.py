@@ -77,6 +77,15 @@ for service in system_configuration[account][key_services][key_services]:
                 outfile.write("\n")
                 outfile.write("\tCustomLog " + logs_home + "/" + url + ".access.log common")
                 outfile.write("\n")
+
+                # TODO:
+                # <Directory "/var/www/html">
+                #     AuthType Basic
+                #     AuthName "Restricted Content"
+                #     AuthUserFile /etc/apache2/.htpasswd
+                #     Require valid - user
+                # </Directory>
+
                 outfile.write("</VirtualHost>")
         except IOError:
             print("Can't access " + destination_file)
