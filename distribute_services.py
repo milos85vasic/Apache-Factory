@@ -85,8 +85,7 @@ if account in system_configuration:
                             outfile.write("\n")
 
                             if key_password_protect in system_configuration[account][key_services]:
-                                for password_protect in system_configuration[account][key_services][
-                                    key_password_protect]:
+                                for password_protect in system_configuration[account][key_services][key_password_protect]:
                                     for directory in password_protect[key_password_protect_directories]:
                                         if directory[key_password_protect_service] == url:
                                             outfile.write("\n")
