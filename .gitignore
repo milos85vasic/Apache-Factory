@@ -107,5 +107,5 @@ httpd.conf.matrix
 global_configuration.json
 git_info.json
 account.json
-services.json
+services*.json
 *.tmp
