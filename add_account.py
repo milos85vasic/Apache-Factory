@@ -45,6 +45,10 @@ except KeyError:
             concatenate(
                 python(factory_script)
             )
+        ),
+        run_as_user(
+            account,
+            python(main_proxy_script)
         )
     ]
 
