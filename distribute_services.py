@@ -138,9 +138,9 @@ if account in system_configuration:
                     run(steps)
 
                     url = service[key_services_url]
-                    urls = None
+                    urls = [url]
                     if key_services_urls in service:
-                        urls = service[key_services_urls]
+                        urls.append(service[key_services_urls])
 
                     root = service[key_service_root]
                     destination_file = destination_directory + "/" + url + ".conf"
@@ -148,7 +148,19 @@ if account in system_configuration:
                         try:
                             with open(destination_file, 'w') as outfile:
                                 port = str(system_configuration[account][key_configuration_port])
-                                outfile.write("\n")
+                                for url in urls:
+                                    outfile.write("\n")
+                                    outfile.write("<VirtualHost *:80>")
+                                    outfile.write("\n")
+                                    outfile.write("\tProxyPreserveHost On")
+                                    outfile.write("\n")
+                                    outfile.write("\tProxyPass / http://127.0.0.1:" + port + "/")
+                                    outfile.write("\n")
+                                    outfile.write("\tProxyPassReverse / http://127.0.0.1:" + port + "/")
+                                    outfile.write("\n")
+                                    outfile.write("\tServerName " + url)
+                                    outfile.write("\n")
+                                    outfile.write("</VirtualHost>")
 
                         except IOError:
                             print("Can't access " + destination_file)
