@@ -61,7 +61,6 @@ steps = [
         httpd_conf_matrix_server_admin_placeholder, str(system_configuration[account][key_configuration_server_admin])
     ),
     python(services_distribution_script),
-    python(grant_privileged_ports_script, grant_ports_binary),
     concatenate(
         cd(apache_bin),
         start_command,
@@ -69,7 +68,7 @@ steps = [
         cd("~"),
     ),
     clear(),
-    curl("http://localhost:" + str(system_configuration["port"]))
+    curl("http://localhost:" + str(system_configuration[account][key_configuration_port]))
 ]
 
 run(steps)
