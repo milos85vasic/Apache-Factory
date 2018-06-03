@@ -122,7 +122,7 @@ if account in system_configuration:
                 if key_configuration_main_proxy in service:
                     bind_to_account = service[key_configuration_main_proxy]
                     destination_directory = get_home_directory_path(
-                        bind_to_account) + "/" + apache2 + "/" + vhosts_directory
+                        bind_to_account) + "/" + apache2 + "/" + apache_vhosts_directory
 
                     add_group_permission = "chmod g+rwx " + destination_directory
 
