@@ -85,7 +85,8 @@ if account in system_configuration:
                             outfile.write("\n")
 
                             if key_password_protect in system_configuration[account][key_services]:
-                                for password_protect in system_configuration[account][key_services][key_password_protect]:
+                                key_pp = key_password_protect
+                                for password_protect in system_configuration[account][key_services][key_pp]:
                                     for directory in password_protect[key_password_protect_directories]:
                                         if directory[key_password_protect_service] == url:
                                             outfile.write("\n")
@@ -112,3 +113,42 @@ if account in system_configuration:
                             outfile.write("</VirtualHost>")
                     except IOError:
                         print("Can't access " + destination_file)
+
+system_configuration = get_system_configuration()
+if account in system_configuration:
+    if key_services in system_configuration[account]:
+        if key_services in system_configuration[account][key_services]:
+            for service in system_configuration[account][key_services][key_services]:
+                if key_configuration_main_proxy in service:
+                    bind_to_account = service[key_configuration_main_proxy]
+                    destination_directory = get_home_directory_path(
+                        bind_to_account) + "/" + apache2 + "/" + vhosts_directory
+
+                    add_group_permission = "chmod g+rwx " + destination_directory
+
+                    steps = [
+                        run_as_su(
+                            concatenate(
+                                add_to_group(account, bind_to_account),
+                                add_group_permission
+                            )
+                        )
+                    ]
+
+                    run(steps)
+
+                    url = service[key_services_url]
+                    urls = None
+                    if key_services_urls in service:
+                        urls = service[key_services_urls]
+
+                    root = service[key_service_root]
+                    destination_file = destination_directory + "/" + url + ".conf"
+                    if not os.path.isfile(destination_file):
+                        try:
+                            with open(destination_file, 'w') as outfile:
+                                port = str(system_configuration[account][key_configuration_port])
+                                outfile.write("\n")
+
+                        except IOError:
+                            print("Can't access " + destination_file)
