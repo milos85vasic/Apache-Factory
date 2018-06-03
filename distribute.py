@@ -5,7 +5,7 @@ from commands import *
 from configuration import *
 from system_configuration import *
 
-grant_ports_binary = ""
+start_command = apache_start()
 account = getpass.getuser()
 
 system_configuration = get_system_configuration()
@@ -25,9 +25,11 @@ if account in system_configuration:
                 if key_explicit_port_number in system_configuration[account][key_services][key_configuration]:
                     if system_configuration[account][key_services][key_configuration][key_explicit_port_number]:
                         incrementPortNumber = False
-                        grant_ports_binary = apache_bin + "/apachectl"
                         system_configuration[account][key_configuration_port] = system_configuration[account][
                             key_services][key_configuration][key_explicit_port_number]
+
+                        if system_configuration[account][key_configuration_port] < 1024:
+                            start_command = run_as_su(apache_start())
 
 if incrementPortNumber:
     system_configuration[key_configuration_port] = system_configuration[key_configuration_port] + 1
@@ -62,7 +64,7 @@ steps = [
     python(grant_privileged_ports_script, grant_ports_binary),
     concatenate(
         cd(apache_bin),
-        apache_start(),
+        start_command,
         sleep(10),
         cd("~"),
     ),
