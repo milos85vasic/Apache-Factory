@@ -22,7 +22,7 @@ if account in system_configuration:
                     url = service[key_services_url]
                     urls = [url]
                     if key_services_urls in service:
-                        urls.append(service[key_services_urls])
+                        urls.extend(service[key_services_urls])
 
                     root = service[key_service_root]
                     destination_file = destination_directory + "/" + url + ".conf"
