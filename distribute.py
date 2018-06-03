@@ -61,6 +61,7 @@ steps = [
         httpd_conf_matrix_server_admin_placeholder, str(system_configuration[account][key_configuration_server_admin])
     ),
     python(services_distribution_script),
+    python(main_proxy_script),
     concatenate(
         cd(apache_bin),
         start_command,

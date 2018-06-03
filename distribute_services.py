@@ -132,10 +132,6 @@ if account in system_configuration:
                                 add_to_group(account, bind_to_account),
                                 add_group_permission
                             )
-                        ),
-                        run_as_user(
-                            account,
-                            python(main_proxy_script)
                         )
                     ]
 
