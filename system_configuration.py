@@ -25,6 +25,7 @@ key_password_protect_service = "service"
 key_password_protect_path = "path"
 services_file = key_services + ".json"
 key_configuration = "configuration"
+key_configuration_main_proxy = "main_proxy"
 key_explicit_port_number = "explicit_port_number"
 key_configuration_repository = "configuration_repository"
 
