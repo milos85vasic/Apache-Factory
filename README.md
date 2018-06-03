@@ -130,11 +130,10 @@ Overriding http.conf default configuration:
   ...
   
   "configuration": {
-    "explicit_port_number": true,
+    "explicit_port_number": 80,
     "configuration_repository": "https://github.com/milos85vasic/Apache-Factory-Config-Default-Master-Proxy.git"
   }
 }
 ```
 
-Where if explicit_port_number parameter is set to true we will use port from configuration cloned from repository
-provided. Otherwise, we will use first available port assigned by Apache Factory.
+We set new repository with configuration and explicit port value to be used.
