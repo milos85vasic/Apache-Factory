@@ -15,13 +15,13 @@ for item in system_configuration.keys():
         exit()
 
     script += "/" + apache2 + "/bin/apachectl"
+    if system_configuration[account][key_configuration_port] < 1024:
+        start_command = run_as_su(script + " start")
+    else:
+        start_command = run_as_user(account, script + " start")
+
     if os.path.isfile(script):
-        steps = [
-            run_as_user(
-                account,
-                script + " start"
-            )
-        ]
+        steps = [start_command]
 
         print("We are about to execute:")
         print(script)
