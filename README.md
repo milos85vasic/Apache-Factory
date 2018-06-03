@@ -137,3 +137,23 @@ Overriding http.conf default configuration:
 ```
 
 We set new repository with configuration and explicit port value to be used.
+
+To connect services with main proxy (parent HTTPD instance):
+```
+{
+  "services": [
+    {
+      "main_proxy": "test2",
+      "url": "www.example2.com",
+      "repository": "https://github.com/user/some_repo.git"
+    },
+    {
+      "main_proxy": "test2",
+      "url": "www.example2.com",
+      "repository": "https://github.com/user/some_repo.git"
+    }
+  ]
+}
+```
+
+Where test2 represents account under which we initialized parent (main) proxy HTTPD instance.
