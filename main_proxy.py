@@ -18,7 +18,7 @@ if account in system_configuration:
             for service in system_configuration[account][key_services][key_services]:
                 if key_configuration_main_proxy in service:
                     bind_to_account = service[key_configuration_main_proxy]
-                    scheduled_for_restart.extend(bind_to_account)
+                    scheduled_for_restart.append(bind_to_account)
                     destination_directory = get_home_directory_path(
                         bind_to_account) + "/" + apache2 + "/" + apache_vhosts_directory
 
