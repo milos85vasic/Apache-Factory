@@ -10,12 +10,15 @@ account = getpass.getuser()
 
 system_configuration = get_system_configuration()
 
+scheduled_for_restart = []
+
 if account in system_configuration:
     if key_services in system_configuration[account]:
         if key_services in system_configuration[account][key_services]:
             for service in system_configuration[account][key_services][key_services]:
                 if key_configuration_main_proxy in service:
                     bind_to_account = service[key_configuration_main_proxy]
+                    scheduled_for_restart.extend(bind_to_account)
                     destination_directory = get_home_directory_path(
                         bind_to_account) + "/" + apache2 + "/" + apache_vhosts_directory
 
@@ -46,3 +49,14 @@ if account in system_configuration:
 
                         except IOError:
                             print("Can't access " + destination_file)
+
+for scheduled in scheduled_for_restart:
+    steps = [
+        run_as_user(
+            scheduled,
+            get_home_directory_path(scheduled) + "/" + apache2 + "/bin/apachectl -k graceful"
+        )
+    ]
+
+    run(steps)
+
