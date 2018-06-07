@@ -29,6 +29,7 @@ steps = [
             get_yum("libxml2-devel"),
             get_yum("ncurses-devel"),
             get_yum("python-pip"),
+            get_yum("lynx"),
             pip_upgrade(),
             add_to_group(account, apache_factory_group),
             mkdir(content_dir_path(user_home())),
