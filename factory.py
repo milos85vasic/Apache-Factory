@@ -30,6 +30,7 @@ steps = [
             get_yum("ncurses-devel"),
             get_yum("python-pip"),
             get_yum("lynx"),
+            get_yum("links"),
             pip_upgrade(),
             add_to_group(account, apache_factory_group),
             mkdir(content_dir_path(user_home())),
