@@ -18,7 +18,6 @@ except KeyError:
         run_as_su(
             concatenate(
                 cd("~"),
-                clear(),
                 add_user(account),
                 passwd(account),
                 add_group(apache_factory_group),
@@ -36,8 +35,7 @@ except KeyError:
                 cd("~"),
                 cd(apache_factory),
                 python(starter_init_script),
-                cd("~"),
-                clear()
+                cd("~")
             )
         ),
         run_as_user(

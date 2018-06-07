@@ -24,7 +24,6 @@ if has_feature(account, feature_mysql):
             mkdir(mysql + "/" + mysql_conf_dir),
             cd(mysql + "/" + mysql_conf_dir),
             git_clone_to(configuration_repository_my_sql, "./"),
-            clear(),
             python(
                 user_home() + "/" + apache_factory + "/" + wipe_script,
                 user_home() + "/" + mysql + "/" + mysql_conf_dir + "/" + mysql_conf_matrix,
@@ -39,12 +38,9 @@ if has_feature(account, feature_mysql):
                 my_conf_matrix_share_dir_placeholder, user_home() + "/" + mysql + "/" + mysql_share_dir,
                 my_conf_matrix_log_dir_placeholder, user_home() + "/" + mysql + "/" + mysql_log_dir
             ),
-            clear(),
             cd(user_home()),
             wget(mysql_download, destination=(user_home() + "/")),
-            clear(),
             extract(user_home() + "/" + mysql_tar_gz, destination=user_home()),
-            clear(),
             cd(mysql_extracted_dir),
             "cmake ./ -DDOWNLOAD_BOOST=1 -DWITH_BOOST=" + get_home_directory_path(account) + "/Boost",
             "make",

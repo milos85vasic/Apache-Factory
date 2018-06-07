@@ -39,7 +39,6 @@ save_system_configuration(system_configuration)
 
 steps = [
     cd("~"),
-    clear(),
     rm(apache_conf),
     mkdir(apache_conf),
     chmod(apache_conf, "755"),
@@ -48,7 +47,6 @@ steps = [
         git_clone_to(configuration_repo, here),
         cd("~")
     ),
-    clear(),
     python(
         wipe_script,
         apache_conf + "/" + httpd_conf_matrix,
@@ -67,7 +65,6 @@ steps = [
         sleep(10),
         cd("~"),
     ),
-    clear(),
     curl("http://localhost:" + str(system_configuration[account][key_configuration_port]))
 ]
 

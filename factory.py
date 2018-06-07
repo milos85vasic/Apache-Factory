@@ -10,7 +10,6 @@ def user_home():
 
 
 steps = [
-    clear(),
     run_as_su(
         concatenate(
             "yum localinstall -y --nogpgcheck " + rpm_fusion_free + " " + rpm_fusion_non_free,
@@ -38,7 +37,6 @@ steps = [
             run_as_user(
                 account,
                 concatenate(
-                    clear(),
                     cd("~"),
                     mkdir(apache_home),
                     mkdir(apache_home + "/" + apache_vhosts_directory),
@@ -53,15 +51,12 @@ steps = [
                         content_dir_path(user_home())
                     ),
                     wget(apache_download, destination=(home + "/")),
-                    clear(),
                     extract(apache_extract, destination=home),
-                    clear(),
                     cd(apache_extracted),
                     "./configure --prefix=" + apache_home,
                     "make",
                     "make install",
                     cd("~"),
-                    clear(),
                     rm(apache_extracted),
                     rm(apache_tar_gz)
                 )

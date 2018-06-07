@@ -22,9 +22,7 @@ steps = [
     concatenate(
         cd(user_home()),
         wget(php_download, destination=(user_home() + "/")),
-        clear(),
         extract(user_home() + "/" + php_tar_gz, destination=user_home()),
-        clear(),
         cd(php_tar_gz.replace(".tar.gz", "")),
         configure,
         "make",
