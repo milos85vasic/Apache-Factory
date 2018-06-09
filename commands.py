@@ -4,6 +4,7 @@ here = "./"
 
 
 def run_as_su(what):
+    print("We will request password for super user.")
     return 'su -c "' + what + '"'
 
 
@@ -97,6 +98,7 @@ def passwd(user):
 
 
 def run_as_user(account, command):
+    print("We will request password for: " + account)
     return "sudo -H -u " + account + " bash -c '" + command + "'"
 
 
