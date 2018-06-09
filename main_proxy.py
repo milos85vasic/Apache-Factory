@@ -55,7 +55,7 @@ for scheduled in scheduled_for_restart:
     steps = [
         run_as_user(
             scheduled,
-            get_home_directory_path(scheduled) + "/" + apache2 + "/bin/apachectl -k graceful"
+            get_home_directory_path(scheduled) + "/" + apache2 + "/bin/apachectl restart"
         )
     ]
 
