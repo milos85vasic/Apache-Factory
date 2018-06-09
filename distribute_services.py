@@ -69,7 +69,6 @@ if account in system_configuration:
                 urls = None
                 if key_services_urls in service:
                     urls = service[key_services_urls]
-                repository = service[key_services_repository]
                 root = service[key_service_root]
                 logs_home = get_home_directory_path(account) + "/" + apache2 + "/logs"
                 destination_file = vhosts_directory + "/" + url + ".conf"
