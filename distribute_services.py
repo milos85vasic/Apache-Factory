@@ -37,28 +37,19 @@ if account in system_configuration:
         if key_services in system_configuration[account][key_services]:
             for service in system_configuration[account][key_services][key_services]:
                 url = service[key_services_url]
+                repository = landing_page_repository_default
                 if key_services_repository in service:
                     repository = service[key_services_repository]
-                    steps = [
-                        git_clone_to(repository, content_dir_path(get_home_directory_path(account)) + "/" + url),
-                        python(
-                            find_service_index_script,
-                            service[key_services_url],
-                            content_dir_path(get_home_directory_path(account)) + "/" + url
-                        )
-                    ]
+                steps = [
+                    git_clone_to(repository, content_dir_path(get_home_directory_path(account)) + "/" + url),
+                    python(
+                        find_service_index_script,
+                        service[key_services_url],
+                        content_dir_path(get_home_directory_path(account)) + "/" + url
+                    )
+                ]
 
-                    run(steps)
-                else:
-                    steps = [
-                        python(
-                            find_service_index_script,
-                            service[key_services_url],
-                            content_dir_path(get_home_directory_path(account)) + "/" + url
-                        )
-                    ]
-
-                    run(steps)
+                run(steps)
 
 system_configuration = get_system_configuration()
 if account in system_configuration:
