@@ -46,6 +46,7 @@ if account in system_configuration:
                                     outfile.write("\tServerName " + url)
                                     outfile.write("\n")
                                     outfile.write("</VirtualHost>")
+                                    outfile.write("\n")
 
                         except IOError:
                             print("Can't access " + destination_file)
