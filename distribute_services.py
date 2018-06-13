@@ -42,7 +42,9 @@ if account in system_configuration:
                     repository = service[key_services_repository]
                 steps = [
                     git_clone_to(repository, content_dir_path(get_home_directory_path(account)) + "/" + url),
-                    # TODO: step.
+                    python(
+                        website_setup_script
+                    ),
                     python(
                         find_service_index_script,
                         service[key_services_url],
