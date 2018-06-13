@@ -1,6 +1,6 @@
 import subprocess
 import sys
-from commands import *
+from Toolkit.commands import *
 
 who = sys.argv[1]
 what = sys.argv[2]

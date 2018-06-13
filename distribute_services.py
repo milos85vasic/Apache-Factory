@@ -2,7 +2,7 @@ import json
 import getpass
 import sys
 
-from commands import *
+from Toolkit.commands import *
 from configuration import *
 from system_configuration import *
 
@@ -42,6 +42,7 @@ if account in system_configuration:
                     repository = service[key_services_repository]
                 steps = [
                     git_clone_to(repository, content_dir_path(get_home_directory_path(account)) + "/" + url),
+                    # TODO: step.
                     python(
                         find_service_index_script,
                         service[key_services_url],

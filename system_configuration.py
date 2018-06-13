@@ -2,7 +2,7 @@ import json
 import os
 
 from configuration import *
-from commands import *
+from Toolkit.commands import *
 
 arg_prefix = "--"
 arg_server_admin = arg_prefix + "server_admin"

@@ -1,5 +1,5 @@
 import sys
-from commands import *
+from Toolkit.commands import *
 from configuration import *
 
 if os.path.isfile(rc_local):

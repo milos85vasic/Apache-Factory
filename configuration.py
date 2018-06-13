@@ -34,7 +34,7 @@ password_protect_script = "password_protect.py"
 services_distribution_script = "distribute_services.py"
 grant_privileged_ports_script = "grant_ports.py"
 find_service_index_script = "find_service_index.py"
-wipe_script = "wipe.py"
+wipe_script = "Toolkit/wipe.py"
 apache_factory = "Apache-Factory"
 apache_factory_group = "apache_factory"
 apache_vhosts_directory = "vhosts"
@@ -85,6 +85,7 @@ rpm_fusion_free = "https://download1.rpmfusion.org/free/el/rpmfusion-free-releas
 rpm_fusion_non_free = "https://download1.rpmfusion.org/nonfree/el/rpmfusion-nonfree-release-7.noarch.rpm"
 security = "Security"
 passwd_file = ".htpasswd"
+website_setup_script = "setup_website.py"
 
 
 def get_home_directory_path(account):

@@ -1,6 +1,6 @@
 import getpass
 
-from commands import *
+from Toolkit.commands import *
 from configuration import *
 from system_configuration import *
 

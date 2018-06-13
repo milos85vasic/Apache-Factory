@@ -1,7 +1,7 @@
 #!/usr/bin/python
 
 import sys
-from commands import *
+from Toolkit.commands import *
 from system_configuration import *
 from configuration import *
 from git_info import *

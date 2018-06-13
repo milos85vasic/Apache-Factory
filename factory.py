@@ -1,5 +1,5 @@
 import getpass
-from commands import *
+from Toolkit.commands import *
 from configuration import *
 
 account = getpass.getuser()
