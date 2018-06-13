@@ -16,7 +16,7 @@ configure = "./configure --prefix=" + user_home() + \
             "/" + php + " --with-apxs2=" + user_home() + "/" + apache2 + "/bin/apxs"
 
 if has_feature(account, feature_mysql):
-    configure += " --with-mysql=" + user_home() + "/" + mysql
+    configure += " --with-mysql=" + user_home() + "/" + mysql + "/" + mysql_installation_dir + "/usr/local/mysql"
 
 steps = [
     concatenate(
