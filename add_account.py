@@ -28,6 +28,7 @@ except KeyError:
                 git_clone(git_configuration[key_repository]),
                 cd(apache_factory),
                 git_checkout(git_configuration[key_branch]),
+                git_update_submodules(),
                 cd(".."),
                 chown(account, get_home_directory_path(account)),
                 chgrp(account, get_home_directory_path(account)),
