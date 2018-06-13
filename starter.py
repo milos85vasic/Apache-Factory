@@ -2,7 +2,7 @@
 
 import sys
 from Toolkit.commands import *
-from system_configuration import *
+from Toolkit.system_configuration import *
 from configuration import *
 from git_info import *
 

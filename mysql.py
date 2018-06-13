@@ -1,7 +1,7 @@
 import sys
 from Toolkit.commands import *
 from configuration import *
-from system_configuration import *
+from Toolkit.system_configuration import *
 from mysql_common import *
 
 if has_feature(account, feature_mysql):

@@ -1,7 +1,6 @@
 from os.path import expanduser
+from Toolkit.configuration import *
 
-default_port = 8080
-default_port_mysql = 3306
 home = expanduser("~")
 php = "Php"
 mysql = "MySQL"
@@ -36,7 +35,6 @@ grant_privileged_ports_script = "grant_ports.py"
 find_service_index_script = "find_service_index.py"
 wipe_script = "Toolkit/wipe.py"
 apache_factory = "Apache-Factory"
-apache_factory_group = "apache_factory"
 apache_vhosts_directory = "vhosts"
 httpd_conf_matrix = "httpd.conf.matrix"
 httpd_conf = "httpd.conf"
@@ -57,10 +55,7 @@ my_conf_matrix_data_dir_placeholder = "APACHE_FACTORY_MYSQL_DATA_DIR"
 my_conf_matrix_tmp_dir_placeholder = "APACHE_FACTORY_MYSQL_TMP_DIR"
 my_conf_matrix_share_dir_placeholder = "APACHE_FACTORY_MYSQL_SHARE_DIR"
 my_conf_matrix_log_dir_placeholder = "APACHE_FACTORY_MYSQL_LOG_DIR"
-apache_factory_configuration_dir = "/usr/share/apache_factory"
 content_dir_name = "Content"
-default_configuration_json = apache_factory_configuration_dir + "/global_configuration.json"
-account_json = "account.json"
 landing_page_repository_default = "https://github.com/milos85vasic/Apache-Factory-Landing-Default.git"
 configuration_repository = "https://github.com/milos85vasic/Apache-Factory-Config-Default.git"
 configuration_repository_my_sql = "https://github.com/milos85vasic/Apache-Factory-Config-Default-MySQL.git"

@@ -3,7 +3,7 @@ import getpass
 
 from Toolkit.commands import *
 from configuration import *
-from system_configuration import *
+from Toolkit.system_configuration import *
 
 start_command = apache_start()
 account = getpass.getuser()
