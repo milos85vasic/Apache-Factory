@@ -2,7 +2,7 @@ import os
 import random
 import sys
 from configuration import *
-from mysql_common import *
+from Toolkit.mysql_common import *
 import string
 
 command = get_mysql_bin_directory() + initialize

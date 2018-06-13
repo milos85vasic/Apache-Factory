@@ -2,7 +2,7 @@ import sys
 from Toolkit.commands import *
 from configuration import *
 from Toolkit.system_configuration import *
-from mysql_common import *
+from Toolkit.mysql_common import *
 
 if has_feature(account, feature_mysql):
     system_configuration[key_configuration_port_mysql] = system_configuration[key_configuration_port_mysql] + 1

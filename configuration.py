@@ -2,17 +2,6 @@ from os.path import expanduser
 from Toolkit.configuration import *
 
 home = expanduser("~")
-php = "Php"
-mysql = "MySQL"
-mysql_installation_dir = "Release"
-mysql_data_dir = "Data"
-mysql_log_dir = "Log"
-mysql_tmp_dir = "Tmp"
-mysql_sock_dir = "Sock"
-mysql_pid_dir = "Pid"
-mysql_share_dir = "Share"
-mysql_conf_dir = "Conf"
-apache2 = "Apache2"
 apache_home = home + "/" + apache2
 php_home = home + "/" + php
 mysql_home = home + "/" + mysql
@@ -33,7 +22,6 @@ password_protect_script = "password_protect.py"
 services_distribution_script = "distribute_services.py"
 grant_privileged_ports_script = "grant_ports.py"
 find_service_index_script = "find_service_index.py"
-apache_factory = "Apache-Factory"
 apache_vhosts_directory = "vhosts"
 httpd_conf_matrix = "httpd.conf.matrix"
 httpd_conf = "httpd.conf"
@@ -79,10 +67,6 @@ rpm_fusion_non_free = "https://download1.rpmfusion.org/nonfree/el/rpmfusion-nonf
 security = "Security"
 passwd_file = ".htpasswd"
 website_setup_script = "setup_website.py"
-
-
-def get_home_directory_path(account):
-    return "/home/" + account
 
 
 def content_dir_matrix_path(home_path):
