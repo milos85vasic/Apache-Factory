@@ -54,7 +54,6 @@ my_conf_matrix_data_dir_placeholder = "APACHE_FACTORY_MYSQL_DATA_DIR"
 my_conf_matrix_tmp_dir_placeholder = "APACHE_FACTORY_MYSQL_TMP_DIR"
 my_conf_matrix_share_dir_placeholder = "APACHE_FACTORY_MYSQL_SHARE_DIR"
 my_conf_matrix_log_dir_placeholder = "APACHE_FACTORY_MYSQL_LOG_DIR"
-content_dir_name = "Content"
 landing_page_repository_default = "https://github.com/milos85vasic/Apache-Factory-Landing-Default.git"
 configuration_repository = "https://github.com/milos85vasic/Apache-Factory-Config-Default.git"
 configuration_repository_my_sql = "https://github.com/milos85vasic/Apache-Factory-Config-Default-MySQL.git"
@@ -84,10 +83,6 @@ website_setup_script = "setup_website.py"
 
 def get_home_directory_path(account):
     return "/home/" + account
-
-
-def content_dir_path(home_path):
-    return home_path + "/" + content_dir_name
 
 
 def content_dir_matrix_path(home_path):
