@@ -24,7 +24,7 @@ if has_feature(account, feature_mysql):
             cd(mysql + "/" + mysql_conf_dir),
             git_clone_to(configuration_repository_my_sql, "./"),
             python(
-                user_home() + "/" + apache_factory + "/" + wipe_script,
+                user_home() + "/" + apache_factory + "/Toolkit/" + wipe_script,
                 user_home() + "/" + mysql + "/" + mysql_conf_dir + "/" + mysql_conf_matrix,
                 user_home() + "/" + mysql + "/" + mysql_conf_dir + "/" + mysql_conf,
                 my_conf_matrix_port_placeholder, str(system_configuration[key_configuration_port_mysql]),

@@ -48,7 +48,7 @@ steps = [
         cd("~")
     ),
     python(
-        wipe_script,
+        "Toolkit/" + wipe_script,
         apache_conf + "/" + httpd_conf_matrix,
         apache_conf + "/" + httpd_conf,
         httpd_conf_matrix_home_dir_placeholder, home,
