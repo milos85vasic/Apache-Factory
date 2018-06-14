@@ -44,8 +44,7 @@ if account in system_configuration:
                     git_clone_to(repository, content_dir_path(get_home_directory_path(account)) + "/" + url),
                     python(
                         content_dir_path(get_home_directory_path(account)) + "/" + url + "/" + website_setup_script,
-                        account,
-                        url
+                        account
                     ),
                     python(
                         find_service_index_script,
