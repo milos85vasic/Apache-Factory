@@ -42,6 +42,8 @@ if account in system_configuration:
                     repository = service[key_services_repository]
                 steps = [
                     git_clone_to(repository, content_dir_path(get_home_directory_path(account)) + "/" + url),
+                    git_submodule_init(),
+                    git_submodule_update(),
                     python(
                         content_dir_path(get_home_directory_path(account)) + "/" + url + "/" + website_setup_script,
                         account

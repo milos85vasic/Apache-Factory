@@ -45,6 +45,8 @@ steps = [
     concatenate(
         cd(apache_conf),
         git_clone_to(configuration_repo, here),
+        git_submodule_init(),
+        git_submodule_update(),
         cd("~")
     ),
     python(
