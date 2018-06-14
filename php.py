@@ -19,6 +19,11 @@ if has_feature(account, feature_mysql):
     configure += " --with-mysql=" + user_home() + "/" + mysql + "/" + mysql_installation_dir + "/usr/local/mysql"
 
 if has_feature(account, feature_mysql):
+    mysql_port = default_port_mysql
+    if account in system_configuration:
+        if key_configuration_port_mysql in system_configuration[account]:
+            mysql_port = system_configuration[account][key_configuration_port_mysql]
+
     steps = [
         concatenate(
             cd(user_home()),
@@ -37,7 +42,10 @@ if has_feature(account, feature_mysql):
                 "Toolkit/" + wipe_script,
                 user_home() + "/" + php_conf_php_init_dir + "/php.ini.matrix",
                 user_home() + "/" + php_conf_php_init_dir + "/php.ini",
-                php_conf_matrix_mysql_socket, user_home() + "/" + mysql + "/" + mysql_sock_dir + "/mysqld.sock"
+                php_conf_matrix_mysql_socket, user_home() + "/" + mysql + "/" + mysql_sock_dir + "/mysqld.sock",
+                php_conf_matrix_mysql_port, str(mysql_port),
+                php_conf_matrix_mysql_host, "127.0.0.1",
+                php_conf_matrix_mysql_user, account
             ),
 
             cd(user_home()),
