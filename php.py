@@ -27,7 +27,15 @@ steps = [
         configure,
         "make",
         "make install",
-        cp("php.ini-development", user_home() + "/" + php + "/lib/php.ini"),
+        cd(user_home()),
+        mkdir(php_conf_php_init_dir),
+        git_clone_to(php_conf_repository, "./" + php_conf_php_init_dir),
+        cd(user_home() + "/" + apache_factory),
+        python(
+            "Toolkit/" + wipe_script,
+            user_home() + "/" + php_conf_php_init_dir + "/php.ini.matrix",
+            user_home() + "/" + php_conf_php_init_dir + "/php.ini"
+        ),
         cd(user_home()),
         rm(php_tar_gz),
         rm(php_tar_gz.replace(".tar.gz", ""))
