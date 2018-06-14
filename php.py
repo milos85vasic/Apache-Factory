@@ -16,7 +16,11 @@ configure = "./configure --prefix=" + user_home() + \
             "/" + php + " --with-apxs2=" + user_home() + "/" + apache2 + "/bin/apxs"
 
 if has_feature(account, feature_mysql):
-    configure += " --with-mysql=" + user_home() + "/" + mysql + "/" + mysql_installation_dir + "/usr/local/mysql"
+    configure += " --with-mysql=" + user_home() + "/" + mysql + "/" + mysql_installation_dir + "/usr/local/mysql" + \
+                 " --enable-fpm --disable-short-tags --with-openssl --with-pcre-regex --with-pcre-jit --with-zlib " + \
+                 "--enable-bcmath --with-bz2 --enable-calendar --with-curl --enable-exif --with-gd --enable-intl " + \
+                 "--enable-mbstring --with-mysqli --enable-pcntl --with-pdo-mysql --enable-soap --enable-sockets " + \
+                 "--with-xmlrpc --enable-zip --with-webp-dir --with-jpeg-dir --with-png-dir"
 
 if has_feature(account, feature_mysql):
     mysql_port = default_port_mysql
