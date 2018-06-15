@@ -101,7 +101,11 @@ if has_feature(account, feature_mysql):
             " -DWITH_ZLIB=bundled",
 
             "make",
+
+            # MySQL 8.0:
             # 'make install DESTDIR="' + user_home() + "/" + mysql + "/" + mysql_installation_dir + '"'
+
+            # MySQL 5.5.60:
             "make install"
         ),
         cd(user_home() + "/" + apache_factory),
@@ -112,8 +116,10 @@ if has_feature(account, feature_mysql):
         concatenate(
             cd(user_home()),
             rm(mysql_tar_gz),
-            rm(mysql_tar_gz.replace(".tar.gz", "")),
-            rm(mysql_tar_gz.replace(".tar.gz", "").replace("boost-", ""))
+
+            # MySQL 8.0:
+            # rm(mysql_tar_gz.replace(".tar.gz", "")),
+            # rm(mysql_tar_gz.replace(".tar.gz", "").replace("boost-", ""))
         )
     ]
     run(steps)
