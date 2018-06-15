@@ -101,7 +101,8 @@ if has_feature(account, feature_mysql):
             " -DWITH_ZLIB=bundled",
 
             "make",
-            'make install DESTDIR="' + user_home() + "/" + mysql + "/" + mysql_installation_dir + '"'
+            # 'make install DESTDIR="' + user_home() + "/" + mysql + "/" + mysql_installation_dir + '"'
+            "make install"
         ),
         cd(user_home() + "/" + apache_factory),
         python(
