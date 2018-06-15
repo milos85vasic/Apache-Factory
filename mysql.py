@@ -109,10 +109,8 @@ if has_feature(account, feature_mysql):
         concatenate(
             cd(user_home()),
             rm(mysql_tar_gz),
-
-            # MySQL 8.0:
-            # rm(mysql_tar_gz.replace(".tar.gz", "")),
-            # rm(mysql_tar_gz.replace(".tar.gz", "").replace("boost-", ""))
+            rm(mysql_tar_gz.replace(".tar.gz", "")),
+            rm(mysql_tar_gz.replace(".tar.gz", "").replace("boost-", ""))
         )
     ]
     run(steps)
