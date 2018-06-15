@@ -53,8 +53,8 @@ if has_feature(account, feature_mysql):
             + get_home_directory_path(account) + "/" + mysql +
             # " -DINSTALL_BINDIR="
             # + mysql_bin_dir +
-            # " -DINSTALL_LIBDIR="
-            # + mysql_lib_dir +
+            " -DINSTALL_LIBDIR="
+            + mysql_lib_dir +
             # " -DINSTALL_MYSQLSHAREDIR="
             # + mysql_share_dir +
             # " -DINSTALL_SHAREDIR="
@@ -73,10 +73,10 @@ if has_feature(account, feature_mysql):
             # + mysql_data_dir +
             # " -DODBC_INCLUDES="
             # + mysql_lib_dir +
-            # " -DODBC_LIB_DIR="
-            # + mysql_lib_dir +
-            " -DSYSCONFDIR="
-            + mysql_conf_dir +
+            " -DODBC_LIB_DIR="
+            + mysql_lib_dir +
+            # " -DSYSCONFDIR="
+            # + mysql_conf_dir +
             " -DTMPDIR="
             + mysql_tmp_dir +
             # " -DMYSQL_UNIX_ADDR="

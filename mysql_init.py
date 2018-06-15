@@ -9,7 +9,7 @@ import string
 # command = get_mysql_bin_directory() + initialize
 
 # MySQL 5.5.60:
-command = get_home_directory_path(account) + "/" + mysql + "/" + mysql_installation_dir + initialize
+command = get_home_directory_path(account) + "/" + mysql + "/" + mysql_bin_dir + initialize
 
 steps = [
     command
@@ -33,7 +33,7 @@ steps = [
     # get_mysql_bin_directory() + get_start_command_init(user_home()),
 
     # MySQL 5.5.60:
-    get_home_directory_path(account) + "/" + mysql + "/" + mysql_installation_dir + get_start_command_init(user_home()),
+    get_home_directory_path(account) + "/" + mysql + "/" + mysql_bin_dir + get_start_command_init(user_home()),
 
     sleep(10),
     python(
@@ -47,7 +47,7 @@ steps = [
     # get_mysql_bin_directory() + get_start_command(user_home()),
 
     # MySQL 5.5.60:
-    get_home_directory_path(account) + "/" + mysql + "/" + mysql_installation_dir + get_start_command(user_home()),
+    get_home_directory_path(account) + "/" + mysql + "/" + mysql_bin_dir + get_start_command(user_home()),
 
     sleep(10),
     rm_files("*.tmp")
