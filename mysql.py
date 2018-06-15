@@ -21,7 +21,7 @@ if has_feature(account, feature_mysql):
             # mkdir(mysql + "/" + mysql_sock_dir),
             # mkdir(mysql + "/" + mysql_pid_dir),
             # mkdir(mysql + "/" + mysql_share_dir),
-            # mkdir(mysql + "/" + mysql_conf_dir),
+            mkdir(mysql + "/" + mysql_conf_dir),
             cd(mysql + "/" + mysql_conf_dir),
             git_clone_to(configuration_repository_my_sql, "./"),
             git_submodule_init(),
@@ -29,16 +29,18 @@ if has_feature(account, feature_mysql):
             python(
                 user_home() + "/" + apache_factory + "/Toolkit/" + wipe_script,
                 user_home() + "/" + mysql + "/" + mysql_conf_dir + "/" + mysql_conf_matrix,
-                user_home() + "/" + mysql + "/" + mysql_conf_dir + "/" + mysql_conf,
-                my_conf_matrix_port_placeholder, str(system_configuration[key_configuration_port_mysql]),
-                my_conf_matrix_user_placeholder, account,
-                my_conf_matrix_sock_dir_placeholder, user_home() + "/" + mysql + "/" + mysql_sock_dir,
-                my_conf_matrix_pid_dir_placeholder, user_home() + "/" + mysql + "/" + mysql_pid_dir,
-                my_conf_matrix_base_dir_placeholder, user_home() + "/" + mysql + "/" + mysql_installation_dir,
-                my_conf_matrix_data_dir_placeholder, user_home() + "/" + mysql + "/" + mysql_data_dir,
-                my_conf_matrix_tmp_dir_placeholder, user_home() + "/" + mysql + "/" + mysql_tmp_dir,
-                my_conf_matrix_share_dir_placeholder, user_home() + "/" + mysql + "/" + mysql_share_dir,
-                my_conf_matrix_log_dir_placeholder, user_home() + "/" + mysql + "/" + mysql_log_dir
+                user_home() + "/" + mysql + "/" + mysql_conf_dir + "/" + mysql_conf
+
+                # MySQL 8.0:
+                # my_conf_matrix_port_placeholder, str(system_configuration[key_configuration_port_mysql]),
+                # my_conf_matrix_user_placeholder, account,
+                # my_conf_matrix_sock_dir_placeholder, user_home() + "/" + mysql + "/" + mysql_sock_dir,
+                # my_conf_matrix_pid_dir_placeholder, user_home() + "/" + mysql + "/" + mysql_pid_dir,
+                # my_conf_matrix_base_dir_placeholder, user_home() + "/" + mysql + "/" + mysql_installation_dir,
+                # my_conf_matrix_data_dir_placeholder, user_home() + "/" + mysql + "/" + mysql_data_dir,
+                # my_conf_matrix_tmp_dir_placeholder, user_home() + "/" + mysql + "/" + mysql_tmp_dir,
+                # my_conf_matrix_share_dir_placeholder, user_home() + "/" + mysql + "/" + mysql_share_dir,
+                # my_conf_matrix_log_dir_placeholder, user_home() + "/" + mysql + "/" + mysql_log_dir
             ),
             cd(user_home()),
             wget(mysql_download, destination=(user_home() + "/")),
@@ -75,8 +77,8 @@ if has_feature(account, feature_mysql):
             # + mysql_lib_dir +
             # " -DODBC_LIB_DIR="
             # + mysql_lib_dir +
-            # " -DSYSCONFDIR="
-            # + mysql_conf_dir +
+            " -DSYSCONFDIR="
+            + mysql_conf_dir +
             # " -DTMPDIR="
             # + mysql_tmp_dir +
             # " -DMYSQL_UNIX_ADDR="
