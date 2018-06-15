@@ -53,7 +53,7 @@ if has_feature(account, feature_mysql):
             # MySQL 5.5.60:
             "cmake ./ -DCMAKE_INSTALL_PREFIX="
             + get_home_directory_path(account) + "/" + mysql +
-            " -DINSTALL_BINDIR="
+            # " -DINSTALL_BINDIR="
             # + mysql_bin_dir +
             # " -DINSTALL_LIBDIR="
             # + mysql_lib_dir +
