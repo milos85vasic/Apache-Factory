@@ -57,37 +57,37 @@ if has_feature(account, feature_mysql):
 
             # MySQL 5.5.60:
             "cmake ./ -DCMAKE_INSTALL_PREFIX="
-            + get_home_directory_path(account) + "/" + mysql + "/"
+            + mysql +
             " -DINSTALL_BINDIR="
-            + get_home_directory_path(account) + "/" + mysql + "/" + mysql_bin_dir +
+            + mysql_bin_dir +
             " -DINSTALL_LIBDIR="
-            + get_home_directory_path(account) + "/" + mysql + "/" + mysql_lib_dir +
+            + mysql_lib_dir +
             " -DINSTALL_MYSQLSHAREDIR="
-            + get_home_directory_path(account) + "/" + mysql + "/" + mysql_share_dir +
+            + mysql_share_dir +
             " -DINSTALL_SHAREDIR="
-            + get_home_directory_path(account) + "/" + mysql + "/" + mysql_share_dir +
+            + mysql_share_dir +
             " -DINSTALL_PLUGINDIR="
-            + get_home_directory_path(account) + "/" + mysql + "/" + mysql_plugin_dir +
+            + mysql_plugin_dir +
             " -DINSTALL_SBINDIR="
-            + get_home_directory_path(account) + "/" + mysql + "/" + mysql_installation_dir +
+            + mysql_installation_dir +
             " -DINSTALL_SCRIPTDIR="
-            + get_home_directory_path(account) + "/" + mysql + "/" + mysql_script_dir +
+            + mysql_script_dir +
             " -DINSTALL_SECURE_FILE_PRIVDIR="
-            + get_home_directory_path(account) + "/" + mysql + "/" + mysql_priv_dir +
+            + mysql_priv_dir +
             " -DINSTALL_SQLBENCHDIR="
-            + get_home_directory_path(account) + "/" + mysql + "/" + mysql_bench_dir +
+            + mysql_bench_dir +
             " -DMYSQL_DATADIR="
-            + get_home_directory_path(account) + "/" + mysql + "/" + mysql_data_dir +
+            + mysql_data_dir +
             " -DODBC_INCLUDES="
-            + get_home_directory_path(account) + "/" + mysql + "/" + mysql_lib_dir +
+            + mysql_lib_dir +
             " -DODBC_LIB_DIR="
-            + get_home_directory_path(account) + "/" + mysql + "/" + mysql_lib_dir +
+            + mysql_lib_dir +
             " -DSYSCONFDIR="
-            + get_home_directory_path(account) + "/" + mysql + "/" + mysql_conf_dir +
+            + mysql_conf_dir +
             " -DTMPDIR="
-            + get_home_directory_path(account) + "/" + mysql + "/" + mysql_tmp_dir +
+            + mysql_tmp_dir +
             " -DMYSQL_UNIX_ADDR="
-            + get_home_directory_path(account) + "/" + mysql + "/" + mysql_sock_dir + "/mysql.sock"
+            + mysql_sock_dir + "/mysql.sock"
             " -DMYSQL_TCP_PORT="
             + str(system_configuration[key_configuration_port_mysql]) +
             " -DWITH_EMBEDDED_SERVER=true" +
@@ -101,7 +101,7 @@ if has_feature(account, feature_mysql):
             " -DWITH_ZLIB=bundled",
 
             "make",
-            'make install DESTDIR="' + user_home() + "/" + mysql + "/" + mysql_installation_dir + '"',
+            'make install DESTDIR="' + user_home() + "/" + mysql + "/" + mysql_installation_dir + '"'
         ),
         cd(user_home() + "/" + apache_factory),
         python(
