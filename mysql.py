@@ -89,9 +89,17 @@ if has_feature(account, feature_mysql):
             " -DMYSQL_UNIX_ADDR="
             + get_home_directory_path(account) + "/" + mysql + "/" + mysql_sock_dir + "/mysql.sock"
             " -DMYSQL_TCP_PORT="
-            + str(system_configuration[key_configuration_port_mysql])
+            + str(system_configuration[key_configuration_port_mysql]) +
+            " -DWITH_EMBEDDED_SERVER=true" +
+            " -DWITH_EMBEDDED_SHARED_LIBRARY=true" +
+            " -DWITH_LIBEDIT=true" +
+            " -DWITH_LIBWRAP=true" +
+            " -DWITH_READLINE=true" +
+            " -DWITH_SSL=yes" +
+            " -DWITH_UNIXODBC=1" +
+            " -DWITH_VALGRIND=true" +
+            " -DWITH_ZLIB=bundled",
 
-            ,
             "make",
             'make install DESTDIR="' + user_home() + "/" + mysql + "/" + mysql_installation_dir + '"',
         ),
