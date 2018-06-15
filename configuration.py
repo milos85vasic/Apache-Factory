@@ -11,9 +11,18 @@ apache_tar_gz = "httpd-2.4.29.tar.gz"
 php_tar_gz = "php-7.2.4.tar.gz"
 apache_download = "http://www-us.apache.org/dist/httpd/" + apache_tar_gz
 php_download = "http://php.net/distributions/" + php_tar_gz
-mysql_tar_gz = "mysql-boost-8.0.11.tar.gz"
-mysql_extracted_dir = "mysql-8.0.11"
-mysql_download = "https://dev.mysql.com/get/Downloads/MySQL-8.0/" + mysql_tar_gz
+
+# MySQL 8.0
+# mysql_tar_gz = "mysql-boost-8.0.11.tar.gz"
+# mysql_extracted_dir = "mysql-8.0.11"
+# mysql_download = "https://dev.mysql.com/get/Downloads/MySQL-8.0/" + mysql_tar_gz
+
+# MySQL 5.5.60
+# https://dev.mysql.com/get/Downloads/MySQL-5.5/mysql-5.5.60.tar.gz
+mysql_extracted_dir = "mysql-5.5.60"
+mysql_tar_gz = "mysql-5.5.60.tar.gz"
+mysql_download = "https://dev.mysql.com/get/Downloads/MySQL-5.5" + mysql_tar_gz
+
 apache_extract = home + "/" + apache_tar_gz
 apache_extracted = home + "/" + apache_tar_gz.replace(".tar.gz", "")
 factory_script = "factory.py"
