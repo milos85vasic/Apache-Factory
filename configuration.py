@@ -21,7 +21,7 @@ php_download = "http://php.net/distributions/" + php_tar_gz
 # https://dev.mysql.com/get/Downloads/MySQL-5.5/mysql-5.5.60.tar.gz
 mysql_extracted_dir = "mysql-5.5.60"
 mysql_tar_gz = "mysql-5.5.60.tar.gz"
-mysql_download = "https://dev.mysql.com/get/Downloads/MySQL-5.5" + mysql_tar_gz
+mysql_download = "https://dev.mysql.com/get/Downloads/MySQL-5.5/" + mysql_tar_gz
 
 apache_extract = home + "/" + apache_tar_gz
 apache_extracted = home + "/" + apache_tar_gz.replace(".tar.gz", "")
