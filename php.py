@@ -47,7 +47,7 @@ if has_feature(account, feature_mysql):
             python(
                 "Toolkit/" + wipe_script,
                 user_home() + "/" + php_conf_php_init_dir + "/php.ini.matrix",
-                user_home() + "/" + php_conf_php_init_dir + "/php.ini",
+                user_home() + "/" + php + "/lib/php.ini",
                 php_conf_matrix_mysql_socket, user_home() + "/" + mysql + "/" + mysql_sock_dir + "/mysqld.sock",
                 php_conf_matrix_mysql_port, str(mysql_port),
                 php_conf_matrix_mysql_host, "127.0.0.1",
