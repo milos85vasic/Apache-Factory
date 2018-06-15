@@ -15,6 +15,14 @@ if has_feature(account, feature_mysql):
             mkdir(mysql),
             mkdir(mysql + "/" + mysql_installation_dir),
             mkdir(mysql + "/" + mysql_data_dir),
+            # MySQL 5.5.60:
+            mkdir(mysql + "/" + mysql_bin_dir),
+            mkdir(mysql + "/" + mysql_lib_dir),
+            mkdir(mysql + "/" + mysql_plugin_dir),
+            mkdir(mysql + "/" + mysql_priv_dir),
+            mkdir(mysql + "/" + mysql_bench_dir),
+            mkdir(mysql + "/" + mysql_script_dir),
+            # MySQL 5.5.60 - end.
             mkdir(mysql + "/" + mysql_log_dir),
             mkdir(mysql + "/" + mysql_tmp_dir),
             mkdir(mysql + "/" + mysql_sock_dir),
@@ -43,7 +51,47 @@ if has_feature(account, feature_mysql):
             wget(mysql_download, destination=(user_home() + "/")),
             extract(user_home() + "/" + mysql_tar_gz, destination=user_home()),
             cd(mysql_extracted_dir),
-            "cmake ./ -DDOWNLOAD_BOOST=1 -DWITH_BOOST=" + get_home_directory_path(account) + "/Boost",
+
+            # MySQL 8.0:
+            # "cmake ./ -DDOWNLOAD_BOOST=1 -DWITH_BOOST=" + get_home_directory_path(account) + "/Boost",
+
+            # MySQL 5.5.60:
+            "cmake ./ -DCMAKE_INSTALL_PREFIX="
+            + get_home_directory_path(account) + "/" + mysql + "/"
+            " -DINSTALL_BINDIR="
+            + get_home_directory_path(account) + "/" + mysql + "/" + mysql_bin_dir +
+            " -DINSTALL_LIBDIR="
+            + get_home_directory_path(account) + "/" + mysql + "/" + mysql_lib_dir +
+            " -DINSTALL_MYSQLSHAREDIR="
+            + get_home_directory_path(account) + "/" + mysql + "/" + mysql_share_dir +
+            " -DINSTALL_SHAREDIR="
+            + get_home_directory_path(account) + "/" + mysql + "/" + mysql_share_dir +
+            " -DINSTALL_PLUGINDIR="
+            + get_home_directory_path(account) + "/" + mysql + "/" + mysql_plugin_dir +
+            " -DINSTALL_SBINDIR="
+            + get_home_directory_path(account) + "/" + mysql + "/" + mysql_installation_dir +
+            " -DINSTALL_SCRIPTDIR="
+            + get_home_directory_path(account) + "/" + mysql + "/" + mysql_script_dir +
+            " -DINSTALL_SECURE_FILE_PRIVDIR="
+            + get_home_directory_path(account) + "/" + mysql + "/" + mysql_priv_dir +
+            " -DINSTALL_SQLBENCHDIR="
+            + get_home_directory_path(account) + "/" + mysql + "/" + mysql_bench_dir +
+            " -DMYSQL_DATADIR="
+            + get_home_directory_path(account) + "/" + mysql + "/" + mysql_data_dir +
+            " -DODBC_INCLUDES="
+            + get_home_directory_path(account) + "/" + mysql + "/" + mysql_lib_dir +
+            " -DODBC_LIB_DIR="
+            + get_home_directory_path(account) + "/" + mysql + "/" + mysql_lib_dir +
+            " -DSYSCONFDIR="
+            + get_home_directory_path(account) + "/" + mysql + "/" + mysql_conf_dir +
+            " -DTMPDIR="
+            + get_home_directory_path(account) + "/" + mysql + "/" + mysql_tmp_dir +
+            " -DMYSQL_UNIX_ADDR="
+            + get_home_directory_path(account) + "/" + mysql + "/" + mysql_sock_dir + "/mysql.sock"
+            " -DMYSQL_TCP_PORT="
+            + str(system_configuration[key_configuration_port_mysql])
+
+            ,
             "make",
             'make install DESTDIR="' + user_home() + "/" + mysql + "/" + mysql_installation_dir + '"',
         ),
