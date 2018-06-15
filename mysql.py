@@ -54,35 +54,35 @@ if has_feature(account, feature_mysql):
             "cmake ./ -DCMAKE_INSTALL_PREFIX="
             + get_home_directory_path(account) + "/" + mysql +
             " -DINSTALL_BINDIR="
-            + mysql_bin_dir +
-            " -DINSTALL_LIBDIR="
-            + mysql_lib_dir +
-            " -DINSTALL_MYSQLSHAREDIR="
-            + mysql_share_dir +
-            " -DINSTALL_SHAREDIR="
-            + mysql_share_dir +
-            " -DINSTALL_PLUGINDIR="
-            + mysql_plugin_dir +
-            " -DINSTALL_SBINDIR="
-            + mysql_installation_dir +
-            " -DINSTALL_SCRIPTDIR="
-            + mysql_script_dir +
-            " -DINSTALL_SECURE_FILE_PRIVDIR="
-            + mysql_priv_dir +
-            " -DINSTALL_SQLBENCHDIR="
-            + mysql_bench_dir +
-            " -DMYSQL_DATADIR="
-            + mysql_data_dir +
-            " -DODBC_INCLUDES="
-            + mysql_lib_dir +
-            " -DODBC_LIB_DIR="
-            + mysql_lib_dir +
-            " -DSYSCONFDIR="
-            + mysql_conf_dir +
-            " -DTMPDIR="
-            + mysql_tmp_dir +
-            " -DMYSQL_UNIX_ADDR="
-            + mysql_sock_dir + "/mysql.sock"
+            # + mysql_bin_dir +
+            # " -DINSTALL_LIBDIR="
+            # + mysql_lib_dir +
+            # " -DINSTALL_MYSQLSHAREDIR="
+            # + mysql_share_dir +
+            # " -DINSTALL_SHAREDIR="
+            # + mysql_share_dir +
+            # " -DINSTALL_PLUGINDIR="
+            # + mysql_plugin_dir +
+            # " -DINSTALL_SBINDIR="
+            # + mysql_installation_dir +
+            # " -DINSTALL_SCRIPTDIR="
+            # + mysql_script_dir +
+            # " -DINSTALL_SECURE_FILE_PRIVDIR="
+            # + mysql_priv_dir +
+            # " -DINSTALL_SQLBENCHDIR="
+            # + mysql_bench_dir +
+            # " -DMYSQL_DATADIR="
+            # + mysql_data_dir +
+            # " -DODBC_INCLUDES="
+            # + mysql_lib_dir +
+            # " -DODBC_LIB_DIR="
+            # + mysql_lib_dir +
+            # " -DSYSCONFDIR="
+            # + mysql_conf_dir +
+            # " -DTMPDIR="
+            # + mysql_tmp_dir +
+            # " -DMYSQL_UNIX_ADDR="
+            # + mysql_sock_dir + "/mysql.sock"
             " -DMYSQL_TCP_PORT="
             + str(system_configuration[key_configuration_port_mysql]) +
             " -DWITH_EMBEDDED_SERVER=true" +
