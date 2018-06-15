@@ -26,6 +26,11 @@ save_system_configuration(system_configuration)
 
 alter_user = "ALTER USER 'root'@'localhost' IDENTIFIED BY '" + mysql_password + "';"
 
+
+# MySQL 5.5.60 TODO:
+#  ./bin/mysqld start --tmpdir=tmp/ --datadir=data/ --secure-file-priv=priv/ --port=3307
+# create tmp and priv dirs (700 mode)
+
 steps = [
     output(alter_user, mysql_init_tmp),
 
