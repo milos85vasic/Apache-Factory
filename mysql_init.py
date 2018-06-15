@@ -5,7 +5,11 @@ from configuration import *
 from Toolkit.mysql_common import *
 import string
 
-command = get_mysql_bin_directory() + initialize
+# MySQL 8.0:
+# command = get_mysql_bin_directory() + initialize
+
+# MySQL 5.5.60:
+command = get_home_directory_path(account) + "/" + mysql + "/" + mysql_installation_dir + initialize
 
 steps = [
     command
@@ -24,7 +28,13 @@ alter_user = "ALTER USER 'root'@'localhost' IDENTIFIED BY '" + mysql_password + 
 
 steps = [
     output(alter_user, mysql_init_tmp),
-    get_mysql_bin_directory() + get_start_command_init(user_home()),
+
+    # MySQL 8.0:
+    # get_mysql_bin_directory() + get_start_command_init(user_home()),
+
+    # MySQL 5.5.60:
+    get_home_directory_path(account) + "/" + mysql + "/" + mysql_installation_dir + get_start_command_init(user_home()),
+
     sleep(10),
     python(
         killer_script,
@@ -32,7 +42,13 @@ steps = [
         "mysqld"
     ),
     sleep(5),
-    get_mysql_bin_directory() + get_start_command(user_home()),
+
+    # MySQL 8.0:
+    # get_mysql_bin_directory() + get_start_command(user_home()),
+
+    # MySQL 5.5.60:
+    get_home_directory_path(account) + "/" + mysql + "/" + mysql_installation_dir + get_start_command(user_home()),
+
     sleep(10),
     rm_files("*.tmp")
 ]
