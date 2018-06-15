@@ -51,7 +51,7 @@ if has_feature(account, feature_mysql):
                 php_conf_matrix_mysql_socket, user_home() + "/" + mysql + "/" + mysql_sock_dir + "/mysqld.sock",
                 php_conf_matrix_mysql_port, str(mysql_port),
                 php_conf_matrix_mysql_host, "127.0.0.1",
-                php_conf_matrix_mysql_user, account
+                php_conf_matrix_mysql_user, "root"
             ),
 
             cd(user_home()),
