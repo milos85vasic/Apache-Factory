@@ -13,22 +13,15 @@ if has_feature(account, feature_mysql):
         concatenate(
             cd(user_home()),
             mkdir(mysql),
-            mkdir(mysql + "/" + mysql_installation_dir),
-            mkdir(mysql + "/" + mysql_data_dir),
-            # MySQL 5.5.60:
-            mkdir(mysql + "/" + mysql_bin_dir),
-            mkdir(mysql + "/" + mysql_lib_dir),
-            mkdir(mysql + "/" + mysql_plugin_dir),
-            mkdir(mysql + "/" + mysql_priv_dir),
-            mkdir(mysql + "/" + mysql_bench_dir),
-            mkdir(mysql + "/" + mysql_script_dir),
-            # MySQL 5.5.60 - end.
-            mkdir(mysql + "/" + mysql_log_dir),
-            mkdir(mysql + "/" + mysql_tmp_dir),
-            mkdir(mysql + "/" + mysql_sock_dir),
-            mkdir(mysql + "/" + mysql_pid_dir),
-            mkdir(mysql + "/" + mysql_share_dir),
-            mkdir(mysql + "/" + mysql_conf_dir),
+            # MySQL 8.0:
+            # mkdir(mysql + "/" + mysql_installation_dir),
+            # mkdir(mysql + "/" + mysql_data_dir),
+            # mkdir(mysql + "/" + mysql_log_dir),
+            # mkdir(mysql + "/" + mysql_tmp_dir),
+            # mkdir(mysql + "/" + mysql_sock_dir),
+            # mkdir(mysql + "/" + mysql_pid_dir),
+            # mkdir(mysql + "/" + mysql_share_dir),
+            # mkdir(mysql + "/" + mysql_conf_dir),
             cd(mysql + "/" + mysql_conf_dir),
             git_clone_to(configuration_repository_my_sql, "./"),
             git_submodule_init(),
@@ -57,7 +50,7 @@ if has_feature(account, feature_mysql):
 
             # MySQL 5.5.60:
             "cmake ./ -DCMAKE_INSTALL_PREFIX="
-            + mysql +
+            + "/" + mysql +
             " -DINSTALL_BINDIR="
             + mysql_bin_dir +
             " -DINSTALL_LIBDIR="
