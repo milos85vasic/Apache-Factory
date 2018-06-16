@@ -26,7 +26,7 @@ save_system_configuration(system_configuration)
 
 # MySQL 5.5.60:
 alter_user = "SET PASSWORD FOR 'root'@'localhost' = PASSWORD('" + mysql_password + "'); " \
-             "SET PASSWORD FOR 'root'@'127.0.0.1' = PASSWORD('"+ mysql_password + "');"
+             "SET PASSWORD FOR 'root'@'127.0.0.1' = PASSWORD('" + mysql_password + "');"
 
 # MySQL 8.0:
 # steps = [
@@ -46,7 +46,9 @@ alter_user = "SET PASSWORD FOR 'root'@'localhost' = PASSWORD('" + mysql_password
 # run(steps)
 
 # MySQL 5.5.560:
+mysql_full_path = get_home_directory_path(account) + "/" + mysql + "/"
 steps = [
+    output(alter_user, mysql_init_tmp),
     concatenate(
         cd(get_home_directory_path(account) + "/" + mysql),
         mkdir(mysql_tmp_dir),
@@ -54,16 +56,15 @@ steps = [
         mkdir(mysql_sock_dir),
         chmod(mysql_priv_dir, "700")
     ),
-    # TODO:
-    # ./scripts/mysql_install_db --user=test1 --basedir=/home/test1/MySQL/ --datadir=/home/test1/MySQL/data/
-    # --port=3307 --tmpdir=/home/test1/MySQL/tmp/ --secure-file-priv=/home/test1/MySQL/priv/
 
-    # TODO: Apsolute paths, add --user=
-    # ./mysqld --tmpdir=/home/test1/MySQL/tmp --datadir=/home/test1/MySQL/data --secure-file-priv=/home/test1/MySQL/priv
-    #  --port=3307 --user=test1 --socket=/home/test1/MySQL/socket/mysqld.sock &
-    get_home_directory_path(account) + "/" + mysql + "/" + mysql_bin_dir +
-    "/mysqld start --tmpdir=" + mysql_tmp_dir + "/ --datadir="+ mysql_data_dir + "/ " +
-    "--secure-file-priv=" + mysql_priv_dir + "/ --port=" + port,
+    mysql_full_path + mysql_script_dir +
+    "/mysql_install_db --user=" + account + " --basedir=" + mysql_full_path + " --datadir=" + mysql_full_path + "data/"
+    + " --port=" + port + " --tmpdir=" + mysql_full_path + "tmp/ --secure-file-priv="+ mysql_full_path + "priv/",
+
+    mysql_full_path + mysql_bin_dir +
+    "/mysqld --tmpdir=" + mysql_full_path + "tmp --datadir=" + mysql_full_path + "data "
+    + "--secure-file-priv=" + mysql_full_path + "priv --port=" + port + " --user=" + account + " "
+    + "--socket=" + mysql_full_path + "socket/mysqld.sock &",
     sleep(10),
 
     # python(
