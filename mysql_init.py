@@ -63,12 +63,12 @@ steps = [
 
     mysql_full_path + mysql_script_dir +
     "/mysql_install_db --user=" + account + " --basedir=" + mysql_full_path + " --datadir=" + mysql_full_path + "data/"
-    + " --port=" + port + " --tmpdir=" + mysql_full_path + "tmp/ --secure-file-priv="+ mysql_full_path + "priv/",
+    + " --port=" + port + " --tmpdir=" + mysql_full_path + "tmp/ --secure-file-priv=" + mysql_full_path + "priv/",
 
     start_mysql_command,
     sleep(10),
 
-    mysql_full_path + mysql_bin_dir + "/mysql --host=127.0.0.1 --user=root --port=" + str(port) + " < " +
+    mysql_full_path + mysql_bin_dir + "/mysql --host=127.0.0.1 --user=root --port=" + str(port) + " < "
     + mysql_init_tmp,
 
     python(
