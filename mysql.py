@@ -106,7 +106,8 @@ if has_feature(account, feature_mysql):
         cd(user_home() + "/" + apache_factory),
         python(
             mysql_initialization_script,
-            account
+            account,
+            str(system_configuration[key_configuration_port_mysql])
         ),
         concatenate(
             cd(user_home()),
