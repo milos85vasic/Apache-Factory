@@ -46,6 +46,7 @@ steps = [
         cd(get_home_directory_path(account) + "/" + mysql),
         mkdir(mysql_tmp_dir),
         mkdir(mysql_priv_dir),
+        mkdir(mysql_sock_dir),
         chmod(mysql_priv_dir, "700")
     ),
     # TODO:
@@ -53,6 +54,8 @@ steps = [
     # --port=3307 --tmpdir=/home/test1/MySQL/tmp/ --secure-file-priv=/home/test1/MySQL/priv/
 
     # TODO: Apsolute paths, add --user=
+    # ./mysqld --tmpdir=/home/test1/MySQL/tmp --datadir=/home/test1/MySQL/data --secure-file-priv=/home/test1/MySQL/priv
+    #  --port=3307 --user=test1 --socket=/home/test1/MySQL/socket/mysqld.sock
     get_home_directory_path(account) + "/" + mysql + "/" + mysql_bin_dir +
     "/mysqld start --tmpdir=" + mysql_tmp_dir + "/ --datadir="+ mysql_data_dir + "/ " +
     "--secure-file-priv=" + mysql_priv_dir + "/ --port=" + port,
