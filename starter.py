@@ -31,12 +31,24 @@ for item in system_configuration.keys():
         print(script)
 
     if has_feature(account, feature_mysql):
-        script = get_home_directory_path(account) + "/" + mysql + "/" + mysql_installation_dir + \
-                 "/usr/local/mysql/bin/mysqld"
+        # MySQL 8.0:
+        # script = get_home_directory_path(account) + "/" + mysql + "/" + mysql_installation_dir + \
+        #          "/usr/local/mysql/bin/mysqld"
+
+        # My SQL 5.5.60:
+        port = default_port_mysql
+        if account in system_configuration:
+            if key_configuration_port_mysql in system_configuration[account]:
+                port = system_configuration[account][key_configuration_port_mysql]
+        mysql_full_path = get_home_directory_path(account) + "/" + mysql + "/"
+        script = mysql_full_path + mysql_bin_dir + "/mysqld --tmpdir=" + mysql_full_path + "tmp --datadir=" + \
+                 mysql_full_path + "data " + "--secure-file-priv=" + mysql_full_path + "priv --port=" + port + \
+                 " --user=" + account + " " + "--socket=" + mysql_full_path + "socket/mysqld.sock &"
 
         if os.path.isfile(script):
-            script += " --defaults-extra-file=" + get_home_directory_path(account) + "/" + mysql + "/" \
-                      + mysql_conf_dir + "/my.conf &"
+            # MySQL 8.0:
+            # script += " --defaults-extra-file=" + get_home_directory_path(account) + "/" + mysql + "/" \
+            #           + mysql_conf_dir + "/my.cnf &"
 
             steps = [
                 run_as_user(account, script)
