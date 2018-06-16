@@ -52,7 +52,7 @@ steps = [
 
 
     get_home_directory_path(account) + "/" + mysql + "/" + mysql_bin_dir +
-    "mysqld start --tmpdir=" + mysql_tmp_dir + "/ --datadir="+ mysql_data_dir + "/ " +
+    "/mysqld start --tmpdir=" + mysql_tmp_dir + "/ --datadir="+ mysql_data_dir + "/ " +
     "--secure-file-priv=" + mysql_priv_dir + "/ --port=" + port,
     sleep(10),
 
