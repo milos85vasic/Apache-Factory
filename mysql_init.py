@@ -48,9 +48,11 @@ steps = [
         mkdir(mysql_priv_dir),
         chmod(mysql_priv_dir, "700")
     ),
+    # TODO:
+    # ./scripts/mysql_install_db --user=test1 --basedir=/home/test1/MySQL/ --datadir=/home/test1/MySQL/data/
+    # --port=3307 --tmpdir=/home/test1/MySQL/tmp/ --secure-file-priv=/home/test1/MySQL/priv/
 
-
-
+    # TODO: Apsolute paths, add --user=
     get_home_directory_path(account) + "/" + mysql + "/" + mysql_bin_dir +
     "/mysqld start --tmpdir=" + mysql_tmp_dir + "/ --datadir="+ mysql_data_dir + "/ " +
     "--secure-file-priv=" + mysql_priv_dir + "/ --port=" + port,
