@@ -68,7 +68,7 @@ steps = [
     start_mysql_command,
     sleep(10),
 
-    mysql_full_path + mysql_bin_dir + "/mysql --host=127.0.0.1 --user=root --port=" + port + " < " +
+    mysql_full_path + mysql_bin_dir + "/mysql --host=127.0.0.1 --user=root --port=" + str(port) + " < " +
     + mysql_init_tmp,
 
     python(
