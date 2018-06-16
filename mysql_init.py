@@ -44,15 +44,15 @@ alter_user = "SET PASSWORD FOR 'root'@'localhost' = PASSWORD('" + mysql_password
 # run(steps)
 
 # MySQL 5.5.560:
-mysql_full_path = get_home_directory_path(account) + "/" + mysql + "/"
-start_mysql_command = mysql_full_path + mysql_bin_dir + "/mysqld --tmpdir=" + mysql_full_path + "tmp --datadir=" + \
-                      mysql_full_path + "data " + "--secure-file-priv=" + mysql_full_path + "priv --port=" + port + \
-                      " --user=" + account + " " + "--socket=" + mysql_full_path + "socket/mysqld.sock &"
-
 port = default_port_mysql
 if account in system_configuration:
     if key_configuration_port_mysql in system_configuration[account]:
         port = system_configuration[account][key_configuration_port_mysql]
+
+mysql_full_path = get_home_directory_path(account) + "/" + mysql + "/"
+start_mysql_command = mysql_full_path + mysql_bin_dir + "/mysqld --tmpdir=" + mysql_full_path + "tmp --datadir=" + \
+                      mysql_full_path + "data " + "--secure-file-priv=" + mysql_full_path + "priv --port=" + port + \
+                      " --user=" + account + " " + "--socket=" + mysql_full_path + "socket/mysqld.sock &"
 
 steps = [
     output(alter_user, mysql_init_tmp),
