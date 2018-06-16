@@ -21,7 +21,12 @@ print("MySQL root user password: " + mysql_password)
 system_configuration[account][key_services][key_credentials] = {feature_mysql: mysql_password}
 save_system_configuration(system_configuration)
 
-alter_user = "ALTER USER 'root'@'localhost' IDENTIFIED BY '" + mysql_password + "';"
+# MySQL 8.0:
+# alter_user = "ALTER USER 'root'@'localhost' IDENTIFIED BY '" + mysql_password + "';"
+
+# MySQL 5.5.60:
+alter_user = "SET PASSWORD FOR 'root'@'localhost' = PASSWORD('" + mysql_password + "'); " \
+             "SET PASSWORD FOR 'root'@'127.0.0.1' = PASSWORD('"+ mysql_password + "');"
 
 # MySQL 8.0:
 # steps = [
@@ -55,7 +60,7 @@ steps = [
 
     # TODO: Apsolute paths, add --user=
     # ./mysqld --tmpdir=/home/test1/MySQL/tmp --datadir=/home/test1/MySQL/data --secure-file-priv=/home/test1/MySQL/priv
-    #  --port=3307 --user=test1 --socket=/home/test1/MySQL/socket/mysqld.sock
+    #  --port=3307 --user=test1 --socket=/home/test1/MySQL/socket/mysqld.sock &
     get_home_directory_path(account) + "/" + mysql + "/" + mysql_bin_dir +
     "/mysqld start --tmpdir=" + mysql_tmp_dir + "/ --datadir="+ mysql_data_dir + "/ " +
     "--secure-file-priv=" + mysql_priv_dir + "/ --port=" + port,
