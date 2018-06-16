@@ -68,6 +68,12 @@ steps = [
     "/mysql_install_db --user=" + account + " --basedir=" + mysql_full_path + " --datadir=" + mysql_full_path + "data/"
     + " --port=" + str(port) + " --tmpdir=" + mysql_full_path + "tmp/ --secure-file-priv=" + mysql_full_path + "priv/",
 
+    python(
+        killer_script,
+        account,
+        "mysqld"
+    ),
+    sleep(5),
     start_mysql_command,
     sleep(10),
 
