@@ -17,6 +17,8 @@ steps = [
         mkdir(brotli),
         cd(brotli),
         git_clone_to(brotli_repository, "./"),
+        git_submodule_init(),
+        git_submodule_update(),
         "mkdir out && cd out",
         "../configure-cmake",
         "make",
