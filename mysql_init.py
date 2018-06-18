@@ -73,7 +73,7 @@ steps = [
         "mysqld"
     ),
     sleep(5),
-    start_mysql_command,
+    get_mysql_start_command(account),
     sleep(10),
 
     install_root,
@@ -84,7 +84,7 @@ steps = [
         "mysqld"
     ),
     sleep(5),
-    start_mysql_command,
+    get_mysql_start_command(account),
     sleep(10),
     rm_files("*.tmp")
 ]
