@@ -91,6 +91,9 @@ if account in system_configuration:
                             outfile.write("\n")
                             outfile.write("\tCustomLog " + logs_home + "/" + url + ".access.log common")
                             outfile.write("\n")
+                            outfile.write('\t<Directory "' + root + '">')
+                            outfile.write("\t\tAllowOverride All")
+                            outfile.write("\t</Directory>")
 
                             if key_password_protect in system_configuration[account][key_services]:
                                 key_pp = key_password_protect
