@@ -1,9 +1,7 @@
-import os
+import string
 import random
-import sys
 from configuration import *
 from Toolkit.mysql_common import *
-import string
 
 # MySQL 8.0:
 # command = get_mysql_bin_directory() + initialize
@@ -43,18 +41,7 @@ alter_user = "SET PASSWORD FOR 'root'@'localhost' = PASSWORD('" + mysql_password
 # ]
 # run(steps)
 
-# MySQL 5.5.560:
-port = default_port_mysql
-if account in system_configuration:
-    if key_configuration_port_mysql in system_configuration[account]:
-        port = system_configuration[account][key_configuration_port_mysql]
-
-mysql_full_path = get_home_directory_path(account) + "/" + mysql + "/"
-
-start_mysql_command = mysql_full_path + mysql_bin_dir + "/mysqld --tmpdir=" + mysql_full_path + "tmp --datadir=" + \
-                      mysql_full_path + "data " + "--secure-file-priv=" + mysql_full_path + "priv --port=" + str(port) \
-                      + " --user=" + account + " " + "--socket=" + mysql_full_path + "socket &"
-
+# MySQL 5.5.60:
 install_db = mysql_full_path + mysql_script_dir + "/mysql_install_db --user=" + account + " --basedir=" + \
              mysql_full_path + " --datadir=" + mysql_full_path + "data/" + " --port=" + str(port) + " --tmpdir=" + \
              mysql_full_path + "tmp/ --secure-file-priv=" + mysql_full_path + "priv/"
@@ -95,13 +82,3 @@ steps = [
     rm_files("*.tmp")
 ]
 run(steps)
-
-# print("init db:")
-# print(install_db)
-# print("- - - - - - - - - - - - - - - ")
-# print("start command:")
-# print(start_mysql_command)
-# print("- - - - - - - - - - - - - - - ")
-# print("install root:")
-# print(install_root)
-# print("- - - - - - - - - - - - - - - ")
