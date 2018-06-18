@@ -92,7 +92,9 @@ if account in system_configuration:
                             outfile.write("\tCustomLog " + logs_home + "/" + url + ".access.log common")
                             outfile.write("\n")
                             outfile.write('\t<Directory "' + root + '">')
+                            outfile.write("\n")
                             outfile.write("\t\tAllowOverride All")
+                            outfile.write("\n")
                             outfile.write("\t</Directory>")
                             outfile.write("\n")
 
