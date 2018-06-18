@@ -3,6 +3,7 @@
 import sys
 from Toolkit.commands import *
 from Toolkit.system_configuration import *
+from Toolkit.mysql_common import *
 from configuration import *
 from git_info import *
 
@@ -41,7 +42,7 @@ for item in system_configuration.keys():
             if key_configuration_port_mysql in system_configuration[account]:
                 port = system_configuration[account][key_configuration_port_mysql]
         mysql_full_path = get_home_directory_path(account) + "/" + mysql + "/"
-        script = mysql_full_path + mysql_bin_dir + "/mysqld"
+        script = get_home_directory_path(account) + "/" + mysql + "/" + mysql_bin_dir + "/mysqld"
 
         if os.path.isfile(script):
             # MySQL 8.0:
@@ -49,9 +50,7 @@ for item in system_configuration.keys():
             #           + mysql_conf_dir + "/my.cnf &"
 
             # My SQL 5.5.60:
-            script += " --tmpdir=" + mysql_full_path + "tmp --datadir=" + mysql_full_path + "data " + \
-                      "--secure-file-priv=" + mysql_full_path + "priv --port=" + str(port) + " --user=" + account + \
-                      " " + "--socket=" + mysql_full_path + "socket/mysqld.sock &"
+            script = get_mysql_start_command(account)
 
             steps = [
                 run_as_user(account, script)

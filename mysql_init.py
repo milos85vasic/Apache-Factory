@@ -42,6 +42,8 @@ alter_user = "SET PASSWORD FOR 'root'@'localhost' = PASSWORD('" + mysql_password
 # run(steps)
 
 # MySQL 5.5.60:
+mysql_full_path = get_home_directory_path(account) + "/" + mysql + "/"
+
 install_db = mysql_full_path + mysql_script_dir + "/mysql_install_db --user=" + account + " --basedir=" + \
              mysql_full_path + " --datadir=" + mysql_full_path + "data/" + " --port=" + str(port) + " --tmpdir=" + \
              mysql_full_path + "tmp/ --secure-file-priv=" + mysql_full_path + "priv/"
