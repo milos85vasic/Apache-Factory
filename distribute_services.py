@@ -158,14 +158,10 @@ if account in system_configuration:
                 path = content_dir_path(get_home_directory_path(account)) + "/" + url
                 print("Path: " + path)
                 steps = [
-                    concatenate(
-                        cd(path),
-                        "ls -lF",
-                        python(
-                            website_setup_script,
-                            account,
-                            url
-                        )
+                    python(
+                        path + "/" + website_setup_script,
+                        account,
+                        url
                     )
                 ]
 
