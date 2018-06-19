@@ -153,11 +153,16 @@ if account in system_configuration:
             for service in system_configuration[account][key_services][key_services]:
                 url = service[key_services_url]
                 steps = [
-                    python(
-                        content_dir_path(get_home_directory_path(account)) + "/" + url + "/" + website_setup_script,
-                        account,
-                        url
-                    ),
+                    concatenate(
+                        cd(content_dir_path(get_home_directory_path(account)) + "/" + url + "/"),
+                        git_submodule_init(),
+                        git_submodule_update(),
+                        python(
+                            website_setup_script,
+                            account,
+                            url
+                        )
+                    )
                 ]
 
                 run(steps)
