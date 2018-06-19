@@ -41,8 +41,6 @@ if has_feature(account, feature_mysql):
             cd(user_home()),
             mkdir(php_conf_php_init_dir),
             git_clone_to(php_conf_repository, "./" + php_conf_php_init_dir),
-            git_submodule_init(),
-            git_submodule_update(),
             cd(user_home() + "/" + apache_factory),
             python(
                 "Toolkit/" + wipe_script,
