@@ -44,12 +44,6 @@ if account in system_configuration:
                     git_clone_to(repository, content_dir_path(get_home_directory_path(account)) + "/" + url),
                     git_submodule_init(),
                     git_submodule_update(),
-                    sleep(10),  # TODO: Replace.
-                    python(
-                        content_dir_path(get_home_directory_path(account)) + "/" + url + "/" + website_setup_script,
-                        account,
-                        url
-                    ),
                     python(
                         find_service_index_script,
                         service[key_services_url],
@@ -151,3 +145,19 @@ if account in system_configuration:
                     ]
 
                     run(steps)
+
+
+if account in system_configuration:
+    if key_services in system_configuration[account]:
+        if key_services in system_configuration[account][key_services]:
+            for service in system_configuration[account][key_services][key_services]:
+                url = service[key_services_url]
+                steps = [
+                    python(
+                        content_dir_path(get_home_directory_path(account)) + "/" + url + "/" + website_setup_script,
+                        account,
+                        url
+                    ),
+                ]
+
+                run(steps)
