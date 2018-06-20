@@ -84,6 +84,7 @@ rpm_fusion_free = "https://download1.rpmfusion.org/free/el/rpmfusion-free-releas
 rpm_fusion_non_free = "https://download1.rpmfusion.org/nonfree/el/rpmfusion-nonfree-release-7.noarch.rpm"
 security = "Security"
 passwd_file = ".htpasswd"
+website_setup_dir = "Setup"
 website_setup_script = "setup_website.py"
 
 

@@ -46,6 +46,9 @@ if account in system_configuration:
                         cd(content_dir_path(get_home_directory_path(account)) + "/" + url),
                         git_submodule_init(),
                         git_submodule_update(),
+                        cd(content_dir_path(get_home_directory_path(account)) + "/" + url + "/" + website_setup_dir),
+                        git_submodule_init(),
+                        git_submodule_update()
                     ),
                     python(
                         find_service_index_script,
@@ -159,7 +162,7 @@ if account in system_configuration:
                 print("Path: " + path)
                 steps = [
                     python(
-                        path + "/" + website_setup_script,
+                        path + "/" + website_setup_dir + "/" + website_setup_script,
                         account,
                         url
                     )
