@@ -25,10 +25,11 @@ except KeyError:
                 chgrp(apache_factory_group, apache_factory_configuration_dir),
                 cd(get_home_directory_path(account)),
                 mkdir(apache_factory),
-                git_clone(git_configuration[key_repository]),
                 cd(apache_factory),
+                git_clone_to_recursive(git_configuration[key_repository], here),
+                git_checkout(git_configuration[key_branch]),
                 git_submodule_checkout_each(),
-                cd(".."),
+                cd(".."),  # TODO: Refactor into 'back' variable.
                 chown(account, get_home_directory_path(account)),
                 chgrp(account, get_home_directory_path(account)),
                 chmod(get_home_directory_path(account), "750"),
