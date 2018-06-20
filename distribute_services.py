@@ -41,16 +41,10 @@ if account in system_configuration:
                 if key_services_repository in service:
                     repository = service[key_services_repository]
                 steps = [
-                    git_clone_to(repository, content_dir_path(get_home_directory_path(account)) + "/" + url),
+                    git_clone_to_recursive(repository, content_dir_path(get_home_directory_path(account)) + "/" + url),
                     concatenate(
                         cd(content_dir_path(get_home_directory_path(account)) + "/" + url),
-                        git_submodule_init(),
-                        git_submodule_update(),
-                        git_checkout("master"),
-                        cd(content_dir_path(get_home_directory_path(account)) + "/" + url + "/" + website_setup_dir),
-                        git_submodule_init(),
-                        git_submodule_update(),
-                        git_checkout("master"),
+                        git_submodule_checkout_each(),
                     ),
                     python(
                         find_service_index_script,

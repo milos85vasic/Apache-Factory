@@ -24,9 +24,7 @@ if has_feature(account, feature_mysql):
             mkdir(mysql + "/" + mysql_conf_dir),
             cd(mysql + "/" + mysql_conf_dir),
             git_clone_to(configuration_repository_my_sql, "./"),
-            git_submodule_init(),
-            git_submodule_update(),
-            git_checkout("master"),
+            git_submodule_checkout_each(),
             python(
                 user_home() + "/" + apache_factory + "/Toolkit/" + wipe_script,
                 user_home() + "/" + mysql + "/" + mysql_conf_dir + "/" + mysql_conf_matrix,

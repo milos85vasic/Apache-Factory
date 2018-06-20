@@ -44,10 +44,8 @@ steps = [
     chmod(apache_conf, "755"),
     concatenate(
         cd(apache_conf),
-        git_clone_to(configuration_repo, here),
-        git_submodule_init(),
-        git_submodule_update(),
-        git_checkout("master"),
+        git_clone_to_recursive(configuration_repo, here),
+        git_submodule_checkout_each(),
         cd("~")
     ),
     python(
