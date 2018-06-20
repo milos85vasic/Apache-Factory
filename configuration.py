@@ -64,7 +64,7 @@ configuration_repository = "https://github.com/milos85vasic/Apache-Factory-Confi
 # MySQL 5.5.60:
 configuration_repository_my_sql = "https://github.com/milos85vasic/Apache-Factory-Config-Default-MySQL-5.5.60.git"
 brotli_installation_script = "brotli.py"
-brotli_repository = "https://github.com/google/brotli.git"
+brotli_repository = "https://github.com/milos85vasic/brotli.git"
 brotli_module_repository = "https://github.com/milos85vasic/apache-mod-brotli"
 brotli = "Brotli"
 brotli_module = "Brotli_Module"
