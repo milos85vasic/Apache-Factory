@@ -47,6 +47,7 @@ steps = [
         git_clone_to(configuration_repo, here),
         git_submodule_init(),
         git_submodule_update(),
+        git_checkout("master"),
         cd("~")
     ),
     python(

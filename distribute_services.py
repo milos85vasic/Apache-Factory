@@ -46,9 +46,11 @@ if account in system_configuration:
                         cd(content_dir_path(get_home_directory_path(account)) + "/" + url),
                         git_submodule_init(),
                         git_submodule_update(),
+                        git_checkout("master"),
                         cd(content_dir_path(get_home_directory_path(account)) + "/" + url + "/" + website_setup_dir),
                         git_submodule_init(),
-                        git_submodule_update()
+                        git_submodule_update(),
+                        git_checkout("master"),
                     ),
                     python(
                         find_service_index_script,
