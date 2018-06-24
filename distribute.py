@@ -36,6 +36,9 @@ if incrementPortNumber:
     system_configuration[account][key_configuration_port] = system_configuration[key_configuration_port]
 
 save_system_configuration(system_configuration)
+php_version = 7
+if has_feature(account, feature_php_5):
+    php_version = 5
 
 steps = [
     cd("~"),
@@ -57,7 +60,8 @@ steps = [
         httpd_conf_matrix_user_placeholder, account,
         httpd_conf_matrix_group_placeholder, account,
         httpd_conf_matrix_server_name_placeholder, account,
-        httpd_conf_matrix_server_admin_placeholder, str(system_configuration[account][key_configuration_server_admin])
+        httpd_conf_matrix_server_admin_placeholder, str(system_configuration[account][key_configuration_server_admin]),
+        httpd_conf_matrix_php_version, str(php_version)
     ),
     python(services_distribution_script),
     concatenate(
