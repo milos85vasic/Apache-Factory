@@ -22,6 +22,14 @@ if has_feature(account, feature_mysql):
                  "--enable-mbstring --with-mysqli=mysqlnd --enable-pcntl --with-pdo-mysql=mysqlnd --enable-soap " + \
                  "--enable-sockets --with-xmlrpc --enable-zip --with-webp-dir --with-jpeg-dir --with-png-dir"
 
+php_archive = php_tar_gz
+php_download_url = php_download
+php_dir = php_tar_gz.replace(".tar.gz", "")
+if has_feature(account, feature_php_5):
+    php_archive = php_5636_tar_gz
+    php_download_url = php_5636_download
+    php_dir = php_5636_tar_gz.replace(".tar.gz", "")
+
 if has_feature(account, feature_mysql):
     mysql_port = default_port_mysql
     if account in system_configuration:
@@ -31,9 +39,9 @@ if has_feature(account, feature_mysql):
     steps = [
         concatenate(
             cd(user_home()),
-            wget(php_download, destination=(user_home() + "/")),
-            extract(user_home() + "/" + php_tar_gz, destination=user_home()),
-            cd(php_tar_gz.replace(".tar.gz", "")),
+            wget(php_download_url, destination=(user_home() + "/")),
+            extract(user_home() + "/" + php_archive, destination=user_home()),
+            cd(php_dir),
             configure,
             "make",
             "make install",
@@ -53,8 +61,8 @@ if has_feature(account, feature_mysql):
             ),
 
             cd(user_home()),
-            rm(php_tar_gz),
-            rm(php_tar_gz.replace(".tar.gz", ""))
+            rm(php_archive),
+            rm(php_dir)
         )
     ]
     run(steps)
@@ -62,16 +70,16 @@ else:
     steps = [
         concatenate(
             cd(user_home()),
-            wget(php_download, destination=(user_home() + "/")),
-            extract(user_home() + "/" + php_tar_gz, destination=user_home()),
-            cd(php_tar_gz.replace(".tar.gz", "")),
+            wget(php_download_url, destination=(user_home() + "/")),
+            extract(user_home() + "/" + php_archive, destination=user_home()),
+            cd(php_archive),
             configure,
             "make",
             "make install",
             cp("php.ini-development", user_home() + "/" + php + "/lib/php.ini"),
             cd(user_home()),
-            rm(php_tar_gz),
-            rm(php_tar_gz.replace(".tar.gz", ""))
+            rm(php_archive),
+            rm(php_dir)
         )
     ]
     run(steps)

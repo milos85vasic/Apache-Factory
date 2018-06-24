@@ -9,8 +9,10 @@ apache_conf = apache_home + "/conf"
 apache_bin = apache_home + "/bin"
 apache_tar_gz = "httpd-2.4.29.tar.gz"
 php_tar_gz = "php-7.2.4.tar.gz"
+php_5636_tar_gz = "php-5.6.36.tar.gz"
 apache_download = "http://www-us.apache.org/dist/httpd/" + apache_tar_gz
 php_download = "http://php.net/distributions/" + php_tar_gz
+php_5636_download = "http://php.net/distributions/" + php_5636_tar_gz
 
 # MySQL 8.0
 # mysql_tar_gz = "mysql-boost-8.0.11.tar.gz"
