@@ -157,3 +157,17 @@ To connect services with main proxy (parent HTTPD instance):
 ```
 
 Where some_account represents account under which we initialized parent (main) proxy HTTPD instance.
+
+- Overriding PHP version to 5:
+```
+{
+  "services": [
+    {
+      ...
+    }
+  ],
+  "features": [
+    "php_5"
+  ]
+}
+```
