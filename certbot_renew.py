@@ -15,7 +15,9 @@ commands = [
                 "root",
                 "httpd"
             ),
+            "service webmin stop",
             certbot_command,
+            "service webmin start",
             starter_script
         )
     )
