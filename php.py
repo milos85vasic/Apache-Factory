@@ -72,7 +72,7 @@ else:
             cd(user_home()),
             wget(php_download_url, destination=(user_home() + "/")),
             extract(user_home() + "/" + php_archive, destination=user_home()),
-            cd(php_archive),
+            cd(php_dir),
             configure,
             "make",
             "make install",
