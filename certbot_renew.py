@@ -18,7 +18,7 @@ commands = [
             "service webmin stop",
             certbot_command,
             "service webmin start",
-            starter_script
+            "/root/" + apache_factory + "/" + starter_script
         )
     )
 ]
