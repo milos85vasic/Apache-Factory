@@ -11,13 +11,13 @@ commands = [
     run_as_su(
         concatenate(
             python(
-                killer_script,
+                "/root/" + apache_factory + "/" + killer_script,
                 "root",
                 "httpd",
                 "--all"
             ),
             python(
-                killer_script,
+                "/root/" + apache_factory + "/" + killer_script,
                 "root",
                 "mysqld",
                 "--all"
