@@ -10,11 +10,17 @@ certbot_command = sys.argv[1]
 commands = [
     run_as_su(
         concatenate(
-            # TODO: Make sure it is possible to kill for all users.
             python(
                 killer_script,
                 "root",
-                "httpd"
+                "httpd",
+                "--all"
+            ),
+            python(
+                killer_script,
+                "root",
+                "mysqld",
+                "--all"
             ),
             "service webmin stop",
             certbot_command,
