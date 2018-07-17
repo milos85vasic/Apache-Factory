@@ -12,6 +12,7 @@ system_configuration = get_system_configuration()
 for item in system_configuration.keys():
     account = item
     script = get_home_directory_path(account)
+    print("Home directory: " + script)
     if not os.path.exists(script):
         exit()
 
