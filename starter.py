@@ -15,7 +15,7 @@ for item in system_configuration.keys():
     print("Home directory: " + script)
     if not os.path.exists(script):
         print("Home directory does not exist: " + script)
-        exit()
+        continue
 
     script += "/" + apache2 + "/bin/apachectl"
     if system_configuration[account][key_configuration_port] < 1024:
