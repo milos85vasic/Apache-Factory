@@ -14,6 +14,7 @@ for item in system_configuration.keys():
     script = get_home_directory_path(account)
     print("Home directory: " + script)
     if not os.path.exists(script):
+        print("Home directory does not exist: " + script)
         exit()
 
     script += "/" + apache2 + "/bin/apachectl"
