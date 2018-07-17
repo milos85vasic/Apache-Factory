@@ -15,26 +15,22 @@ if account is "root":
 
 # TODO: This paths should be relative.
 commands = [
-    run_as_su(
-        concatenate(
-            python(
-                "/root/" + apache_factory + "/" + killer_script,
-                "root",
-                "httpd",
-                "--all"
-            ),
-            python(
-                "/root/" + apache_factory + "/" + killer_script,
-                "root",
-                "mysqld",
-                "--all"
-            ),
-            "service webmin stop",
-            certbot_command,
-            "service webmin start",
-            "/root/" + apache_factory + "/" + starter_script + " &"
-        )
-    )
+    python(
+        "/root/" + apache_factory + "/" + killer_script,
+        "root",
+        "httpd",
+        "--all"
+    ),
+    python(
+        "/root/" + apache_factory + "/" + killer_script,
+        "root",
+        "mysqld",
+        "--all"
+    ),
+    "service webmin stop",
+    certbot_command,
+    "service webmin start",
+    "/root/" + apache_factory + "/" + starter_script + " &"
 ]
 
 run(commands)
