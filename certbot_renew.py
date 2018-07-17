@@ -30,7 +30,9 @@ commands = [
     "service webmin stop",
     certbot_command,
     "service webmin start",
-    "/root/" + apache_factory + "/" + starter_script + " &"
+    python(
+        "/root/" + apache_factory + "/" + starter_script
+    )
 ]
 
 run(commands)
