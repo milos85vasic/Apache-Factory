@@ -9,7 +9,7 @@ from configuration import *
 account = getpass.getuser()
 certbot_command = sys.argv[1]
 
-if account != "root":
+if account is "root":
     print "Only super user can trigger certbot renew."
     sys.exit(2)
 
