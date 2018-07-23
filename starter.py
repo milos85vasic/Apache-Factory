@@ -1,11 +1,6 @@
 #!/usr/bin/python
 
-import sys
-from Toolkit.commands import *
-from Toolkit.system_configuration import *
-from configuration import *
 from Toolkit.mysql_common_5560 import *
-from git_info import *
 
 system_configuration = get_system_configuration()
 

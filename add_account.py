@@ -1,9 +1,8 @@
 import sys
 import pwd
-from Toolkit.commands import *
 from Toolkit.system_configuration import *
 from configuration import *
-from git_info import *
+from Toolkit.git_info import *
 
 set_git_info()
 git_configuration = get_git_info()
