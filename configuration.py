@@ -29,7 +29,6 @@ apache_extract = home + "/" + apache_tar_gz
 apache_extracted = home + "/" + apache_tar_gz.replace(".tar.gz", "")
 password_protect_script = "password_protect.py"
 grant_privileged_ports_script = "grant_ports.py"
-find_service_index_script = "find_service_index.py"
 apache_vhosts_directory = "vhosts"
 httpd_conf_matrix = "httpd.conf.matrix"
 httpd_conf = "httpd.conf"
