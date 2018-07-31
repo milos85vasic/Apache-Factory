@@ -47,7 +47,7 @@ if account in system_configuration:
                         git_submodule_checkout_each(),
                     ),
                     python(
-                        find_service_index_script,
+                        "Toolkit/" + find_service_index_script,
                         service[key_services_url],
                         content_dir_path(get_home_directory_path(account)) + "/" + url
                     )

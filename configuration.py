@@ -72,7 +72,6 @@ php_src = "php-src-php-7.0.29"
 mysql_installation_script = "mysql.py"
 mysql_initialization_script = "mysql_init.py"
 mysql_initialization_tmp = "mysql_init.tmp"
-service_indexes = ["index.html", "index.htm", "index.php"]
 php_test_script = "test.php"
 starter_script = "starter.py"
 starter_init_script = "starter_init.py"
