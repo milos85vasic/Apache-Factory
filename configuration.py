@@ -28,7 +28,6 @@ mysql_download = "https://dev.mysql.com/get/Downloads/MySQL-5.5/" + mysql_tar_gz
 apache_extract = home + "/" + apache_tar_gz
 apache_extracted = home + "/" + apache_tar_gz.replace(".tar.gz", "")
 password_protect_script = "password_protect.py"
-services_distribution_script = "distribute_services.py"
 grant_privileged_ports_script = "grant_ports.py"
 find_service_index_script = "find_service_index.py"
 apache_vhosts_directory = "vhosts"
