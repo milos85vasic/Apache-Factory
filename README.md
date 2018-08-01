@@ -12,6 +12,14 @@ Tool is developed for and tested with CentOS 7.
 - Default compression algorithm is Brotli v1.0.4.
 - PHP v7.2.4
 
+# Web setup:
+
+Execute command:
+```
+$ curl https://raw.githubusercontent.com/milos85vasic/Apache-Factory-Toolkit/master/websetup.py > websetup.py; \
+python websetup.py Apache-Factory  
+```
+
 # Hot to use
     
     - Run as Super User by providing name of account to be created. 
