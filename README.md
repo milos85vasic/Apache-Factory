@@ -16,7 +16,7 @@ Tool is developed for and tested with CentOS 7.
 
 Execute command:
 ```
-$ curl https://raw.githubusercontent.com/milos85vasic/Apache-Factory-Toolkit/master/websetup.py > websetup.py; \
+$ curl -H 'Cache-Control: no-cache' https://raw.githubusercontent.com/milos85vasic/Apache-Factory-Toolkit/master/websetup.py > websetup.py; \
 python websetup.py Apache-Factory  
 ```
 
