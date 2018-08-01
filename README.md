@@ -27,7 +27,7 @@ Account will be created and Apache Factory started for that user.
     
 Distributing configuration:
 
-    - TBD.
+- TBD.
 
 ## Account add with Apache Factory execution
 
