@@ -22,8 +22,8 @@ python websetup.py Apache-Factory
 
 # Hot to use
     
-    - Run as Super User by providing name of account to be created. 
-    Account will be created and Apache Factory started for that user.
+- Run as Super User by providing name of account to be created. 
+Account will be created and Apache Factory started for that user.
     
 Distributing configuration:
 
