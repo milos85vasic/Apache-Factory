@@ -4,6 +4,14 @@ from Toolkit.system_configuration import *
 from configuration import *
 from Toolkit.git_info import *
 
+steps = [
+    run_as_su(
+        add_group(apache_factory_group)
+    )
+]
+
+run(steps)
+
 set_git_info()
 git_configuration = get_git_info()
 system_configuration = init_system_configuration(sys.argv)
@@ -19,7 +27,6 @@ except KeyError:
                 cd("~"),
                 add_user(account),
                 passwd(account),
-                add_group(apache_factory_group),
                 add_to_group(account, apache_factory_group),
                 chgrp(apache_factory_group, apache_factory_configuration_dir),
                 cd(get_home_directory_path(account)),
