@@ -13,17 +13,14 @@ for item in system_configuration.keys():
         continue
 
     script += "/" + apache2 + "/bin/apachectl"
-    if system_configuration[account][key_configuration_port] < 1024:
-        start_command = run_as_su(script + " start")
-    else:
-        start_command = run_as_user(account, script + " start")
+    start_command = run_as_su(script + " start")
 
     if os.path.isfile(script):
         steps = [start_command]
 
         print("We are about to execute:")
         print(script)
-        run(run_as_su(steps))
+        run(steps)
     else:
         print("Cannot execute:")
         print(script)
