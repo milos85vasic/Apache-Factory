@@ -23,7 +23,7 @@ for item in system_configuration.keys():
 
         print("We are about to execute:")
         print(script)
-        run(steps)
+        run(run_as_su(steps))
     else:
         print("Cannot execute:")
         print(script)
@@ -55,7 +55,7 @@ for item in system_configuration.keys():
 
             print("We are about to execute:")
             print(script)
-            run(steps)
+            run(run_as_su(steps))
         else:
             print("Cannot execute:")
             print(script)
