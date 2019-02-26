@@ -18,6 +18,12 @@ commands = [
     python(
         "/root/" + apache_factory + "/" + killer_script,
         "root",
+        "pserve",
+        "--all"
+    ),
+    python(
+        "/root/" + apache_factory + "/" + killer_script,
+        "root",
         "httpd",
         "--all"
     ),
@@ -29,11 +35,16 @@ commands = [
     ),
     "service webmin stop",
     certbot_command,
-    "service webmin start",
-    python(
-        "/root/" + apache_factory + "/" + starter_script
-    )
+    "service webmin start"
 ]
 
-run(commands)
+apache_start_script = "/root/" + apache_factory + "/" + starter_script
+pyramid_start_script = "/root/" + pyramid_factory + "/" + starter_script_py
 
+if os.path.isfile(apache_start_script):
+    commands.extend(python(apache_start_script))
+
+if os.path.isfile(pyramid_start_script):
+    commands.extend(python(pyramid_start_script))
+
+run(commands)
