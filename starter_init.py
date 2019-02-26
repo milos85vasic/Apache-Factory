@@ -1,4 +1,3 @@
-import sys
 from Toolkit.commands import *
 from configuration import *
 
