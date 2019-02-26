@@ -1,6 +1,7 @@
 from Toolkit.commands import *
 from configuration import *
 
+# TODO: Move this script into the Toolkit.
 if os.path.isfile(rc_local):
     abs_pth = os.path.abspath('')
     script = abs_pth + "/" + starter_script
