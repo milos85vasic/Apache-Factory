@@ -53,7 +53,7 @@ except KeyError:
         ),
         run_as_user(
             account,
-            python(main_proxy_script)
+            python("Toolkit/" + main_proxy_script)
         )
     ]
 
