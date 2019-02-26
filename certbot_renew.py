@@ -44,9 +44,9 @@ apache_start_script = "/root/" + apache_factory + "/" + starter_script
 pyramid_start_script = "/root/" + pyramid_factory + "/" + starter_script_py
 
 if os.path.isfile(apache_start_script):
-    commands.extend(python(apache_start_script))
+    commands.append(python(apache_start_script))
 
 if os.path.isfile(pyramid_start_script):
-    commands.extend(python(pyramid_start_script))
+    commands.append(python(pyramid_start_script))
 
 run(commands)
