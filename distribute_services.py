@@ -148,7 +148,6 @@ if account in system_configuration:
 
                     run(steps)
 
-
 if account in system_configuration:
     if key_services in system_configuration[account]:
         if key_services in system_configuration[account][key_services]:
@@ -163,5 +162,11 @@ if account in system_configuration:
                         url
                     )
                 ]
-
+                prepare_script = path + "/" + website_prepare_script
+                if os.path.exists(prepare_script):
+                    steps.append(
+                        python(
+                            prepare_script
+                        )
+                    )
                 run(steps)

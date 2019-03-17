@@ -78,6 +78,7 @@ security = "Security"
 passwd_file = ".htpasswd"
 website_setup_dir = "Setup"
 website_setup_script = "setup_website.py"
+website_prepare_script = "prepare_website.py"
 
 
 def content_dir_matrix_path(home_path):
