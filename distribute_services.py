@@ -42,14 +42,13 @@ if account in system_configuration:
                     repository = service[key_services_repository]
 
                 path = content_dir_path(get_home_directory_path(account)) + "/" + url
-                prepare_script = path + "/" + website_prepare_script
                 steps = [
                     git_clone_to_recursive(repository, content_dir_path(get_home_directory_path(account)) + "/" + url),
                     concatenate(
                         cd(content_dir_path(get_home_directory_path(account)) + "/" + url),
                         git_submodule_checkout_each(),
                         python(
-                            prepare_script,
+                            website_prepare_script,
                             account,
                             url
                         )
