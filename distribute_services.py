@@ -40,11 +40,19 @@ if account in system_configuration:
                 repository = landing_page_repository_default
                 if key_services_repository in service:
                     repository = service[key_services_repository]
+
+                path = content_dir_path(get_home_directory_path(account)) + "/" + url
+                prepare_script = path + "/" + website_prepare_script
                 steps = [
                     git_clone_to_recursive(repository, content_dir_path(get_home_directory_path(account)) + "/" + url),
                     concatenate(
                         cd(content_dir_path(get_home_directory_path(account)) + "/" + url),
                         git_submodule_checkout_each(),
+                    ),
+                    python(
+                        prepare_script,
+                        account,
+                        url
                     ),
                     python(
                         "Toolkit/" + find_service_index_script,
@@ -162,13 +170,4 @@ if account in system_configuration:
                         url
                     )
                 ]
-                prepare_script = path + "/" + website_prepare_script
-                if os.path.exists(prepare_script):
-                    steps.append(
-                        python(
-                            prepare_script,
-                            account,
-                            url
-                        )
-                    )
                 run(steps)
