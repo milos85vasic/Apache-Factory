@@ -43,9 +43,9 @@ if account in system_configuration:
 
                 path = content_dir_path(get_home_directory_path(account)) + "/" + url
                 steps = [
-                    git_clone_to_recursive(repository, content_dir_path(get_home_directory_path(account)) + "/" + url),
+                    git_clone_to_recursive(repository, path),
                     concatenate(
-                        cd(content_dir_path(get_home_directory_path(account)) + "/" + url),
+                        cd(path),
                         git_submodule_checkout_each(),
                         python(
                             website_prepare_script,
