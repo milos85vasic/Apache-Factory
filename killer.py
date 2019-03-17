@@ -7,7 +7,7 @@ who = sys.argv[1]
 what = sys.argv[2]
 extra = None
 
-if sys.argv[3]:
+if len(sys.argv) > 3:
     extra = sys.argv[3]
 
 command = "ps -u " + who + " | grep " + what
