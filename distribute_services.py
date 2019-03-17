@@ -166,7 +166,9 @@ if account in system_configuration:
                 if os.path.exists(prepare_script):
                     steps.append(
                         python(
-                            prepare_script
+                            prepare_script,
+                            account,
+                            url
                         )
                     )
                 run(steps)
