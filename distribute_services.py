@@ -58,7 +58,7 @@ if account in system_configuration:
                         pwd(),
                         ls(),
                         python(
-                            website_prepare_script,
+                            "./" + website_prepare_script,
                             account,
                             url
                         )
