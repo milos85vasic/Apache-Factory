@@ -48,8 +48,7 @@ if account in system_configuration:
                         cd(path),
                         git_submodule_checkout_each()
                     ),
-                    run_as_user(
-                        account,
+                    run_as_su(
                         python(
                             path + website_prepare_script,
                             account,
