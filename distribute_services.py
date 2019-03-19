@@ -48,8 +48,8 @@ if account in system_configuration:
                         cd(path),
                         git_submodule_checkout_each()
                     ),
+                    check_file(path + "/" + website_prepare_script),
                     python(
-                        check_file(path + "/" + website_prepare_script),
                         path + "/" + website_prepare_script,
                         account,
                         url
