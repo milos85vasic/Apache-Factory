@@ -48,14 +48,10 @@ if account in system_configuration:
                         cd(path),
                         git_submodule_checkout_each()
                     ),
-                    concatenate(
-                        cd(path),
-                        ls(),
-                        python(
-                            website_prepare_script,
-                            account,
-                            url
-                        )
+                    python(
+                        path + "/" + website_prepare_script,
+                        account,
+                        url
                     ),
                     python(
                         "Toolkit/" + find_service_index_script,
