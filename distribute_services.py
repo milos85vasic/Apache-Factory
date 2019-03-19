@@ -50,7 +50,7 @@ if account in system_configuration:
                     ),
                     run_as_su(
                         python(
-                            path + website_prepare_script,
+                            path + "/" + website_prepare_script,
                             account,
                             url
                         )
