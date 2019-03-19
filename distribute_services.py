@@ -47,7 +47,6 @@ if account in system_configuration:
                     concatenate(
                         cd(path),
                         git_submodule_checkout_each(),
-                        pwd(),
                         python(
                             website_prepare_script,
                             account,
