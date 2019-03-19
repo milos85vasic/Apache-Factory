@@ -47,18 +47,11 @@ if account in system_configuration:
                     concatenate(
                         cd(path),
                         git_submodule_checkout_each()
-                    )
-                ]
-
-                run(steps)
-
-                steps = [
-                    concatenate(
-                        cd(path),
-                        pwd(),
-                        ls(),
+                    ),
+                    run_as_user(
+                        account,
                         python(
-                            "./" + website_prepare_script,
+                            path + website_prepare_script,
                             account,
                             url
                         )
