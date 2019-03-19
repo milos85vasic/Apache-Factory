@@ -31,10 +31,10 @@ def get_main_proxy(account_to_check):
     return account_to_check
 
 
-try:
-    pwd.getpwnam(account)
+usernames = [x[0] for x in pwd.getpwall()]
+if account in usernames:
     print("Account already exists: " + account)
-except KeyError:
+else:
     steps = [
         run_as_su(
             concatenate(
