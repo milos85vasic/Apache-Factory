@@ -50,6 +50,7 @@ if account in system_configuration:
                     ),
                     concatenate(
                         cd(path),
+                        ls(),
                         python(
                             website_prepare_script,
                             account,
