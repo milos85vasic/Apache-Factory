@@ -47,6 +47,7 @@ if account in system_configuration:
                     concatenate(
                         cd(path),
                         git_submodule_checkout_each(),
+                        pwd(),
                         python(
                             website_prepare_script,
                             account,
@@ -135,7 +136,6 @@ if account in system_configuration:
                             print("Can't access " + destination_file)
                 else:
                     print("No root for: " + url)
-
 
 system_configuration = get_system_configuration()
 if account in system_configuration:
