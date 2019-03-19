@@ -47,11 +47,21 @@ if account in system_configuration:
                     concatenate(
                         cd(path),
                         git_submodule_checkout_each()
-                    ),
-                    python(
-                        path + "/" + website_prepare_script,
-                        account,
-                        url
+                    )
+                ]
+
+                run(steps)
+
+                steps = [
+                    concatenate(
+                        cd(path),
+                        pwd(),
+                        ls(),
+                        python(
+                            website_prepare_script,
+                            account,
+                            url
+                        )
                     ),
                     python(
                         "Toolkit/" + find_service_index_script,
