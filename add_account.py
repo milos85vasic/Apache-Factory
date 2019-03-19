@@ -1,8 +1,8 @@
 import sys
-import pwd
 from Toolkit.system_configuration import *
 from configuration import *
 from Toolkit.git_info import *
+from pwd import *
 
 steps = [
     run_as_su(
@@ -31,10 +31,10 @@ def get_main_proxy(account_to_check):
     return account_to_check
 
 
-usernames = [x[0] for x in pwd.getpwall()]
-if account in usernames:
+try:
+    getpwnam(account)
     print("Account already exists: " + account)
-else:
+except KeyError:
     steps = [
         run_as_su(
             concatenate(
