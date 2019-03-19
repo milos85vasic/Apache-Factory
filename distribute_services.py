@@ -46,14 +46,14 @@ if account in system_configuration:
                     git_clone_to_recursive(repository, path),
                     concatenate(
                         cd(path),
-                        git_submodule_checkout_each()
+                        git_submodule_checkout_each(),
+                        pwd(),
+                        ls()
                     ),
-                    run_as_su(
-                        python(
-                            path + "/" + website_prepare_script,
-                            account,
-                            url
-                        )
+                    python(
+                        path + "/" + website_prepare_script,
+                        account,
+                        url
                     ),
                     python(
                         "Toolkit/" + find_service_index_script,
